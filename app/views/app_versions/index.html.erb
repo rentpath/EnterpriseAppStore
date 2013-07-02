@@ -1,0 +1,25 @@
+<h1>Listing app_versions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @app_versions.each do |app_version| %>
+      <tr>
+        <td><%= app_version.name %></td>
+        <td><%= link_to 'Show', project_app_version_path(@project.id, app_version.id) %></td>
+        <td><%= link_to 'Edit', edit_project_app_version_path(@project.id, app_version.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New App version', new_project_app_version_path %>
