@@ -15,6 +15,7 @@
         <td><%= app_version.name %></td>
         <td><%= link_to 'Show', project_app_version_path(@project.id, app_version.id) %></td>
         <td><%= link_to 'Edit', edit_project_app_version_path(@project.id, app_version.id) %></td>
+        <td><%= link_to 'Destroy', "/projects/#{@project.id}/app_versions/#{app_version.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

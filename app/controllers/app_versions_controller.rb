@@ -22,6 +22,7 @@ class AppVersionsController < ApplicationController
 
   # GET /app_versions/1/edit
   def edit
+    @app_version = @project.app_versions.find(params[:id])
   end
 
   # POST /app_versions
@@ -31,7 +32,9 @@ class AppVersionsController < ApplicationController
 
     respond_to do |format|
       if @app_version.save
-        format.html { redirect_to @app_version, notice: 'App version was successfully created.' }
+#        format.html { redirect_to @app_version, notice: 'App version was successfully created.' }
+        format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/#{@app_version.id}", notice: 'App version was successfully created.' }
+
         format.json { render action: 'show', status: :created, location: @app_version }
       else
         format.html { render action: 'new' }
@@ -45,7 +48,7 @@ class AppVersionsController < ApplicationController
   def update
     respond_to do |format|
       if @app_version.update(app_version_params)
-        format.html { redirect_to @app_version, notice: 'App version was successfully updated.' }
+        format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/#{@app_version.id}", notice: 'App version was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -59,7 +62,7 @@ class AppVersionsController < ApplicationController
   def destroy
     @app_version.destroy
     respond_to do |format|
-      format.html { redirect_to app_versions_url }
+      format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/", notice: 'App version was successfully deleted.' }
       format.json { head :no_content }
     end
   end

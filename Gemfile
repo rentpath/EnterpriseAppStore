@@ -5,9 +5,11 @@ gem 'rails', '4.0.0'
 gem "devise", "3.0.0.rc"
 gem 'thin'
 gem 'protected_attributes'
+gem 'paperclip'
+gem 'aws-sdk'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
