@@ -7,6 +7,7 @@ gem 'thin'
 gem 'protected_attributes'
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'plist'
 
 # Use sqlite3 as the database for Active Record
 gem 'pg'

@@ -12328,3 +12328,2172 @@ Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 15:37:41 -04
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 15:37:41 -0400
+
+
+Started GET "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 15:57:29 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.6ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mAppVersion Load (0.6ms)[0m  [1mSELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1[0m  [["project_id", 1]]
+  Rendered app_versions/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 28ms (Views: 18.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 15:57:29 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 15:57:29 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 15:57:29 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 15:57:29 -0400
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 15:57:29 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 15:57:29 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 15:57:29 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 15:57:29 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 15:57:29 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 15:57:29 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 15:57:29 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 15:57:29 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 15:57:29 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 15:57:29 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddAppIpaToAppVersion (20130708202604)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "app_versions" ADD COLUMN "app_ipa_file_name" character varying(255)[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "app_versions" ADD COLUMN "app_ipa_content_type" character varying(255)
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "app_versions" ADD COLUMN "app_ipa_file_size" integer[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "app_versions" ADD COLUMN "app_ipa_updated_at" timestamp
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20130708202604"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/projects/1/app_versions/" for 127.0.0.1 at 2013-07-08 16:36:55 -0400
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "1"]]
+Completed 500 Internal Server Error in 82ms
+
+NoMethodError (undefined method `has_attached_file' for #<Class:0x007fa9ebba96a8>):
+  app/models/app_version.rb:4:in `<class:AppVersion>'
+  app/models/app_version.rb:1:in `<top (required)>'
+  app/controllers/app_versions_controller.rb:8:in `index'
+
+
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (33.0ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (56.1ms)
+
+
+Started GET "/projects/1/app_versions/" for 127.0.0.1 at 2013-07-08 16:39:17 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "1"]]
+Completed 500 Internal Server Error in 60ms
+
+NoMethodError (undefined method `has_attached_file' for #<Class:0x007fa9ebbb5c00>):
+  app/models/app_version.rb:4:in `<class:AppVersion>'
+  app/models/app_version.rb:1:in `<top (required)>'
+  app/controllers/app_versions_controller.rb:8:in `index'
+
+
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.9ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/projects/" for 127.0.0.1 at 2013-07-08 16:51:45 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 221ms (Views: 135.5ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 16:51:46 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 16:51:46 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 16:51:46 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 16:51:46 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 16:51:46 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 16:51:46 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 16:51:46 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 16:51:46 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 16:51:46 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 16:51:46 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 16:51:46 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 16:51:46 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 16:51:46 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 16:51:46 -0400
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2013-07-08 16:51:49 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (1.3ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered projects/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 18ms (Views: 11.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 16:51:53 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mAppVersion Load (28.9ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1  [["project_id", 1]]
+  Rendered app_versions/index.html.erb within layouts/application (65.0ms)
+Completed 200 OK in 100ms (Views: 44.8ms | ActiveRecord: 33.5ms)
+
+
+Started GET "/projects/1/app_versions/new" for 127.0.0.1 at 2013-07-08 16:51:57 -0400
+Processing by AppVersionsController#new as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.6ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "1"]]
+  Rendered app_versions/_form.html.erb (46.0ms)
+  Rendered app_versions/new.html.erb within layouts/application (51.3ms)
+Completed 200 OK in 92ms (Views: 83.5ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 16:52:32 -0400
+Processing by AppVersionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "app_version"=>{"name"=>"real version 1", "version"=>"5.3.0", "notes"=>"sdgffgsddgfsdfgf", "app_ipa"=>#<ActionDispatch::Http::UploadedFile:0x007fa9d403e988 @tempfile=#<File:/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/RackMultipart20130708-23441-d1x0ww>, @original_filename="Apartments.ipa", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"app_version[app_ipa]\"; filename=\"Apartments.ipa\"\r\nContent-Type: application/octet-stream\r\n">, "url_plist"=>"itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"}, "commit"=>"Create App version", "project_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.9ms)[0m  INSERT INTO "app_versions" ("app_ipa_content_type", "app_ipa_file_name", "app_ipa_file_size", "app_ipa_updated_at", "created_at", "name", "notes", "project_id", "updated_at", "url_plist", "version") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["app_ipa_content_type", "application/octet-stream"], ["app_ipa_file_name", "Apartments.ipa"], ["app_ipa_file_size", 11702989], ["app_ipa_updated_at", Mon, 08 Jul 2013 20:52:32 UTC +00:00], ["created_at", Mon, 08 Jul 2013 20:52:32 UTC +00:00], ["name", "real version 1"], ["notes", "sdgffgsddgfsdfgf"], ["project_id", 1], ["updated_at", Mon, 08 Jul 2013 20:52:32 UTC +00:00], ["url_plist", "itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"], ["version", "5.3.0"]]
+[paperclip] Saving attachments.
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 32ms
+
+Errno::EACCES (Permission denied - /app_versions):
+  app/controllers/app_versions_controller.rb:31:in `create'
+
+
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.9ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.9ms)
+
+
+Started POST "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 16:58:59 -0400
+Processing by AppVersionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "app_version"=>{"name"=>"real version 1", "version"=>"5.3.0", "notes"=>"sdgffgsddgfsdfgf", "app_ipa"=>#<ActionDispatch::Http::UploadedFile:0x007fa9d20513f0 @tempfile=#<File:/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/RackMultipart20130708-23441-jfbxil>, @original_filename="Apartments.ipa", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"app_version[app_ipa]\"; filename=\"Apartments.ipa\"\r\nContent-Type: application/octet-stream\r\n">, "url_plist"=>"itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"}, "commit"=>"Create App version", "project_id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "app_versions" ("app_ipa_content_type", "app_ipa_file_name", "app_ipa_file_size", "app_ipa_updated_at", "created_at", "name", "notes", "project_id", "updated_at", "url_plist", "version") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["app_ipa_content_type", "application/octet-stream"], ["app_ipa_file_name", "Apartments.ipa"], ["app_ipa_file_size", 11702989], ["app_ipa_updated_at", Mon, 08 Jul 2013 20:58:59 UTC +00:00], ["created_at", Mon, 08 Jul 2013 20:58:59 UTC +00:00], ["name", "real version 1"], ["notes", "sdgffgsddgfsdfgf"], ["project_id", 1], ["updated_at", Mon, 08 Jul 2013 20:58:59 UTC +00:00], ["url_plist", "itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"], ["version", "5.3.0"]]
+[paperclip] Saving attachments.
+  [1m[35m (0.3ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 28ms
+
+Errno::EACCES (Permission denied - /app_versions):
+  app/controllers/app_versions_controller.rb:31:in `create'
+
+
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.1ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.7ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2013-07-08 16:59:08 -0400
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT "projects".* FROM "projects"
+  Rendered projects/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 18ms (Views: 13.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 16:59:08 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 16:59:08 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 16:59:08 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 16:59:08 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 16:59:08 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 16:59:08 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 16:59:08 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 16:59:08 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 16:59:08 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 16:59:08 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 16:59:08 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 16:59:08 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 16:59:08 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 16:59:08 -0400
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2013-07-08 16:59:12 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "1"]]
+  Rendered projects/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 16ms (Views: 10.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 16:59:14 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.3ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mAppVersion Load (0.6ms)[0m  [1mSELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1[0m  [["project_id", 1]]
+  Rendered app_versions/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 21ms (Views: 13.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/projects/1/app_versions/new" for 127.0.0.1 at 2013-07-08 16:59:17 -0400
+Processing by AppVersionsController#new as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered app_versions/_form.html.erb (4.8ms)
+  Rendered app_versions/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 84ms (Views: 76.8ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 16:59:43 -0400
+Processing by AppVersionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "app_version"=>{"name"=>"Test", "version"=>"5.3.0", "notes"=>"wwwww", "app_ipa"=>#<ActionDispatch::Http::UploadedFile:0x007fa9d22e4978 @tempfile=#<File:/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/RackMultipart20130708-23441-11gkn9z>, @original_filename="Apartments.ipa", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"app_version[app_ipa]\"; filename=\"Apartments.ipa\"\r\nContent-Type: application/octet-stream\r\n">, "url_plist"=>"itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"}, "commit"=>"Create App version", "project_id"=>"1"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "app_versions" ("app_ipa_content_type", "app_ipa_file_name", "app_ipa_file_size", "app_ipa_updated_at", "created_at", "name", "notes", "project_id", "updated_at", "url_plist", "version") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["app_ipa_content_type", "application/octet-stream"], ["app_ipa_file_name", "Apartments.ipa"], ["app_ipa_file_size", 11702989], ["app_ipa_updated_at", Mon, 08 Jul 2013 20:59:43 UTC +00:00], ["created_at", Mon, 08 Jul 2013 20:59:43 UTC +00:00], ["name", "Test"], ["notes", "wwwww"], ["project_id", 1], ["updated_at", Mon, 08 Jul 2013 20:59:43 UTC +00:00], ["url_plist", "itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"], ["version", "5.3.0"]]
+[paperclip] Saving attachments.
+  [1m[35m (0.3ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 45ms
+
+Errno::EACCES (Permission denied - /app_versions):
+  app/controllers/app_versions_controller.rb:31:in `create'
+
+
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.3ms)
+
+
+Started GET "/projects/1/app_versions/new" for 127.0.0.1 at 2013-07-08 17:01:51 -0400
+Processing by AppVersionsController#new as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.6ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "1"]]
+  Rendered app_versions/_form.html.erb (7.0ms)
+  Rendered app_versions/new.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 32ms (Views: 21.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 17:01:51 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 17:01:51 -0400
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 17:01:51 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 17:01:51 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 17:01:51 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 17:01:51 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 17:01:51 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 17:01:51 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 17:01:51 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 17:01:51 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 17:01:51 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 17:01:51 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 17:01:51 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 17:01:51 -0400
+
+
+Started POST "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 17:02:18 -0400
+Processing by AppVersionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "app_version"=>{"name"=>"mijke", "version"=>"asdfsadf", "notes"=>"asdfasfdsaf", "app_ipa"=>#<ActionDispatch::Http::UploadedFile:0x007fa9d4119150 @tempfile=#<File:/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/RackMultipart20130708-23441-7uw0td>, @original_filename="Apartments.ipa", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"app_version[app_ipa]\"; filename=\"Apartments.ipa\"\r\nContent-Type: application/octet-stream\r\n">, "url_plist"=>"itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"}, "commit"=>"Create App version", "project_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "app_versions" ("app_ipa_content_type", "app_ipa_file_name", "app_ipa_file_size", "app_ipa_updated_at", "created_at", "name", "notes", "project_id", "updated_at", "url_plist", "version") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["app_ipa_content_type", "application/octet-stream"], ["app_ipa_file_name", "Apartments.ipa"], ["app_ipa_file_size", 11702989], ["app_ipa_updated_at", Mon, 08 Jul 2013 21:02:18 UTC +00:00], ["created_at", Mon, 08 Jul 2013 21:02:18 UTC +00:00], ["name", "mijke"], ["notes", "asdfasfdsaf"], ["project_id", 1], ["updated_at", Mon, 08 Jul 2013 21:02:18 UTC +00:00], ["url_plist", "itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"], ["version", "asdfsadf"]]
+[paperclip] Saving attachments.
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 27ms
+
+Errno::EACCES (Permission denied - /app_versions):
+  app/controllers/app_versions_controller.rb:31:in `create'
+
+
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.9ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.6ms)
+
+
+Started GET "/projects/1/app_versions/new" for 127.0.0.1 at 2013-07-08 17:05:21 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AppVersionsController#new as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (1.5ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered app_versions/_form.html.erb (48.2ms)
+  Rendered app_versions/new.html.erb within layouts/application (55.2ms)
+Completed 200 OK in 347ms (Views: 191.0ms | ActiveRecord: 11.2ms)
+
+
+Started POST "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 17:05:36 -0400
+Processing by AppVersionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "app_version"=>{"name"=>"foo", "version"=>"5.3.0", "notes"=>"bar", "app_ipa"=>#<ActionDispatch::Http::UploadedFile:0x007ffe45d91ca0 @tempfile=#<File:/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/RackMultipart20130708-24497-7zu3mm>, @original_filename="Apartments.ipa", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"app_version[app_ipa]\"; filename=\"Apartments.ipa\"\r\nContent-Type: application/octet-stream\r\n">, "url_plist"=>"itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"}, "commit"=>"Create App version", "project_id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (5.5ms)[0m  [1mINSERT INTO "app_versions" ("app_ipa_content_type", "app_ipa_file_name", "app_ipa_file_size", "app_ipa_updated_at", "created_at", "name", "notes", "project_id", "updated_at", "url_plist", "version") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["app_ipa_content_type", "application/octet-stream"], ["app_ipa_file_name", "Apartments.ipa"], ["app_ipa_file_size", 11702989], ["app_ipa_updated_at", Mon, 08 Jul 2013 21:05:36 UTC +00:00], ["created_at", Mon, 08 Jul 2013 21:05:36 UTC +00:00], ["name", "foo"], ["notes", "bar"], ["project_id", 1], ["updated_at", Mon, 08 Jul 2013 21:05:36 UTC +00:00], ["url_plist", "itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"], ["version", "5.3.0"]]
+[paperclip] Saving attachments.
+[paperclip] saving /app_versions/app_ipas/000/000/009/original/2013-07-08 21:05:36 UTC/Apartments.ipa
+[AWS S3 200 23.549866 0 retries] put_object(:acl=>:public_read,:bucket_name=>"rentpath_app_store_bucket",:content_length=>11702989,:content_type=>"application/octet-stream",:data=>Paperclip::UploadedFileAdapter: Apartments.ipa,:key=>"app_versions/app_ipas/000/000/009/original/2013-07-08 21:05:36 UTC/Apartments.ipa")  
+
+  [1m[35m (1.9ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+[paperclip] Saving attachments.
+  [1m[35m (0.2ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/projects/1/app_versions/9
+Completed 302 Found in 23869ms (ActiveRecord: 9.4ms)
+
+
+Started GET "/projects/1/app_versions/9" for 127.0.0.1 at 2013-07-08 17:06:00 -0400
+Processing by AppVersionsController#show as HTML
+  Parameters: {"project_id"=>"1", "id"=>"9"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mAppVersion Load (0.9ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."id" = $1 LIMIT 1  [["id", "9"]]
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered app_versions/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 20ms (Views: 10.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 17:06:00 -0400
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 17:06:00 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 17:06:00 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 17:06:00 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 17:06:00 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 17:06:00 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 17:06:00 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 17:06:00 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 17:06:00 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 17:06:00 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 17:06:00 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 17:06:00 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 17:06:00 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 17:06:00 -0400
+
+
+Started GET "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 17:06:15 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mAppVersion Load (1.0ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1  [["project_id", 1]]
+  Rendered app_versions/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 27ms (Views: 19.0ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/projects/1/app_versions/9" for 127.0.0.1 at 2013-07-08 17:06:18 -0400
+Processing by AppVersionsController#show as HTML
+  Parameters: {"project_id"=>"1", "id"=>"9"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mAppVersion Load (0.6ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."id" = $1 LIMIT 1  [["id", "9"]]
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered app_versions/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 21ms (Views: 11.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/projects/1/app_versions/9" for 127.0.0.1 at 2013-07-08 17:08:26 -0400
+Processing by AppVersionsController#show as HTML
+  Parameters: {"project_id"=>"1", "id"=>"9"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mAppVersion Load (0.8ms)[0m  [1mSELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."id" = $1 LIMIT 1[0m  [["id", "9"]]
+  [1m[35mProject Load (0.6ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "1"]]
+  Rendered app_versions/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 25ms (Views: 14.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 17:08:26 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 17:08:26 -0400
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 17:08:26 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 17:08:26 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 17:08:26 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 17:08:26 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 17:08:26 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 17:08:26 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 17:08:26 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 17:08:26 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 17:08:26 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 17:08:26 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 17:08:26 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 17:08:26 -0400
+
+
+Started GET "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 17:08:59 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"1"}
+Completed 401 Unauthorized in 9ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-07-08 17:08:59 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (2.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 38ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 17:08:59 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 17:08:59 -0400
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 17:08:59 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 17:08:59 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 17:08:59 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 17:08:59 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 17:08:59 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 17:08:59 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 17:08:59 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 17:08:59 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 17:08:59 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 17:08:59 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 17:08:59 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 17:08:59 -0400
+
+
+Started GET "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 17:35:20 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mAppVersion Load (0.6ms)[0m  [1mSELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1[0m  [["project_id", 1]]
+  Rendered app_versions/index.html.erb within layouts/application (85.7ms)
+Completed 200 OK in 208ms (Views: 95.6ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/projects/1/app_versions/new" for 127.0.0.1 at 2013-07-08 17:35:22 -0400
+Processing by AppVersionsController#new as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered app_versions/_form.html.erb (6.2ms)
+  Rendered app_versions/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 26ms (Views: 19.3ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 17:35:53 -0400
+Processing by AppVersionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "app_version"=>{"name"=>"asdf", "version"=>"34", "notes"=>"asdf", "app_ipa"=>#<ActionDispatch::Http::UploadedFile:0x007ffe45f7e9c8 @tempfile=#<File:/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/RackMultipart20130708-24497-r82402>, @original_filename="Apartments.ipa", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"app_version[app_ipa]\"; filename=\"Apartments.ipa\"\r\nContent-Type: application/octet-stream\r\n">, "url_plist"=>"itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"}, "commit"=>"Create App version", "project_id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "app_versions" ("app_ipa_content_type", "app_ipa_file_name", "app_ipa_file_size", "app_ipa_updated_at", "created_at", "name", "notes", "project_id", "updated_at", "url_plist", "version") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["app_ipa_content_type", "application/octet-stream"], ["app_ipa_file_name", "Apartments.ipa"], ["app_ipa_file_size", 11702989], ["app_ipa_updated_at", Mon, 08 Jul 2013 21:35:53 UTC +00:00], ["created_at", Mon, 08 Jul 2013 21:35:53 UTC +00:00], ["name", "asdf"], ["notes", "asdf"], ["project_id", 1], ["updated_at", Mon, 08 Jul 2013 21:35:53 UTC +00:00], ["url_plist", "itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"], ["version", "34"]]
+[paperclip] Saving attachments.
+[paperclip] saving /app_versions/app_ipas/000/000/010/original/2013-07-08 21:35:53 UTC/Apartments.ipa
+[AWS S3 200 23.761085 0 retries] put_object(:acl=>:public_read,:bucket_name=>"rentpath_app_store_bucket",:content_length=>11702989,:content_type=>"application/octet-stream",:data=>Paperclip::UploadedFileAdapter: Apartments.ipa,:key=>"app_versions/app_ipas/000/000/010/original/2013-07-08 21:35:53 UTC/Apartments.ipa")  
+
+  [1m[35m (1.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+[paperclip] Saving attachments.
+  [1m[35m (0.1ms)[0m  COMMIT
+Completed 500 Internal Server Error in 37732ms
+
+NameError (uninitialized constant AppVersionsController::Plist):
+  app/controllers/app_versions_controller.rb:38:in `block in create'
+  app/controllers/app_versions_controller.rb:33:in `create'
+
+
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.9ms)
+
+
+Started POST "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 17:37:49 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AppVersionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "app_version"=>{"name"=>"asdf", "version"=>"34", "notes"=>"asdf", "app_ipa"=>#<ActionDispatch::Http::UploadedFile:0x007fb8628d0d70 @tempfile=#<File:/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/RackMultipart20130708-27010-g3ne8t>, @original_filename="Apartments.ipa", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"app_version[app_ipa]\"; filename=\"Apartments.ipa\"\r\nContent-Type: application/octet-stream\r\n">, "url_plist"=>"itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"}, "commit"=>"Create App version", "project_id"=>"1"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (1.3ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (7.6ms)[0m  [1mINSERT INTO "app_versions" ("app_ipa_content_type", "app_ipa_file_name", "app_ipa_file_size", "app_ipa_updated_at", "created_at", "name", "notes", "project_id", "updated_at", "url_plist", "version") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["app_ipa_content_type", "application/octet-stream"], ["app_ipa_file_name", "Apartments.ipa"], ["app_ipa_file_size", 11702989], ["app_ipa_updated_at", Mon, 08 Jul 2013 21:37:50 UTC +00:00], ["created_at", Mon, 08 Jul 2013 21:37:50 UTC +00:00], ["name", "asdf"], ["notes", "asdf"], ["project_id", 1], ["updated_at", Mon, 08 Jul 2013 21:37:50 UTC +00:00], ["url_plist", "itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"], ["version", "34"]]
+[paperclip] Saving attachments.
+[paperclip] saving /app_versions/app_ipas/000/000/011/original/2013-07-08 21:37:50 UTC/Apartments.ipa
+[AWS S3 200 23.710178 0 retries] put_object(:acl=>:public_read,:bucket_name=>"rentpath_app_store_bucket",:content_length=>11702989,:content_type=>"application/octet-stream",:data=>Paperclip::UploadedFileAdapter: Apartments.ipa,:key=>"app_versions/app_ipas/000/000/011/original/2013-07-08 21:37:50 UTC/Apartments.ipa")  
+
+  [1m[35m (2.1ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+[paperclip] Saving attachments.
+  [1m[35m (0.2ms)[0m  COMMIT
+Completed 500 Internal Server Error in 70993ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/app_versions_controller.rb:39:in `block in create'
+  app/controllers/app_versions_controller.rb:33:in `create'
+
+
+
+
+Started POST "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 17:39:09 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AppVersionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "app_version"=>{"name"=>"asdf", "version"=>"34", "notes"=>"asdf", "app_ipa"=>#<ActionDispatch::Http::UploadedFile:0x007fcc7108fd50 @tempfile=#<File:/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/RackMultipart20130708-27147-1bplscz>, @original_filename="Apartments.ipa", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"app_version[app_ipa]\"; filename=\"Apartments.ipa\"\r\nContent-Type: application/octet-stream\r\n">, "url_plist"=>"itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"}, "commit"=>"Create App version", "project_id"=>"1"}
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (1.4ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (7.5ms)[0m  [1mINSERT INTO "app_versions" ("app_ipa_content_type", "app_ipa_file_name", "app_ipa_file_size", "app_ipa_updated_at", "created_at", "name", "notes", "project_id", "updated_at", "url_plist", "version") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["app_ipa_content_type", "application/octet-stream"], ["app_ipa_file_name", "Apartments.ipa"], ["app_ipa_file_size", 11702989], ["app_ipa_updated_at", Mon, 08 Jul 2013 21:39:10 UTC +00:00], ["created_at", Mon, 08 Jul 2013 21:39:10 UTC +00:00], ["name", "asdf"], ["notes", "asdf"], ["project_id", 1], ["updated_at", Mon, 08 Jul 2013 21:39:10 UTC +00:00], ["url_plist", "itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"], ["version", "34"]]
+[paperclip] Saving attachments.
+[paperclip] saving /app_versions/app_ipas/000/000/012/original/2013-07-08 21:39:10 UTC/Apartments.ipa
+[AWS S3 200 24.246158 0 retries] put_object(:acl=>:public_read,:bucket_name=>"rentpath_app_store_bucket",:content_length=>11702989,:content_type=>"application/octet-stream",:data=>Paperclip::UploadedFileAdapter: Apartments.ipa,:key=>"app_versions/app_ipas/000/000/012/original/2013-07-08 21:39:10 UTC/Apartments.ipa")  
+
+  [1m[35m (1.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+[paperclip] Saving attachments.
+  [1m[35m (0.1ms)[0m  COMMIT
+Completed 500 Internal Server Error in 187360ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/app_versions_controller.rb:39:in `block in create'
+  app/controllers/app_versions_controller.rb:33:in `create'
+
+
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.6ms)
+
+
+Started GET "/projects/1/app_versions/new" for 127.0.0.1 at 2013-07-08 17:42:24 -0400
+Processing by AppVersionsController#new as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "1"]]
+  Rendered app_versions/_form.html.erb (33.5ms)
+  Rendered app_versions/new.html.erb within layouts/application (40.7ms)
+Completed 200 OK in 334ms (Views: 162.4ms | ActiveRecord: 8.5ms)
+
+
+Started POST "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 17:42:39 -0400
+Processing by AppVersionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "app_version"=>{"name"=>"asdf", "version"=>"344", "notes"=>"wer", "app_ipa"=>#<ActionDispatch::Http::UploadedFile:0x007fcc729d5210 @tempfile=#<File:/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/RackMultipart20130708-27147-4c4lve>, @original_filename="Apartments.ipa", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"app_version[app_ipa]\"; filename=\"Apartments.ipa\"\r\nContent-Type: application/octet-stream\r\n">, "url_plist"=>"itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"}, "commit"=>"Create App version", "project_id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.7ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "app_versions" ("app_ipa_content_type", "app_ipa_file_name", "app_ipa_file_size", "app_ipa_updated_at", "created_at", "name", "notes", "project_id", "updated_at", "url_plist", "version") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["app_ipa_content_type", "application/octet-stream"], ["app_ipa_file_name", "Apartments.ipa"], ["app_ipa_file_size", 11702989], ["app_ipa_updated_at", Mon, 08 Jul 2013 21:42:39 UTC +00:00], ["created_at", Mon, 08 Jul 2013 21:42:39 UTC +00:00], ["name", "asdf"], ["notes", "wer"], ["project_id", 1], ["updated_at", Mon, 08 Jul 2013 21:42:39 UTC +00:00], ["url_plist", "itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"], ["version", "344"]]
+[paperclip] Saving attachments.
+[paperclip] saving /app_versions/app_ipas/000/000/013/original/2013-07-08 21:42:39 UTC/Apartments.ipa
+[AWS S3 200 23.27263 0 retries] put_object(:acl=>:public_read,:bucket_name=>"rentpath_app_store_bucket",:content_length=>11702989,:content_type=>"application/octet-stream",:data=>Paperclip::UploadedFileAdapter: Apartments.ipa,:key=>"app_versions/app_ipas/000/000/013/original/2013-07-08 21:42:39 UTC/Apartments.ipa")  
+
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+[paperclip] Saving attachments.
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 47236ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/app_versions_controller.rb:39:in `block in create'
+  app/controllers/app_versions_controller.rb:33:in `create'
+
+
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.7ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.4ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.9ms)
+
+
+Started GET "/projects/1/app_versions/new" for 127.0.0.1 at 2013-07-08 17:43:33 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AppVersionsController#new as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (1.5ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered app_versions/_form.html.erb (50.8ms)
+  Rendered app_versions/new.html.erb within layouts/application (56.7ms)
+Completed 200 OK in 357ms (Views: 141.9ms | ActiveRecord: 12.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 17:43:34 -0400
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 17:43:34 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 17:43:34 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 17:43:34 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 17:43:34 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 17:43:34 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 17:43:34 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 17:43:34 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 17:43:34 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 17:43:34 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 17:43:34 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 17:43:34 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 17:43:34 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 17:43:34 -0400
+
+
+Started POST "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 17:43:41 -0400
+Processing by AppVersionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "app_version"=>{"name"=>"asdfasd", "version"=>"asdf", "notes"=>"asdfasfdsaf", "app_ipa"=>#<ActionDispatch::Http::UploadedFile:0x007fb11cc9b830 @tempfile=#<File:/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/RackMultipart20130708-27421-1oapjd5>, @original_filename="Apartments.ipa", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"app_version[app_ipa]\"; filename=\"Apartments.ipa\"\r\nContent-Type: application/octet-stream\r\n">, "url_plist"=>"itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"}, "commit"=>"Create App version", "project_id"=>"1"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.9ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (7.8ms)[0m  [1mINSERT INTO "app_versions" ("app_ipa_content_type", "app_ipa_file_name", "app_ipa_file_size", "app_ipa_updated_at", "created_at", "name", "notes", "project_id", "updated_at", "url_plist", "version") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["app_ipa_content_type", "application/octet-stream"], ["app_ipa_file_name", "Apartments.ipa"], ["app_ipa_file_size", 11702989], ["app_ipa_updated_at", Mon, 08 Jul 2013 21:43:42 UTC +00:00], ["created_at", Mon, 08 Jul 2013 21:43:42 UTC +00:00], ["name", "asdfasd"], ["notes", "asdfasfdsaf"], ["project_id", 1], ["updated_at", Mon, 08 Jul 2013 21:43:42 UTC +00:00], ["url_plist", "itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"], ["version", "asdf"]]
+[paperclip] Saving attachments.
+[paperclip] saving /app_versions/app_ipas/000/000/014/original/2013-07-08 21:43:42 UTC/Apartments.ipa
+[AWS S3 200 23.029501 0 retries] put_object(:acl=>:public_read,:bucket_name=>"rentpath_app_store_bucket",:content_length=>11702989,:content_type=>"application/octet-stream",:data=>Paperclip::UploadedFileAdapter: Apartments.ipa,:key=>"app_versions/app_ipas/000/000/014/original/2013-07-08 21:43:42 UTC/Apartments.ipa")  
+
+  [1m[35m (2.0ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+[paperclip] Saving attachments.
+  [1m[35m (0.1ms)[0m  COMMIT
+Completed 500 Internal Server Error in 30233ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/app_versions_controller.rb:39:in `block in create'
+  app/controllers/app_versions_controller.rb:33:in `create'
+
+
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.0ms)
+
+
+Started GET "/projects/1/app_versions/new" for 127.0.0.1 at 2013-07-08 17:45:33 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AppVersionsController#new as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (1.5ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered app_versions/_form.html.erb (59.5ms)
+  Rendered app_versions/new.html.erb within layouts/application (68.6ms)
+Completed 200 OK in 375ms (Views: 170.3ms | ActiveRecord: 11.9ms)
+
+
+Started POST "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 17:45:42 -0400
+Processing by AppVersionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "app_version"=>{"name"=>"asdfasdf", "version"=>"dfsdfewrf", "notes"=>"sdf", "app_ipa"=>#<ActionDispatch::Http::UploadedFile:0x007fb2909a4a58 @tempfile=#<File:/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/RackMultipart20130708-27572-18y5yqo>, @original_filename="Apartments.ipa", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"app_version[app_ipa]\"; filename=\"Apartments.ipa\"\r\nContent-Type: application/octet-stream\r\n">, "url_plist"=>"itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"}, "commit"=>"Create App version", "project_id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (8.6ms)[0m  [1mINSERT INTO "app_versions" ("app_ipa_content_type", "app_ipa_file_name", "app_ipa_file_size", "app_ipa_updated_at", "created_at", "name", "notes", "project_id", "updated_at", "url_plist", "version") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["app_ipa_content_type", "application/octet-stream"], ["app_ipa_file_name", "Apartments.ipa"], ["app_ipa_file_size", 11702989], ["app_ipa_updated_at", Mon, 08 Jul 2013 21:45:42 UTC +00:00], ["created_at", Mon, 08 Jul 2013 21:45:42 UTC +00:00], ["name", "asdfasdf"], ["notes", "sdf"], ["project_id", 1], ["updated_at", Mon, 08 Jul 2013 21:45:42 UTC +00:00], ["url_plist", "itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"], ["version", "dfsdfewrf"]]
+[paperclip] Saving attachments.
+[paperclip] saving /app_versions/app_ipas/000/000/015/original/2013-07-08 21:45:42 UTC/Apartments.ipa
+[AWS S3 200 23.081071 0 retries] put_object(:acl=>:public_read,:bucket_name=>"rentpath_app_store_bucket",:content_length=>11702989,:content_type=>"application/octet-stream",:data=>Paperclip::UploadedFileAdapter: Apartments.ipa,:key=>"app_versions/app_ipas/000/000/015/original/2013-07-08 21:45:42 UTC/Apartments.ipa")  
+
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+[paperclip] Saving attachments.
+  [1m[35m (0.2ms)[0m  COMMIT
+Completed 500 Internal Server Error in 71231ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/app_versions_controller.rb:39:in `block in create'
+  app/controllers/app_versions_controller.rb:33:in `create'
+
+
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.2ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.4ms)
+
+
+Started GET "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 17:46:53 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mAppVersion Load (1.1ms)[0m  [1mSELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1[0m  [["project_id", 1]]
+  Rendered app_versions/index.html.erb within layouts/application (60.4ms)
+Completed 200 OK in 181ms (Views: 96.2ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 17:46:53 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mAppVersion Load (0.7ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1  [["project_id", 1]]
+  Rendered app_versions/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 27ms (Views: 20.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 17:46:54 -0400
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 17:46:54 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 17:46:54 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 17:46:54 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 17:46:54 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 17:46:54 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 17:46:54 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 17:46:54 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 17:46:54 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 17:46:54 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 17:46:54 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 17:46:54 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 17:46:54 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 17:46:54 -0400
+
+
+Started GET "/projects/1/app_versions/new" for 127.0.0.1 at 2013-07-08 17:46:57 -0400
+Processing by AppVersionsController#new as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "1"]]
+  Rendered app_versions/_form.html.erb (7.0ms)
+  Rendered app_versions/new.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 30ms (Views: 21.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 17:47:07 -0400
+Processing by AppVersionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "app_version"=>{"name"=>"ererg", "version"=>"4343", "notes"=>"serg", "app_ipa"=>#<ActionDispatch::Http::UploadedFile:0x007fb2909a4f80 @tempfile=#<File:/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/RackMultipart20130708-27572-1xwbog>, @original_filename="Apartments.ipa", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"app_version[app_ipa]\"; filename=\"Apartments.ipa\"\r\nContent-Type: application/octet-stream\r\n">, "url_plist"=>"itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"}, "commit"=>"Create App version", "project_id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "app_versions" ("app_ipa_content_type", "app_ipa_file_name", "app_ipa_file_size", "app_ipa_updated_at", "created_at", "name", "notes", "project_id", "updated_at", "url_plist", "version") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"  [["app_ipa_content_type", "application/octet-stream"], ["app_ipa_file_name", "Apartments.ipa"], ["app_ipa_file_size", 11702989], ["app_ipa_updated_at", Mon, 08 Jul 2013 21:47:07 UTC +00:00], ["created_at", Mon, 08 Jul 2013 21:47:07 UTC +00:00], ["name", "ererg"], ["notes", "serg"], ["project_id", 1], ["updated_at", Mon, 08 Jul 2013 21:47:07 UTC +00:00], ["url_plist", "itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"], ["version", "4343"]]
+[paperclip] Saving attachments.
+[paperclip] saving /app_versions/app_ipas/000/000/016/original/2013-07-08 21:47:07 UTC/Apartments.ipa
+[AWS S3 200 23.081848 0 retries] put_object(:acl=>:public_read,:bucket_name=>"rentpath_app_store_bucket",:content_length=>11702989,:content_type=>"application/octet-stream",:data=>Paperclip::UploadedFileAdapter: Apartments.ipa,:key=>"app_versions/app_ipas/000/000/016/original/2013-07-08 21:47:07 UTC/Apartments.ipa")  
+
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+[paperclip] Saving attachments.
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 28516ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/app_versions_controller.rb:39:in `block in create'
+  app/controllers/app_versions_controller.rb:33:in `create'
+
+
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.9ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.8ms)
+
+
+Started GET "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 17:47:42 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mAppVersion Load (0.7ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1  [["project_id", 1]]
+  Rendered app_versions/index.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 34ms (Views: 27.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 17:47:42 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 17:47:42 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 17:47:42 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 17:47:42 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 17:47:42 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 17:47:42 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:42 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:42 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:42 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:42 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:42 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:42 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:42 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:42 -0400
+
+
+Started DELETE "/projects/1/app_versions/16" for 127.0.0.1 at 2013-07-08 17:47:45 -0400
+Processing by AppVersionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "project_id"=>"1", "id"=>"16"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mAppVersion Load (1.4ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."id" = $1 LIMIT 1  [["id", "16"]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+[paperclip] Scheduling attachments for deletion.
+[AWS S3 200 0.040445 0 retries] head_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/app_ipas/000/000/016/original/2013-07-08 21:47:07 UTC/Apartments.ipa")  
+
+  [1m[35mSQL (0.9ms)[0m  DELETE FROM "app_versions" WHERE "app_versions"."id" = $1  [["id", 16]]
+[paperclip] Deleting attachments.
+[paperclip] deleting /app_versions/app_ipas/000/000/016/original/2013-07-08 21:47:07 UTC/Apartments.ipa
+[AWS S3 204 0.055979 0 retries] delete_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/app_ipas/000/000/016/original/2013-07-08 21:47:07 UTC/Apartments.ipa")  
+
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/projects/1/app_versions/
+Completed 302 Found in 116ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/projects/1/app_versions/" for 127.0.0.1 at 2013-07-08 17:47:45 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mAppVersion Load (0.8ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1  [["project_id", 1]]
+  Rendered app_versions/index.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 38ms (Views: 28.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 17:47:45 -0400
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 17:47:45 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 17:47:45 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 17:47:45 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 17:47:45 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 17:47:45 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:45 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:45 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:45 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:45 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:45 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:45 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:45 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:45 -0400
+
+
+Started DELETE "/projects/1/app_versions/15" for 127.0.0.1 at 2013-07-08 17:47:58 -0400
+Processing by AppVersionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "project_id"=>"1", "id"=>"15"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mAppVersion Load (0.7ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."id" = $1 LIMIT 1  [["id", "15"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+[paperclip] Scheduling attachments for deletion.
+[AWS S3 200 0.049021 0 retries] head_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/app_ipas/000/000/015/original/2013-07-08 21:45:42 UTC/Apartments.ipa")  
+
+  [1m[35mSQL (0.7ms)[0m  DELETE FROM "app_versions" WHERE "app_versions"."id" = $1  [["id", 15]]
+[paperclip] Deleting attachments.
+[paperclip] deleting /app_versions/app_ipas/000/000/015/original/2013-07-08 21:45:42 UTC/Apartments.ipa
+[AWS S3 204 0.048014 0 retries] delete_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/app_ipas/000/000/015/original/2013-07-08 21:45:42 UTC/Apartments.ipa")  
+
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/projects/1/app_versions/
+Completed 302 Found in 116ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/projects/1/app_versions/" for 127.0.0.1 at 2013-07-08 17:47:58 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mAppVersion Load (0.6ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1  [["project_id", 1]]
+  Rendered app_versions/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 26ms (Views: 20.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 17:47:59 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 17:47:59 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 17:47:59 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 17:47:59 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 17:47:59 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 17:47:59 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:59 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:59 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:59 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:59 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:59 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:59 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:59 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 17:47:59 -0400
+
+
+Started DELETE "/projects/1/app_versions/14" for 127.0.0.1 at 2013-07-08 17:48:01 -0400
+Processing by AppVersionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "project_id"=>"1", "id"=>"14"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mAppVersion Load (0.5ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."id" = $1 LIMIT 1  [["id", "14"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+[paperclip] Scheduling attachments for deletion.
+[AWS S3 200 0.048394 0 retries] head_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/app_ipas/000/000/014/original/2013-07-08 21:43:42 UTC/Apartments.ipa")  
+
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "app_versions" WHERE "app_versions"."id" = $1  [["id", 14]]
+[paperclip] Deleting attachments.
+[paperclip] deleting /app_versions/app_ipas/000/000/014/original/2013-07-08 21:43:42 UTC/Apartments.ipa
+[AWS S3 204 0.088605 0 retries] delete_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/app_ipas/000/000/014/original/2013-07-08 21:43:42 UTC/Apartments.ipa")  
+
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/projects/1/app_versions/
+Completed 302 Found in 152ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/projects/1/app_versions/" for 127.0.0.1 at 2013-07-08 17:48:01 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mAppVersion Load (0.7ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1  [["project_id", 1]]
+  Rendered app_versions/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 28ms (Views: 20.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:02 -0400
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:02 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:02 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:02 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:02 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:02 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:02 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:02 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:02 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:02 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:02 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:02 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:02 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:02 -0400
+
+
+Started DELETE "/projects/1/app_versions/13" for 127.0.0.1 at 2013-07-08 17:48:17 -0400
+Processing by AppVersionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "project_id"=>"1", "id"=>"13"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mAppVersion Load (0.7ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."id" = $1 LIMIT 1  [["id", "13"]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+[paperclip] Scheduling attachments for deletion.
+[AWS S3 200 0.052335 0 retries] head_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/app_ipas/000/000/013/original/2013-07-08 21:42:39 UTC/Apartments.ipa")  
+
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM "app_versions" WHERE "app_versions"."id" = $1  [["id", 13]]
+[paperclip] Deleting attachments.
+[paperclip] deleting /app_versions/app_ipas/000/000/013/original/2013-07-08 21:42:39 UTC/Apartments.ipa
+[AWS S3 204 0.060119 0 retries] delete_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/app_ipas/000/000/013/original/2013-07-08 21:42:39 UTC/Apartments.ipa")  
+
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/projects/1/app_versions/
+Completed 302 Found in 128ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/projects/1/app_versions/" for 127.0.0.1 at 2013-07-08 17:48:17 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mAppVersion Load (0.4ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1  [["project_id", 1]]
+  Rendered app_versions/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 25ms (Views: 18.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:18 -0400
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:18 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:18 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:18 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:18 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:18 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:18 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:18 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:18 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:18 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:18 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:18 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:18 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:18 -0400
+
+
+Started DELETE "/projects/1/app_versions/12" for 127.0.0.1 at 2013-07-08 17:48:20 -0400
+Processing by AppVersionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "project_id"=>"1", "id"=>"12"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mAppVersion Load (0.7ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."id" = $1 LIMIT 1  [["id", "12"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+[paperclip] Scheduling attachments for deletion.
+[AWS S3 200 0.05546 0 retries] head_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/app_ipas/000/000/012/original/2013-07-08 21:39:10 UTC/Apartments.ipa")  
+
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "app_versions" WHERE "app_versions"."id" = $1  [["id", 12]]
+[paperclip] Deleting attachments.
+[paperclip] deleting /app_versions/app_ipas/000/000/012/original/2013-07-08 21:39:10 UTC/Apartments.ipa
+[AWS S3 204 0.051802 0 retries] delete_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/app_ipas/000/000/012/original/2013-07-08 21:39:10 UTC/Apartments.ipa")  
+
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/projects/1/app_versions/
+Completed 302 Found in 123ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/projects/1/app_versions/" for 127.0.0.1 at 2013-07-08 17:48:20 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mAppVersion Load (0.5ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1  [["project_id", 1]]
+  Rendered app_versions/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 29ms (Views: 21.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:20 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:20 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:20 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:20 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:20 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:20 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:20 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:20 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:20 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:20 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:20 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:20 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:20 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:20 -0400
+
+
+Started DELETE "/projects/1/app_versions/11" for 127.0.0.1 at 2013-07-08 17:48:22 -0400
+Processing by AppVersionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "project_id"=>"1", "id"=>"11"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mAppVersion Load (0.6ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."id" = $1 LIMIT 1  [["id", "11"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+[paperclip] Scheduling attachments for deletion.
+[AWS S3 200 0.046897 0 retries] head_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/app_ipas/000/000/011/original/2013-07-08 21:37:50 UTC/Apartments.ipa")  
+
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "app_versions" WHERE "app_versions"."id" = $1  [["id", 11]]
+[paperclip] Deleting attachments.
+[paperclip] deleting /app_versions/app_ipas/000/000/011/original/2013-07-08 21:37:50 UTC/Apartments.ipa
+[AWS S3 204 0.201062 0 retries] delete_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/app_ipas/000/000/011/original/2013-07-08 21:37:50 UTC/Apartments.ipa")  
+
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/projects/1/app_versions/
+Completed 302 Found in 264ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/projects/1/app_versions/" for 127.0.0.1 at 2013-07-08 17:48:22 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mAppVersion Load (0.6ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1  [["project_id", 1]]
+  Rendered app_versions/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 25ms (Views: 18.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:23 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:23 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:23 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:23 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:23 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:23 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:23 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:23 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:23 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:23 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:23 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:23 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:23 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:23 -0400
+
+
+Started DELETE "/projects/1/app_versions/10" for 127.0.0.1 at 2013-07-08 17:48:25 -0400
+Processing by AppVersionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "project_id"=>"1", "id"=>"10"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mAppVersion Load (0.4ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."id" = $1 LIMIT 1  [["id", "10"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+[paperclip] Scheduling attachments for deletion.
+[AWS S3 200 0.219079 0 retries] head_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/app_ipas/000/000/010/original/2013-07-08 21:35:53 UTC/Apartments.ipa")  
+
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "app_versions" WHERE "app_versions"."id" = $1  [["id", 10]]
+[paperclip] Deleting attachments.
+[paperclip] deleting /app_versions/app_ipas/000/000/010/original/2013-07-08 21:35:53 UTC/Apartments.ipa
+[AWS S3 204 0.047361 0 retries] delete_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/app_ipas/000/000/010/original/2013-07-08 21:35:53 UTC/Apartments.ipa")  
+
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/projects/1/app_versions/
+Completed 302 Found in 317ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/projects/1/app_versions/" for 127.0.0.1 at 2013-07-08 17:48:25 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mAppVersion Load (0.4ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1  [["project_id", 1]]
+  Rendered app_versions/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 24ms (Views: 18.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:26 -0400
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:26 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:26 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:26 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:26 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:26 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:26 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:26 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:26 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:26 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:26 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:26 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:26 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:26 -0400
+
+
+Started DELETE "/projects/1/app_versions/9" for 127.0.0.1 at 2013-07-08 17:48:27 -0400
+Processing by AppVersionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "project_id"=>"1", "id"=>"9"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mAppVersion Load (0.5ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."id" = $1 LIMIT 1  [["id", "9"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+[paperclip] Scheduling attachments for deletion.
+[AWS S3 200 0.053343 0 retries] head_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/app_ipas/000/000/009/original/2013-07-08 21:05:36 UTC/Apartments.ipa")  
+
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "app_versions" WHERE "app_versions"."id" = $1  [["id", 9]]
+[paperclip] Deleting attachments.
+[paperclip] deleting /app_versions/app_ipas/000/000/009/original/2013-07-08 21:05:36 UTC/Apartments.ipa
+[AWS S3 204 0.042884 0 retries] delete_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/app_ipas/000/000/009/original/2013-07-08 21:05:36 UTC/Apartments.ipa")  
+
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/projects/1/app_versions/
+Completed 302 Found in 113ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/projects/1/app_versions/" for 127.0.0.1 at 2013-07-08 17:48:27 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mAppVersion Load (0.4ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1  [["project_id", 1]]
+  Rendered app_versions/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 22ms (Views: 16.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:28 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:28 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:28 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:28 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:28 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:28 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:28 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:28 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:28 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:28 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:28 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:28 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:28 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:28 -0400
+
+
+Started DELETE "/projects/1/app_versions/4" for 127.0.0.1 at 2013-07-08 17:48:30 -0400
+Processing by AppVersionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "project_id"=>"1", "id"=>"4"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mAppVersion Load (0.6ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."id" = $1 LIMIT 1  [["id", "4"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+[paperclip] Scheduling attachments for deletion.
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "app_versions" WHERE "app_versions"."id" = $1  [["id", 4]]
+[paperclip] Deleting attachments.
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/projects/1/app_versions/
+Completed 302 Found in 10ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/projects/1/app_versions/" for 127.0.0.1 at 2013-07-08 17:48:30 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mAppVersion Load (0.6ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1  [["project_id", 1]]
+  Rendered app_versions/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 31ms (Views: 22.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:30 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:30 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:30 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:30 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:30 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:30 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:30 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:30 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:30 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:30 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:30 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:30 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:30 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:30 -0400
+
+
+Started DELETE "/projects/1/app_versions/3" for 127.0.0.1 at 2013-07-08 17:48:33 -0400
+Processing by AppVersionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "project_id"=>"1", "id"=>"3"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mAppVersion Load (0.5ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."id" = $1 LIMIT 1  [["id", "3"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+[paperclip] Scheduling attachments for deletion.
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "app_versions" WHERE "app_versions"."id" = $1  [["id", 3]]
+[paperclip] Deleting attachments.
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/projects/1/app_versions/
+Completed 302 Found in 12ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/projects/1/app_versions/" for 127.0.0.1 at 2013-07-08 17:48:33 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mAppVersion Load (0.5ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1  [["project_id", 1]]
+  Rendered app_versions/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 22ms (Views: 15.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:33 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:33 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:33 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:33 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:33 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:33 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:33 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:33 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:33 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:33 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:33 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:33 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:33 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:33 -0400
+
+
+Started DELETE "/projects/1/app_versions/2" for 127.0.0.1 at 2013-07-08 17:48:35 -0400
+Processing by AppVersionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "project_id"=>"1", "id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mAppVersion Load (0.5ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."id" = $1 LIMIT 1  [["id", "2"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+[paperclip] Scheduling attachments for deletion.
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "app_versions" WHERE "app_versions"."id" = $1  [["id", 2]]
+[paperclip] Deleting attachments.
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/projects/1/app_versions/
+Completed 302 Found in 12ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/projects/1/app_versions/" for 127.0.0.1 at 2013-07-08 17:48:35 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mAppVersion Load (0.5ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1  [["project_id", 1]]
+  Rendered app_versions/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 21ms (Views: 13.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:36 -0400
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:36 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:36 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:36 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:36 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 17:48:36 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:36 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:36 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:36 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:36 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:36 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:36 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:36 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 17:48:36 -0400
+
+
+Started GET "/projects/1/app_versions/new" for 127.0.0.1 at 2013-07-08 17:49:06 -0400
+Processing by AppVersionsController#new as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "1"]]
+  Rendered app_versions/_form.html.erb (6.1ms)
+  Rendered app_versions/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 28ms (Views: 20.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/projects/1/app_versions/new" for 127.0.0.1 at 2013-07-08 17:54:07 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AppVersionsController#new as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (1.5ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered app_versions/_form.html.erb (52.3ms)
+  Rendered app_versions/new.html.erb within layouts/application (59.7ms)
+Completed 200 OK in 299ms (Views: 145.8ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 17:54:07 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 17:54:07 -0400
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 17:54:07 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 17:54:07 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 17:54:07 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 17:54:07 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 17:54:07 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 17:54:07 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 17:54:07 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 17:54:07 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 17:54:08 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 17:54:08 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 17:54:08 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 17:54:08 -0400
+
+
+Started POST "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 17:54:18 -0400
+Processing by AppVersionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "app_version"=>{"name"=>"sadfafsd", "version"=>"243r3245", "notes"=>"sfgdfg", "app_ipa"=>#<ActionDispatch::Http::UploadedFile:0x007fbe4bb6e2a0 @tempfile=#<File:/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/RackMultipart20130708-28204-w49l3i>, @original_filename="Apartments.ipa", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"app_version[app_ipa]\"; filename=\"Apartments.ipa\"\r\nContent-Type: application/octet-stream\r\n">, "url_plist"=>"itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"}, "commit"=>"Create App version", "project_id"=>"1"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.7ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (9.6ms)[0m  [1mINSERT INTO "app_versions" ("app_ipa_content_type", "app_ipa_file_name", "app_ipa_file_size", "app_ipa_updated_at", "created_at", "name", "notes", "project_id", "updated_at", "url_plist", "version") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["app_ipa_content_type", "application/octet-stream"], ["app_ipa_file_name", "Apartments.ipa"], ["app_ipa_file_size", 11702989], ["app_ipa_updated_at", Mon, 08 Jul 2013 21:54:18 UTC +00:00], ["created_at", Mon, 08 Jul 2013 21:54:18 UTC +00:00], ["name", "sadfafsd"], ["notes", "sfgdfg"], ["project_id", 1], ["updated_at", Mon, 08 Jul 2013 21:54:18 UTC +00:00], ["url_plist", "itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"], ["version", "243r3245"]]
+[paperclip] Saving attachments.
+[paperclip] saving /app_versions/app_ipas/000/000/017/original/2013-07-08 21:54:18 UTC/Apartments.ipa
+[AWS S3 200 23.61481 0 retries] put_object(:acl=>:public_read,:bucket_name=>"rentpath_app_store_bucket",:content_length=>11702989,:content_type=>"application/octet-stream",:data=>Paperclip::UploadedFileAdapter: Apartments.ipa,:key=>"app_versions/app_ipas/000/000/017/original/2013-07-08 21:54:18 UTC/Apartments.ipa")  
+
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+[paperclip] Saving attachments.
+  [1m[35m (0.3ms)[0m  COMMIT
+Completed 500 Internal Server Error in 126484ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/app_versions_controller.rb:40:in `block in create'
+  app/controllers/app_versions_controller.rb:33:in `create'
+
+
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.4ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.9ms)
+
+
+Started GET "/projects/1/app_versions/new" for 127.0.0.1 at 2013-07-08 17:56:29 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AppVersionsController#new as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (1.8ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered app_versions/_form.html.erb (67.9ms)
+  Rendered app_versions/new.html.erb within layouts/application (79.1ms)
+Completed 200 OK in 350ms (Views: 176.3ms | ActiveRecord: 13.3ms)
+
+
+Started GET "/projects/1/app_versions/new" for 127.0.0.1 at 2013-07-08 17:56:30 -0400
+Processing by AppVersionsController#new as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered app_versions/_form.html.erb (5.8ms)
+  Rendered app_versions/new.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 28ms (Views: 20.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 17:56:31 -0400
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 17:56:31 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 17:56:31 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 17:56:31 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 17:56:31 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 17:56:31 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 17:56:31 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 17:56:31 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 17:56:31 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 17:56:31 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 17:56:31 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 17:56:31 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 17:56:31 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 17:56:31 -0400
+
+
+Started POST "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 17:56:41 -0400
+Processing by AppVersionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "app_version"=>{"name"=>"aasdfad", "version"=>"525423452345", "notes"=>"sdfsdf", "app_ipa"=>#<ActionDispatch::Http::UploadedFile:0x007ff69c6c05f8 @tempfile=#<File:/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/RackMultipart20130708-28412-fnvxj>, @original_filename="Apartments.ipa", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"app_version[app_ipa]\"; filename=\"Apartments.ipa\"\r\nContent-Type: application/octet-stream\r\n">, "url_plist"=>"itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"}, "commit"=>"Create App version", "project_id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (5.7ms)[0m  [1mINSERT INTO "app_versions" ("app_ipa_content_type", "app_ipa_file_name", "app_ipa_file_size", "app_ipa_updated_at", "created_at", "name", "notes", "project_id", "updated_at", "url_plist", "version") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["app_ipa_content_type", "application/octet-stream"], ["app_ipa_file_name", "Apartments.ipa"], ["app_ipa_file_size", 11702989], ["app_ipa_updated_at", Mon, 08 Jul 2013 21:56:41 UTC +00:00], ["created_at", Mon, 08 Jul 2013 21:56:41 UTC +00:00], ["name", "aasdfad"], ["notes", "sdfsdf"], ["project_id", 1], ["updated_at", Mon, 08 Jul 2013 21:56:41 UTC +00:00], ["url_plist", "itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"], ["version", "525423452345"]]
+[paperclip] Saving attachments.
+[paperclip] saving /app_versions/app_ipas/000/000/018/original/2013-07-08 21:56:41 UTC/Apartments.ipa
+[AWS S3 200 23.550647 0 retries] put_object(:acl=>:public_read,:bucket_name=>"rentpath_app_store_bucket",:content_length=>11702989,:content_type=>"application/octet-stream",:data=>Paperclip::UploadedFileAdapter: Apartments.ipa,:key=>"app_versions/app_ipas/000/000/018/original/2013-07-08 21:56:41 UTC/Apartments.ipa")  
+
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+[paperclip] Saving attachments.
+  [1m[35m (0.3ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/projects/1/app_versions/18
+Completed 302 Found in 112498ms (ActiveRecord: 8.5ms)
+
+
+Started GET "/projects/1/app_versions/18" for 127.0.0.1 at 2013-07-08 17:58:33 -0400
+
+
+Started GET "/projects/1/app_versions/new" for 127.0.0.1 at 2013-07-08 17:58:58 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AppVersionsController#new as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (1.3ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered app_versions/_form.html.erb (59.4ms)
+  Rendered app_versions/new.html.erb within layouts/application (71.3ms)
+Completed 200 OK in 324ms (Views: 171.4ms | ActiveRecord: 11.3ms)
+
+
+Started GET "/projects/1/app_versions/18" for 127.0.0.1 at 2013-07-08 17:58:59 -0400
+Processing by AppVersionsController#show as HTML
+  Parameters: {"project_id"=>"1", "id"=>"18"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mAppVersion Load (1.3ms)[0m  [1mSELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."id" = $1 LIMIT 1[0m  [["id", "18"]]
+  [1m[35mProject Load (0.5ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "1"]]
+  Rendered app_versions/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 26ms (Views: 17.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 17:58:59 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 17:58:59 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 17:58:59 -0400
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 17:58:59 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 17:58:59 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 17:58:59 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 17:58:59 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 17:58:59 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 17:58:59 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 17:59:00 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 17:59:00 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 17:59:00 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 17:59:00 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 17:59:00 -0400
+
+
+Started GET "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 17:59:02 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.7ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mAppVersion Load (6.8ms)[0m  [1mSELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1[0m  [["project_id", 1]]
+  Rendered app_versions/index.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 35ms (Views: 20.2ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/projects/1/app_versions/new" for 127.0.0.1 at 2013-07-08 17:59:03 -0400
+Processing by AppVersionsController#new as HTML
+  Parameters: {"project_id"=>"1"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered app_versions/_form.html.erb (4.8ms)
+  Rendered app_versions/new.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 27ms (Views: 18.1ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 17:59:11 -0400
+Processing by AppVersionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "app_version"=>{"name"=>"asdfasdf", "version"=>"45456", "notes"=>"wert", "app_ipa"=>#<ActionDispatch::Http::UploadedFile:0x007fb57a4a4bb0 @tempfile=#<File:/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/RackMultipart20130708-28554-1q362pz>, @original_filename="Apartments.ipa", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"app_version[app_ipa]\"; filename=\"Apartments.ipa\"\r\nContent-Type: application/octet-stream\r\n">, "url_plist"=>"itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"}, "commit"=>"Create App version", "project_id"=>"1"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.8ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO "app_versions" ("app_ipa_content_type", "app_ipa_file_name", "app_ipa_file_size", "app_ipa_updated_at", "created_at", "name", "notes", "project_id", "updated_at", "url_plist", "version") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["app_ipa_content_type", "application/octet-stream"], ["app_ipa_file_name", "Apartments.ipa"], ["app_ipa_file_size", 11702989], ["app_ipa_updated_at", Mon, 08 Jul 2013 21:59:11 UTC +00:00], ["created_at", Mon, 08 Jul 2013 21:59:12 UTC +00:00], ["name", "asdfasdf"], ["notes", "wert"], ["project_id", 1], ["updated_at", Mon, 08 Jul 2013 21:59:12 UTC +00:00], ["url_plist", "itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"], ["version", "45456"]]
+[paperclip] Saving attachments.
+[paperclip] saving /app_versions/app_ipas/000/000/019/original/2013-07-08 21:59:11 UTC/Apartments.ipa
+[AWS S3 200 28.012513 0 retries] put_object(:acl=>:public_read,:bucket_name=>"rentpath_app_store_bucket",:content_length=>11702989,:content_type=>"application/octet-stream",:data=>Paperclip::UploadedFileAdapter: Apartments.ipa,:key=>"app_versions/app_ipas/000/000/019/original/2013-07-08 21:59:11 UTC/Apartments.ipa")  
+
+  [1m[35m (1.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+[paperclip] Saving attachments.
+  [1m[35m (0.3ms)[0m  COMMIT
+Completed 500 Internal Server Error in 70341ms
+
+NoMethodError (undefined method `save_plist' for #<AppVersionsController:0x007fb57ecec990>):
+  app/controllers/app_versions_controller.rb:41:in `block in create'
+  app/controllers/app_versions_controller.rb:33:in `create'
+
+
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+
+
+Started POST "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 18:00:31 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AppVersionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "app_version"=>{"name"=>"asdfasdf", "version"=>"45456", "notes"=>"wert", "app_ipa"=>#<ActionDispatch::Http::UploadedFile:0x007f8e4d837cb8 @tempfile=#<File:/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/RackMultipart20130708-28698-pmaih0>, @original_filename="Apartments.ipa", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"app_version[app_ipa]\"; filename=\"Apartments.ipa\"\r\nContent-Type: application/octet-stream\r\n">, "url_plist"=>"itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"}, "commit"=>"Create App version", "project_id"=>"1"}
+  [1m[35mUser Load (2.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (1.3ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (5.4ms)[0m  [1mINSERT INTO "app_versions" ("app_ipa_content_type", "app_ipa_file_name", "app_ipa_file_size", "app_ipa_updated_at", "created_at", "name", "notes", "project_id", "updated_at", "url_plist", "version") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["app_ipa_content_type", "application/octet-stream"], ["app_ipa_file_name", "Apartments.ipa"], ["app_ipa_file_size", 11702989], ["app_ipa_updated_at", Mon, 08 Jul 2013 22:00:32 UTC +00:00], ["created_at", Mon, 08 Jul 2013 22:00:32 UTC +00:00], ["name", "asdfasdf"], ["notes", "wert"], ["project_id", 1], ["updated_at", Mon, 08 Jul 2013 22:00:32 UTC +00:00], ["url_plist", "itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"], ["version", "45456"]]
+[paperclip] Saving attachments.
+[paperclip] saving /app_versions/app_ipas/000/000/020/original/2013-07-08 22:00:32 UTC/Apartments.ipa
+[AWS S3 200 23.482366 0 retries] put_object(:acl=>:public_read,:bucket_name=>"rentpath_app_store_bucket",:content_length=>11702989,:content_type=>"application/octet-stream",:data=>Paperclip::UploadedFileAdapter: Apartments.ipa,:key=>"app_versions/app_ipas/000/000/020/original/2013-07-08 22:00:32 UTC/Apartments.ipa")  
+
+  [1m[35m (2.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+[paperclip] Saving attachments.
+  [1m[35m (0.2ms)[0m  COMMIT
+Completed 500 Internal Server Error in 152717ms
+
+NoMethodError (undefined method `save_plist' for Plist:Module):
+  app/controllers/app_versions_controller.rb:41:in `block in create'
+  app/controllers/app_versions_controller.rb:33:in `create'
+
+
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /Users/mmuse/.rvm/gems/ruby-1.9.3-p448/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.3ms)
+
+
+Started POST "/projects/1/app_versions" for 127.0.0.1 at 2013-07-08 18:03:15 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AppVersionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O38FIEFXhmbgnMOqgOOnqpA2F9geyKmEc2aT9pKZOGg=", "app_version"=>{"name"=>"asdfasdf", "version"=>"45456", "notes"=>"wert", "app_ipa"=>#<ActionDispatch::Http::UploadedFile:0x007ff71c048588 @tempfile=#<File:/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/RackMultipart20130708-28935-i07n1w>, @original_filename="Apartments.ipa", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"app_version[app_ipa]\"; filename=\"Apartments.ipa\"\r\nContent-Type: application/octet-stream\r\n">, "url_plist"=>"itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"}, "commit"=>"Create App version", "project_id"=>"1"}
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (1.5ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (6.1ms)[0m  [1mINSERT INTO "app_versions" ("app_ipa_content_type", "app_ipa_file_name", "app_ipa_file_size", "app_ipa_updated_at", "created_at", "name", "notes", "project_id", "updated_at", "url_plist", "version") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["app_ipa_content_type", "application/octet-stream"], ["app_ipa_file_name", "Apartments.ipa"], ["app_ipa_file_size", 11702989], ["app_ipa_updated_at", Mon, 08 Jul 2013 22:03:16 UTC +00:00], ["created_at", Mon, 08 Jul 2013 22:03:16 UTC +00:00], ["name", "asdfasdf"], ["notes", "wert"], ["project_id", 1], ["updated_at", Mon, 08 Jul 2013 22:03:16 UTC +00:00], ["url_plist", "itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/di87fjd8ejdj/Apartments.plist"], ["version", "45456"]]
+[paperclip] Saving attachments.
+[paperclip] saving /app_versions/app_ipas/000/000/021/original/2013-07-08 22:03:16 UTC/Apartments.ipa
+[AWS S3 200 25.107485 0 retries] put_object(:acl=>:public_read,:bucket_name=>"rentpath_app_store_bucket",:content_length=>11702989,:content_type=>"application/octet-stream",:data=>Paperclip::UploadedFileAdapter: Apartments.ipa,:key=>"app_versions/app_ipas/000/000/021/original/2013-07-08 22:03:16 UTC/Apartments.ipa")  
+
+  [1m[35m (2.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+[paperclip] Saving attachments.
+  [1m[35m (0.3ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/projects/1/app_versions/21
+Completed 302 Found in 34559ms (ActiveRecord: 20.7ms)
+
+
+Started GET "/projects/1/app_versions/21" for 127.0.0.1 at 2013-07-08 18:03:50 -0400
+Processing by AppVersionsController#show as HTML
+  Parameters: {"project_id"=>"1", "id"=>"21"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mAppVersion Load (0.9ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."id" = $1 LIMIT 1  [["id", "21"]]
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  Rendered app_versions/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 131ms (Views: 122.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-08 18:03:50 -0400
+
+
+Started GET "/assets/app_versions.css?body=1" for 127.0.0.1 at 2013-07-08 18:03:50 -0400
+
+
+Started GET "/assets/projects.css?body=1" for 127.0.0.1 at 2013-07-08 18:03:50 -0400
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-08 18:03:50 -0400
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-07-08 18:03:50 -0400
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-08 18:03:51 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-08 18:03:51 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-08 18:03:51 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-08 18:03:51 -0400
+
+
+Started GET "/assets/app_versions.js?body=1" for 127.0.0.1 at 2013-07-08 18:03:51 -0400
+
+
+Started GET "/assets/projects.js?body=1" for 127.0.0.1 at 2013-07-08 18:03:51 -0400
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-07-08 18:03:51 -0400
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-08 18:03:51 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-08 18:03:51 -0400

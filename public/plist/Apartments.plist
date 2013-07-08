@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>assets</key>
+			<array>
+				<dict>
+					<key>kind</key>
+					<string>software-package</string>
+					<key>url</key>
+					<string>http://rentpath_app_store_bucket.s3.amazonaws.com/app_versions/app_ipas/000/000/021/original/2013-07-08%2022:03:16%20UTC/Apartments.ipa?1373320996</string>
+				</dict>
+				<dict>
+					<key>kind</key>
+					<string>display-image</string>
+					<key>needs-shine</key>
+					<true/>
+					<key>url</key>
+					<string>http://www.crebel.com/AppSource/Icon.png</string>
+				</dict>
+			</array>
+			<key>metadata</key>
+			<dict>
+				<key>bundle-identifier</key>
+				<string>com.primedia.Apartments</string>
+				<key>bundle-version</key>
+				<string>5.3</string>
+				<key>kind</key>
+				<string>software</string>
+				<key>title</key>
+				<string>Apartments</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

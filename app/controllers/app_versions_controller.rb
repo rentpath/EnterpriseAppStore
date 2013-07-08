@@ -33,8 +33,14 @@ class AppVersionsController < ApplicationController
     respond_to do |format|
       if @app_version.save
 #        format.html { redirect_to @app_version, notice: 'App version was successfully created.' }
-        format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/#{@app_version.id}", notice: 'App version was successfully created.' }
 
+        # Create the plist and upload to s3
+        plistpath = "#{Rails.root}/public/plist/Apartments.plist"
+        plist = Plist::parse_xml(plistpath)
+        plist['items'][0]['assets'][0]['url'] = @app_version.app_ipa.url
+        Plist::Emit.save_plist(plist, plistpath)
+
+        format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/#{@app_version.id}", notice: 'App version was successfully created.' }
         format.json { render action: 'show', status: :created, location: @app_version }
       else
         format.html { render action: 'new' }
