@@ -35,16 +35,20 @@ class AppVersionsController < ApplicationController
 #        format.html { redirect_to @app_version, notice: 'App version was successfully created.' }
 
         # Create the plist and upload to s3
-        plistpath = "#{Rails.root}/public/plist/Apartments.plist"
+        plistroot = "#{Rails.root}/public/plist/Apartments"
+        plistpath = "#{plistroot}.plist"
         plist = Plist::parse_xml(plistpath)
         plist['items'][0]['assets'][0]['url'] = @app_version.app_ipa.url
-        Plist::Emit.save_plist(plist, plistpath)
-
-        format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/#{@app_version.id}", notice: 'App version was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @app_version }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @app_version.errors, status: :unprocessable_entity }
+        new_plist_path = "#{plistroot}-#{@app_version.version}.plist"
+        save_plist(plist, new_plist_path)
+        @app_version.url_plist = "itms-services://?action=download-manifest&amp;url=http://#{request.env['HTTP_HOST']}/plist/Apartments-#{@app_version.version}.plist"
+        if @app_version.save
+          format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/#{@app_version.id}", notice: 'App version was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @app_version }
+        else
+          format.html { render action: 'new' }
+          format.json { render json: @app_version.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -90,5 +94,11 @@ class AppVersionsController < ApplicationController
 
     def find_project
       @project = Project.find(params[:project_id])
+    end
+
+    def save_plist(obj, path)
+      File.open(path, 'w+') do |f|
+        f.write(obj.to_plist)
+      end
     end
 end
