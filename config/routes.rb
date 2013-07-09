@@ -1,8 +1,6 @@
 RentPathApps::Application.routes.draw do
   devise_for :users
 
-  match '/plist', :to => redirect('public/plist/Apartments.plist')
-
   resources :projects do
     resources :app_versions
   end

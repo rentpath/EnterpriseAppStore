@@ -21,7 +21,7 @@
     <%= f.text_field :notes %><br  />
     <%= f.label :app_ipa, "IPA" %>
     <%= f.file_field :app_ipa %>
-    <%= f.hidden_field :url_plist, :value => "itms-services://?action=download-manifest&amp;url=http://#{request.env['HTTP_HOST']}/plist" %>
+    <%= f.hidden_field :url_plist, :value => "itms-services://?action=download-manifest&amp;url=http://#{request.env['HTTP_HOST']}/plist/Apartments.plist" %>
    <br  />
     <%= f.submit %>
     <%= link_to 'Back', "/projects/" %>
