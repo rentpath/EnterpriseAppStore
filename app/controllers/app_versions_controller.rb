@@ -49,6 +49,9 @@ class AppVersionsController < ApplicationController
           format.html { render action: 'new' }
           format.json { render json: @app_version.errors, status: :unprocessable_entity }
         end
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @app_version.errors, status: :unprocessable_entity }
       end
     end
   end

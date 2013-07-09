@@ -9,4 +9,17 @@ class AppVersion < ActiveRecord::Base
                         :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
                     },
                     :path => "/:class/:attachment/:id_partition/:style/:timestamp/:filename"
+
+  # VALIDATIONS
+  version_regex =  /\d+.\d+.\d+/
+  validates :version,
+            :presence => true,
+            :format => {:with => version_regex},
+            :uniqueness => {:case_sensitive => false}
+
+  validates :app_ipa,
+            :presence => true,
+            :format => {:with => /\.(ipa)/i, :message => "Only a .ipa can be uploaded"}
+
+
 end
