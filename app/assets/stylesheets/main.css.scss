@@ -1,15 +1,17 @@
 body {
-  background-color: #fff;
+  background-color: #eee;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  margin:auto;
 }
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  list-style: none;
 }
 
 pre {
@@ -20,12 +22,15 @@ pre {
 
 a {
   color: #000;
+  text-decoration: none;
   &:visited {
-    color: #666;
+    color: #000;
+    text-decoration: underline;
   }
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: #0CAEEF;
+    text-decoration: underline;
+    background: #000;
   }
 }
 
@@ -66,4 +71,63 @@ div {
     font-size: 12px;
     list-style: square;
   }
+
+}
+
+.main_content {
+  width:95%;
+  margin:auto;
+}
+
+@mixin bRadius {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+#header {
+  background: #fff;
+  min-height: 60px;
+  padding: 7px;
+  margin-bottom: 10px;
+  @include bRadius;
+}
+
+#footer {
+  background: #fff;
+  min-height: 20px;
+  padding: 7px;
+  @include bRadius;
+}
+
+#body {
+  background: #fff;
+  min-height: 75px;
+  padding: 7px;
+  margin-bottom: 10px;
+  @include bRadius;
+}
+
+#navigation {
+  float: right;
+  margin-top: 20px;
+}
+
+#logo {
+  float: left;
+}
+
+.copyright {
+  font-size: smaller;
+  float: left;
+}
+
+#terms {
+  float: right;
+}
+
+.blue_button {
+  background: #0CAEEF;
+  @include bRadius;
+  padding: 5px;
 }

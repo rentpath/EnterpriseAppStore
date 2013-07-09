@@ -1,4 +1,4 @@
-<h1>Listing app_versions</h1>
+<h1><%= @project.name %> Versions</h1>
 
 <table>
   <thead>
@@ -12,10 +12,11 @@
   <tbody>
     <% @app_versions.each do |app_version| %>
       <tr>
-        <td><%= app_version.name %></td>
-        <td><%= link_to 'Show', project_app_version_path(@project.id, app_version.id) %></td>
-        <td><%= link_to 'Edit', edit_project_app_version_path(@project.id, app_version.id) %></td>
-        <td><%= link_to 'Destroy', "/projects/#{@project.id}/app_versions/#{app_version.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= image_tag "#{app_version.version_icon.url(:thumb)}" %></td>
+        <td><%= app_version.version %></td>
+        <td><%= link_to 'Show', project_app_version_path(@project.id, app_version.id), :class => 'blue_button' %></td>
+        <td><%= link_to 'Edit', edit_project_app_version_path(@project.id, app_version.id), :class => 'blue_button'  %></td>
+        <td><%= link_to 'Destroy', "/projects/#{@project.id}/app_versions/#{app_version.id}", method: :delete, data: { confirm: 'Are you sure?' }, :class => 'blue_button'  %></td>
       </tr>
     <% end %>
   </tbody>

@@ -13,17 +13,16 @@
   <% end %>
 
   <div class="actions">
-    <%= f.label :name, "name" %>
-    <%= f.text_field :name %><br  />
-    <%= f.label :version, "version" %>
-    <%= f.text_field :version %><br  />
-    <%= f.label :notes, "notes" %>
-    <%= f.text_field :notes %><br  />
-    <%= f.label :app_ipa, "IPA" %>
-    <%= f.file_field :app_ipa %>
+    <%= f.text_field :version, :placeholder => 'Version # (Ex. 5.3.0)' %><br  />
+    <%= f.text_field :notes, :placeholder => 'Notes' %><br  />
+    <%= f.label :app_ipa, 'ipa' %>
+    <%= f.file_field :app_ipa %><br />
+    <%= f.label :version_icon, 'Icon' %>
+    <%= f.file_field :version_icon %>
     <%= f.hidden_field :url_plist, :value => "itms-services://?action=download-manifest&amp;url=http://#{request.env['HTTP_HOST']}/plist/Apartments.plist" %>
    <br  />
     <%= f.submit %>
-    <%= link_to 'Back', "/projects/#{@app_version.project_id}/app_versions" %>
+
+    <p><%= link_to 'Back', "/projects/#{@app_version.project_id}/app_versions" %></p>
   </div>
 <% end %>

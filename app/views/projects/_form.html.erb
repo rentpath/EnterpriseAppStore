@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="actions">
-    <%= f.label :name, "name" %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :placeholder => 'Project Name'%><br/>
+    <%= f.file_field :project_icon %><br/>
     <%= f.submit %>
   </div>
 <% end %>

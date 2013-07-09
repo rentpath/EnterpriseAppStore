@@ -12,10 +12,11 @@
   <tbody>
     <% @projects.each do |project| %>
       <tr>
+        <td><%=	 image_tag "#{project.project_icon.url(:thumb)}" %></td>
         <td><%= project.name %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', project, :class => 'blue_button'%></td>
+        <td><%= link_to 'Edit', edit_project_path(project), :class => 'blue_button' %></td>
+        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'blue_button' %></td>
       </tr>
     <% end %>
   </tbody>

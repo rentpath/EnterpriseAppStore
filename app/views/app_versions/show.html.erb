@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
-<%= @app_version.name %> |
-<%= link_to 'Install', @app_version.url_plist %> |
-<%= link_to 'ipa', @app_version.app_ipa.url %> |
-<%= link_to 'Back', "/projects/#{@app_version.project_id}/app_versions" %>
+<%= image_tag "#{@app_version.version_icon.url(:thumb)}" %>
+<%= @app_version.version %>
+<%= link_to 'Install', @app_version.url_plist, :class => 'blue_button' %>
+<%= link_to 'Download ipa', @app_version.app_ipa.url, :class => 'blue_button'  %>
+<%= link_to 'Back', "/projects/#{@app_version.project_id}/app_versions", :class => 'blue_button' %>
