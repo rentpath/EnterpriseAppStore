@@ -24,13 +24,17 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
+    puts '*** ABOUT TO CREATE A NEW PROJECT ***'
     @project = Project.new(project_params)
 
+    puts '*** ABOUT THE SAVE NEW PROJECT ***'
     respond_to do |format|
       if @project.save
+        puts '*** SAVED NEW PROJECT ***'
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render action: 'show', status: :created, location: @project }
       else
+        puts '*** FAILED TO SAVE NEW PROJECT ***'
         format.html { render action: 'new' }
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
