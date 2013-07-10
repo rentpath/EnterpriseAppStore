@@ -21,8 +21,10 @@
     <%= f.file_field :version_icon %>
     <%= f.hidden_field :url_plist, :value => "itms-services://?action=download-manifest&amp;url=http://#{request.env['HTTP_HOST']}/plist/Apartments.plist" %>
    <br  />
-    <%= f.submit %>
-
-    <p><%= link_to 'Back', "/projects/#{@app_version.project_id}/app_versions" %></p>
+    <%= f.submit 'Submit App Version', :id => 'submitBtnVersion' %>
   </div>
+
+  <div id='loading'><%= image_tag 'spinner.gif' %>Loading... </div>
+
+  <p><%= link_to 'Back', "/projects/#{@app_version.project_id}/app_versions" %></p>
 <% end %>

@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  attr_accessible :name, :project_icon
+  attr_accessible :name, :project_icon, :bundle_identifier, :title
   has_many :app_versions
   has_attached_file :project_icon,
                     :storage => :s3,

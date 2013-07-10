@@ -3,7 +3,6 @@
 <head>
   <title>RentPathApps</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -16,7 +15,7 @@
             <div id="navigation">
             <% if user_signed_in? %>
                 <%= link_to 'Projects', "/projects" %> |
-                <%= link_to 'My Account', "/users/#{current_user.id}" %> |
+                <%= link_to 'My Account', "/users/edit" %> |
                 <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
 
             <% else %>
@@ -36,5 +35,7 @@
             <%= link_to 'Privacy Policy', 'http://rentpath.com/privacy-policy' %></div>
         </div>
     </div>
+
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </body>
 </html>

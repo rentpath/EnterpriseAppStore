@@ -34,13 +34,27 @@ class AppVersionsController < ApplicationController
       if @app_version.save
 #        format.html { redirect_to @app_version, notice: 'App version was successfully created.' }
 
-        # Create the plist and upload to s3
-        plistroot = "#{Rails.root}/public/plist/Apartments"
-        plistpath = "#{plistroot}.plist"
-        plist = Plist::parse_xml(plistpath)
+        # Get the plist root folder
+        plist_root = "#{Rails.root}/public/plist"
+
+        # Get the projects specific plist template and parse
+        plist_template = "#{plist_root}/template.plist"
+        plist = Plist::parse_xml(plist_template)
+
+        # Update ipa URL, Bundle ID, Bundle Version
         plist['items'][0]['assets'][0]['url'] = @app_version.app_ipa.url
-        new_plist_path = "#{plistroot}-#{@app_version.version}.plist"
+        plist['items'][0]['metadata']['bundle-identifier'] = @project.bundle_identifier
+        plist['items'][0]['metadata']['bundle-version'] = @app_version.version
+        plist['items'][0]['metadata']['title'] = @project.title
+
+        # Create the final path for the new plist
+        project_name = @project.name.gsub(/\s+/, "-")
+        project_path = "#{plist_root}/#{project_name}"
+        new_plist_path = "#{project_path}/#{project_name}-#{@app_version.version}.plist"
+        Dir.mkdir project_path if !Dir.exists? project_path
+        # Finally, save the new plist
         save_plist(plist, new_plist_path)
+
         @app_version.url_plist = "itms-services://?action=download-manifest&amp;url=http://#{request.env['HTTP_HOST']}/plist/Apartments-#{@app_version.version}.plist"
         if @app_version.save
           format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/#{@app_version.id}", notice: 'App version was successfully created.' }

@@ -1,6 +1,8 @@
 RentPathApps::Application.routes.draw do
   devise_for :users
-  resources :users
+
+  resources :token_authentications, :only => [:create, :destroy]
+
 
   root :to => 'welcome#index'
 

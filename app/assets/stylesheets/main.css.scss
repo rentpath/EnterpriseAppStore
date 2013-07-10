@@ -91,6 +91,8 @@ div {
   padding: 7px;
   margin-bottom: 10px;
   @include bRadius;
+  -webkit-border-top-right-radius: 0px;
+  -webkit-border-top-left-radius: 0px;
 }
 
 #footer {
@@ -130,4 +132,14 @@ div {
   background: #0CAEEF;
   @include bRadius;
   padding: 5px;
+}
+
+#loading {
+  background: #67C478;
+  color: white;
+  @include bRadius;
+  min-height: 20px;
+  min-width: 60px;
+  padding: 5px;
+  display: none;
 }

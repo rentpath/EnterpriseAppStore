@@ -1,21 +1,12 @@
 <h1><%= @project.name %> Versions</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @app_versions.each do |app_version| %>
       <tr>
         <td><%= image_tag "#{app_version.version_icon.url(:thumb)}" %></td>
         <td><%= app_version.version %></td>
         <td><%= link_to 'Show', project_app_version_path(@project.id, app_version.id), :class => 'blue_button' %></td>
-        <td><%= link_to 'Edit', edit_project_app_version_path(@project.id, app_version.id), :class => 'blue_button'  %></td>
         <td><%= link_to 'Destroy', "/projects/#{@project.id}/app_versions/#{app_version.id}", method: :delete, data: { confirm: 'Are you sure?' }, :class => 'blue_button'  %></td>
       </tr>
     <% end %>
@@ -25,3 +16,4 @@
 <br>
 
 <%= link_to 'New App version', new_project_app_version_path %>
+<p><%= link_to 'Back', "/projects/#{@project.id}" %></p>
