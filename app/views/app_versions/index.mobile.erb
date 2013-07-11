@@ -1,5 +1,4 @@
-<h1><%= @project.name %> Versions</h1>
-
+<% title "#{@project.name} Versions" %>
 <ul data-role="listview">
   <% @app_versions.each do |app_version| %>
       <li>
