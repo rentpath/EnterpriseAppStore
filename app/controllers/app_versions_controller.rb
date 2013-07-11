@@ -40,6 +40,8 @@ class AppVersionsController < ApplicationController
         plist_template = "#{plist_root}/template.plist"
         plist = Plist::parse_xml(plist_template)
 
+        puts "Template Plist: #{plist}"
+
         # Update ipa URL, Bundle ID, Bundle Version
         plist['items'][0]['assets'][0]['url'] = @app_version.app_ipa.url
         plist['items'][0]['metadata']['bundle-identifier'] = @project.bundle_identifier
@@ -51,10 +53,13 @@ class AppVersionsController < ApplicationController
         project_path = "#{plist_root}/#{project_name}"
         new_plist_path = "#{project_path}/#{project_name}-#{@app_version.version}.plist"
         Dir.mkdir project_path if !Dir.exists? project_path
+
+        puts "About to save plist to: #{new_plist_path}"
+
         # Finally, save the new plist
         save_plist(plist, new_plist_path)
 
-        @app_version.url_plist = "itms-services://?action=download-manifest&amp;url=http://#{request.env['HTTP_HOST']}/plist/Apartments-#{@app_version.version}.plist"
+        @app_version.url_plist = "itms-services://?action=download-manifest&amp;url=http://#{request.env['HTTP_HOST']}/plist/#{project_name}/#{project_name}-#{@app_version.version}.plist"
         if @app_version.save
           format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/#{@app_version.id}", notice: 'App version was successfully created.' }
           format.json { render action: 'show', status: :created, location: { :saved => true } }
@@ -117,7 +122,8 @@ class AppVersionsController < ApplicationController
 
     def save_plist(obj, path)
       File.open(path, 'w+') do |f|
-        f.write(obj.to_plist)
+        return_value = f.write(obj.to_plist)
+        puts "Return Value: #{return_value}"
       end
     end
 end
