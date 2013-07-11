@@ -18,7 +18,7 @@
     <file path="/20130702190136_add_project_id_to_app_versions.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1372791886426" ignored="false" />
     <file path="/projects_controller.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373461361775" ignored="false" />
     <file path="/show.html.erb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373461834635" ignored="false" />
-    <file path="/app_versions_controller.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373556105697" ignored="false" />
+    <file path="/app_versions_controller.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373556633710" ignored="false" />
     <file path="/new.html.erb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1372794367721" ignored="false" />
     <file path="/a.dummy" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1372798531525" ignored="false" />
     <file path="/index.json.jbuilder" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1372795918256" ignored="false" />
@@ -143,7 +143,7 @@
       <file leaf-file-name="app_versions_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/app_versions_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="56" selection-start="1897" selection-end="1897" vertical-scroll-proportion="0.85557586">
+            <state line="61" column="183" selection-start="2113" selection-end="2113" vertical-scroll-proportion="0.8427788">
               <folding />
             </state>
           </provider>
@@ -931,7 +931,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/app_versions_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="56" selection-start="1897" selection-end="1897" vertical-scroll-proportion="0.85557586">
+        <state line="61" column="183" selection-start="2113" selection-end="2113" vertical-scroll-proportion="0.8427788">
           <folding />
         </state>
       </provider>
