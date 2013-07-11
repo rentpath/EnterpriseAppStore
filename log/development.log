@@ -31743,3 +31743,681 @@ Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-07-10 15:37:38 -0400
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-10 15:37:38 -0400
+
+
+Started GET "/projects" for 127.0.0.1 at 2013-07-10 16:54:15 -0400
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 27ms (Views: 20.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-10 16:54:15 -0400
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-07-10 16:54:15 -0400
+
+
+Started GET "/assets/rent_path_logo.png" for 127.0.0.1 at 2013-07-10 16:54:15 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-10 16:54:15 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-10 16:54:15 -0400
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-07-10 16:54:15 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-10 16:54:15 -0400
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2013-07-10 16:54:17 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "6"]]
+  Rendered projects/show.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 25ms (Views: 18.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-07-10 16:54:17 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-10 16:54:17 -0400
+
+
+Started GET "/assets/rent_path_logo.png" for 127.0.0.1 at 2013-07-10 16:54:17 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-10 16:54:17 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-10 16:54:17 -0400
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-07-10 16:54:17 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-10 16:54:17 -0400
+
+
+Started GET "/projects/6/app_versions" for 127.0.0.1 at 2013-07-10 16:54:19 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"6"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "6"]]
+  [1m[35mAppVersion Load (0.5ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1  [["project_id", 6]]
+  Rendered app_versions/index.html.erb within layouts/application (55.3ms)
+Completed 200 OK in 78ms (Views: 64.0ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-10 16:54:19 -0400
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-07-10 16:54:19 -0400
+
+
+Started GET "/assets/rent_path_logo.png" for 127.0.0.1 at 2013-07-10 16:54:19 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-10 16:54:19 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-10 16:54:19 -0400
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-07-10 16:54:19 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-10 16:54:19 -0400
+
+
+Started GET "/projects/6/app_versions/new" for 127.0.0.1 at 2013-07-10 16:54:21 -0400
+Processing by AppVersionsController#new as HTML
+  Parameters: {"project_id"=>"6"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.6ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "6"]]
+  Rendered app_versions/_form.html.erb (7.4ms)
+  Rendered app_versions/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 29ms (Views: 19.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-07-10 16:54:22 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-10 16:54:22 -0400
+
+
+Started GET "/assets/rent_path_logo.png" for 127.0.0.1 at 2013-07-10 16:54:22 -0400
+
+
+Started GET "/assets/spinner.gif" for 127.0.0.1 at 2013-07-10 16:54:22 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-10 16:54:22 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-10 16:54:22 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-10 16:54:22 -0400
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-07-10 16:54:22 -0400
+
+
+Started GET "/projects" for 127.0.0.1 at 2013-07-10 17:19:09 -0400
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 401 Unauthorized in 6ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-07-10 17:19:09 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (1.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 31ms (Views: 24.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-07-10 17:19:09 -0400
+
+
+Started GET "/assets/rent_path_logo.png" for 127.0.0.1 at 2013-07-10 17:19:09 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-10 17:19:09 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-10 17:19:09 -0400
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-07-10 17:19:09 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-10 17:19:09 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-10 17:19:09 -0400
+
+
+Started GET "/projects" for 127.0.0.1 at 2013-07-10 18:13:20 -0400
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-07-10 18:13:20 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 22ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/rent_path_logo.png" for 127.0.0.1 at 2013-07-10 18:13:20 -0400
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-07-10 18:13:20 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-10 18:13:20 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-10 18:13:20 -0400
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-07-10 18:13:20 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-10 18:13:20 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-10 18:13:20 -0400
+
+
+Started GET "/projects" for 127.0.0.1 at 2013-07-11 10:07:02 -0400
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 2ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-07-11 10:07:02 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 26ms (Views: 22.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-07-11 10:07:02 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-11 10:07:02 -0400
+
+
+Started GET "/assets/rent_path_logo.png" for 127.0.0.1 at 2013-07-11 10:07:02 -0400
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-07-11 10:07:02 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-11 10:07:02 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-11 10:07:02 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-11 10:07:02 -0400
+
+
+Started GET "/projects" for 127.0.0.1 at 2013-07-11 10:07:08 -0400
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-07-11 10:07:08 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 21ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-07-11 10:07:09 -0400
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-07-11 10:07:09 -0400
+
+
+Started GET "/assets/rent_path_logo.png" for 127.0.0.1 at 2013-07-11 10:07:09 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-11 10:07:09 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-11 10:07:09 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-11 10:07:09 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-11 10:07:09 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-11 10:58:19 -0400
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://0.0.0.0:3000/projects
+Completed 302 Found in 44ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2013-07-11 10:58:20 -0400
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT "projects".* FROM "projects"
+  Rendered projects/index.html.erb within layouts/application (150.1ms)
+Completed 200 OK in 172ms (Views: 158.5ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-07-11 10:58:20 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-11 10:58:20 -0400
+
+
+Started GET "/assets/rent_path_logo.png" for 127.0.0.1 at 2013-07-11 10:58:20 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-11 10:58:20 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-11 10:58:20 -0400
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-07-11 10:58:20 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-11 10:58:20 -0400
+
+
+Started GET "/projects/5" for 127.0.0.1 at 2013-07-11 10:58:23 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "5"]]
+  Rendered projects/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 22ms (Views: 14.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-11 10:58:24 -0400
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-07-11 10:58:24 -0400
+
+
+Started GET "/assets/rent_path_logo.png" for 127.0.0.1 at 2013-07-11 10:58:24 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-11 10:58:24 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-11 10:58:24 -0400
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-07-11 10:58:24 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-11 10:58:24 -0400
+
+
+Started GET "/projects/5/app_versions" for 127.0.0.1 at 2013-07-11 10:58:26 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"5"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.7ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "5"]]
+  [1m[36mAppVersion Load (0.4ms)[0m  [1mSELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1[0m  [["project_id", 5]]
+  Rendered app_versions/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 32ms (Views: 16.4ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-11 10:58:26 -0400
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-07-11 10:58:26 -0400
+
+
+Started GET "/assets/rent_path_logo.png" for 127.0.0.1 at 2013-07-11 10:58:26 -0400
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-07-11 10:58:26 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-11 10:58:26 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-11 10:58:26 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-11 10:58:26 -0400
+
+
+Started GET "/projects/5/app_versions/new" for 127.0.0.1 at 2013-07-11 10:58:28 -0400
+Processing by AppVersionsController#new as HTML
+  Parameters: {"project_id"=>"5"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "5"]]
+  Rendered app_versions/_form.html.erb (7.9ms)
+  Rendered app_versions/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 71ms (Views: 20.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-11 10:58:29 -0400
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-07-11 10:58:29 -0400
+
+
+Started GET "/assets/rent_path_logo.png" for 127.0.0.1 at 2013-07-11 10:58:29 -0400
+
+
+Started GET "/assets/spinner.gif" for 127.0.0.1 at 2013-07-11 10:58:29 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-11 10:58:29 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-11 10:58:29 -0400
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-07-11 10:58:29 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-11 10:58:29 -0400
+
+
+Started POST "/projects/5/app_versions" for 127.0.0.1 at 2013-07-11 10:59:04 -0400
+Processing by AppVersionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9wDLMzx4m9m1oxs8l4uhszotrk4FkcXYIX4sr67vhPM=", "app_version"=>{"version"=>"5.6.7", "notes"=>"adfasdfaf", "app_ipa"=>#<ActionDispatch::Http::UploadedFile:0x007f860d9f16a0 @tempfile=#<File:/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/RackMultipart20130711-57551-1im0wp0>, @original_filename="Apartments.ipa", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"app_version[app_ipa]\"; filename=\"Apartments.ipa\"\r\nContent-Type: application/octet-stream\r\n">, "version_icon"=>#<ActionDispatch::Http::UploadedFile:0x007f860d8915f8 @tempfile=#<File:/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/RackMultipart20130711-57551-1z0crah>, @original_filename="Apartments.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"app_version[version_icon]\"; filename=\"Apartments.png\"\r\nContent-Type: image/png\r\n">}, "project_id"=>"5"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "5"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mAppVersion Exists (0.7ms)[0m  [1mSELECT 1 AS one FROM "app_versions" WHERE LOWER("app_versions"."version") = LOWER('5.6.7') LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT 1 AS one FROM "app_versions" WHERE LOWER("app_versions"."version") = LOWER('5.6.7') LIMIT 1
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-jngx56.png[0]'
+Command :: identify -format %m '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-jngx56.png[0]'
+Command :: identify -format %m '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-jngx56.png[0]'
+Command :: identify -format %m '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-jngx56.png[0]'
+Command :: convert '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-jngx56.png[0]' -auto-orient -resize "114x114>" '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-jngx5620130711-57551-1nb7onb'
+Command :: file -b --mime '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-jngx5620130711-57551-1nb7onb'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-jngx56.png[0]'
+Command :: identify -format %m '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-jngx56.png[0]'
+Command :: identify -format %m '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-jngx56.png[0]'
+Command :: identify -format %m '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-jngx56.png[0]'
+Command :: convert '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-jngx56.png[0]' -auto-orient -resize "57x57>" '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-jngx5620130711-57551-1ibto2u'
+Command :: file -b --mime '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-jngx5620130711-57551-1ibto2u'
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT 1 AS one FROM "app_versions" WHERE LOWER("app_versions"."version") = LOWER('5.6.7') LIMIT 1[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "app_versions" ("app_ipa_content_type", "app_ipa_file_name", "app_ipa_file_size", "app_ipa_updated_at", "created_at", "notes", "project_id", "updated_at", "version", "version_icon_content_type", "version_icon_file_name", "version_icon_file_size", "version_icon_updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"  [["app_ipa_content_type", "application/octet-stream"], ["app_ipa_file_name", "Apartments.ipa"], ["app_ipa_file_size", 11864088], ["app_ipa_updated_at", Thu, 11 Jul 2013 14:59:04 UTC +00:00], ["created_at", Thu, 11 Jul 2013 14:59:05 UTC +00:00], ["notes", "adfasdfaf"], ["project_id", 5], ["updated_at", Thu, 11 Jul 2013 14:59:05 UTC +00:00], ["version", "5.6.7"], ["version_icon_content_type", "image/png"], ["version_icon_file_name", "Apartments.png"], ["version_icon_file_size", 14916], ["version_icon_updated_at", Thu, 11 Jul 2013 14:59:04 UTC +00:00]]
+[paperclip] Saving attachments.
+[paperclip] saving /app_versions/app_ipas/000/000/051/original/2013-07-11 14:59:04 UTC/Apartments.ipa
+[AWS S3 200 24.84201 0 retries] put_object(:acl=>:public_read,:bucket_name=>"rentpath_app_store_bucket",:content_length=>11864088,:content_type=>"application/octet-stream",:data=>Paperclip::UploadedFileAdapter: Apartments.ipa,:key=>"app_versions/app_ipas/000/000/051/original/2013-07-11 14:59:04 UTC/Apartments.ipa")  
+
+[paperclip] saving /app_versions/version_icons/000/000/051/original/2013-07-11 14:59:04 UTC/Apartments.png
+[AWS S3 200 0.105003 0 retries] put_object(:acl=>:public_read,:bucket_name=>"rentpath_app_store_bucket",:content_length=>14916,:content_type=>"image/png",:data=>Paperclip::UploadedFileAdapter: Apartments.png,:key=>"app_versions/version_icons/000/000/051/original/2013-07-11 14:59:04 UTC/Apartments.png")  
+
+[paperclip] saving /app_versions/version_icons/000/000/051/medium/2013-07-11 14:59:04 UTC/Apartments.png
+[AWS S3 200 0.090292 0 retries] put_object(:acl=>:public_read,:bucket_name=>"rentpath_app_store_bucket",:content_length=>14393,:content_type=>"image/png",:data=>Paperclip::FileAdapter: Apartments20130711-57551-jngx5620130711-57551-1nb7onb,:key=>"app_versions/version_icons/000/000/051/medium/2013-07-11 14:59:04 UTC/Apartments.png")  
+
+[paperclip] saving /app_versions/version_icons/000/000/051/thumb/2013-07-11 14:59:04 UTC/Apartments.png
+[AWS S3 200 0.088715 0 retries] put_object(:acl=>:public_read,:bucket_name=>"rentpath_app_store_bucket",:content_length=>5225,:content_type=>"image/png",:data=>Paperclip::FileAdapter: Apartments20130711-57551-jngx5620130711-57551-1ibto2u,:key=>"app_versions/version_icons/000/000/051/thumb/2013-07-11 14:59:04 UTC/Apartments.png")  
+
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mAppVersion Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "app_versions" WHERE (LOWER("app_versions"."version") = LOWER('5.6.7') AND "app_versions"."id" != 51) LIMIT 1[0m
+[paperclip] Saving attachments.
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT 1 AS one FROM "app_versions" WHERE (LOWER("app_versions"."version") = LOWER('5.6.7') AND "app_versions"."id" != 51) LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mUPDATE "app_versions" SET "url_plist" = $1, "updated_at" = $2 WHERE "app_versions"."id" = 51[0m  [["url_plist", "itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/plist/Apartments-5.6.7.plist"], ["updated_at", Thu, 11 Jul 2013 14:59:30 UTC +00:00]]
+[paperclip] Saving attachments.
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/projects/5/app_versions/51
+Completed 302 Found in 25480ms (ActiveRecord: 8.5ms)
+
+
+Started GET "/projects/5/app_versions/51" for 127.0.0.1 at 2013-07-11 10:59:30 -0400
+Processing by AppVersionsController#show as HTML
+  Parameters: {"project_id"=>"5", "id"=>"51"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mAppVersion Load (0.4ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."id" = $1 LIMIT 1  [["id", "51"]]
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "5"]]
+  Rendered app_versions/show.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 24ms (Views: 14.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-11 10:59:30 -0400
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-07-11 10:59:30 -0400
+
+
+Started GET "/assets/rent_path_logo.png" for 127.0.0.1 at 2013-07-11 10:59:30 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-11 10:59:30 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-11 10:59:30 -0400
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-07-11 10:59:30 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-11 10:59:30 -0400
+
+
+Started GET "/projects/5/app_versions" for 127.0.0.1 at 2013-07-11 11:01:11 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"5"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "5"]]
+  [1m[35mAppVersion Load (0.6ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1  [["project_id", 5]]
+  Rendered app_versions/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 30ms (Views: 17.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-11 11:01:12 -0400
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-07-11 11:01:12 -0400
+
+
+Started GET "/assets/rent_path_logo.png" for 127.0.0.1 at 2013-07-11 11:01:12 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-11 11:01:12 -0400
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-07-11 11:01:12 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-11 11:01:12 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-11 11:01:12 -0400
+
+
+Started DELETE "/projects/5/app_versions/51" for 127.0.0.1 at 2013-07-11 11:01:15 -0400
+Processing by AppVersionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9wDLMzx4m9m1oxs8l4uhszotrk4FkcXYIX4sr67vhPM=", "project_id"=>"5", "id"=>"51"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mAppVersion Load (0.6ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."id" = $1 LIMIT 1  [["id", "51"]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+[paperclip] Scheduling attachments for deletion.
+[AWS S3 200 0.561273 0 retries] head_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/app_ipas/000/000/051/original/2013-07-11 14:59:04 UTC/Apartments.ipa")  
+
+[AWS S3 200 0.047413 0 retries] head_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/version_icons/000/000/051/original/2013-07-11 14:59:04 UTC/Apartments.png")  
+
+[AWS S3 200 0.141144 0 retries] head_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/version_icons/000/000/051/medium/2013-07-11 14:59:04 UTC/Apartments.png")  
+
+[AWS S3 200 0.193128 0 retries] head_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/version_icons/000/000/051/thumb/2013-07-11 14:59:04 UTC/Apartments.png")  
+
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM "app_versions" WHERE "app_versions"."id" = $1  [["id", 51]]
+[paperclip] Deleting attachments.
+[paperclip] deleting /app_versions/app_ipas/000/000/051/original/2013-07-11 14:59:04 UTC/Apartments.ipa
+[AWS S3 204 0.121437 0 retries] delete_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/app_ipas/000/000/051/original/2013-07-11 14:59:04 UTC/Apartments.ipa")  
+
+[paperclip] deleting /app_versions/version_icons/000/000/051/original/2013-07-11 14:59:04 UTC/Apartments.png
+[AWS S3 204 0.146313 0 retries] delete_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/version_icons/000/000/051/original/2013-07-11 14:59:04 UTC/Apartments.png")  
+
+[paperclip] deleting /app_versions/version_icons/000/000/051/medium/2013-07-11 14:59:04 UTC/Apartments.png
+[AWS S3 204 0.101185 0 retries] delete_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/version_icons/000/000/051/medium/2013-07-11 14:59:04 UTC/Apartments.png")  
+
+[paperclip] deleting /app_versions/version_icons/000/000/051/thumb/2013-07-11 14:59:04 UTC/Apartments.png
+[AWS S3 204 0.153576 0 retries] delete_object(:bucket_name=>"rentpath_app_store_bucket",:key=>"app_versions/version_icons/000/000/051/thumb/2013-07-11 14:59:04 UTC/Apartments.png")  
+
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/projects/5/app_versions/
+Completed 302 Found in 1501ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/projects/5/app_versions/" for 127.0.0.1 at 2013-07-11 11:01:17 -0400
+Processing by AppVersionsController#index as HTML
+  Parameters: {"project_id"=>"5"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1[0m  [["id", "5"]]
+  [1m[35mAppVersion Load (0.5ms)[0m  SELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."project_id" = $1  [["project_id", 5]]
+  Rendered app_versions/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 19ms (Views: 11.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-07-11 11:01:17 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-11 11:01:17 -0400
+
+
+Started GET "/assets/rent_path_logo.png" for 127.0.0.1 at 2013-07-11 11:01:17 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-11 11:01:17 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-11 11:01:17 -0400
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-07-11 11:01:17 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-11 11:01:17 -0400
+
+
+Started GET "/projects/5/app_versions/new" for 127.0.0.1 at 2013-07-11 11:01:18 -0400
+Processing by AppVersionsController#new as HTML
+  Parameters: {"project_id"=>"5"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "5"]]
+  Rendered app_versions/_form.html.erb (7.6ms)
+  Rendered app_versions/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 25ms (Views: 18.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/spinner.gif" for 127.0.0.1 at 2013-07-11 11:01:19 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-11 11:01:19 -0400
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-07-11 11:01:19 -0400
+
+
+Started GET "/assets/rent_path_logo.png" for 127.0.0.1 at 2013-07-11 11:01:19 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-11 11:01:19 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-11 11:01:19 -0400
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-07-11 11:01:19 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-11 11:01:19 -0400
+
+
+Started POST "/projects/5/app_versions" for 127.0.0.1 at 2013-07-11 11:01:45 -0400
+Processing by AppVersionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9wDLMzx4m9m1oxs8l4uhszotrk4FkcXYIX4sr67vhPM=", "app_version"=>{"version"=>"5.6.7", "notes"=>"", "app_ipa"=>#<ActionDispatch::Http::UploadedFile:0x007f86089e4f68 @tempfile=#<File:/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/RackMultipart20130711-57551-195y3cw>, @original_filename="Apartments.ipa", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"app_version[app_ipa]\"; filename=\"Apartments.ipa\"\r\nContent-Type: application/octet-stream\r\n">, "version_icon"=>#<ActionDispatch::Http::UploadedFile:0x007f86089e4c20 @tempfile=#<File:/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/RackMultipart20130711-57551-1xsmtvv>, @original_filename="Apartments.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"app_version[version_icon]\"; filename=\"Apartments.png\"\r\nContent-Type: image/png\r\n">}, "project_id"=>"5"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "5"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mAppVersion Exists (0.5ms)[0m  SELECT 1 AS one FROM "app_versions" WHERE LOWER("app_versions"."version") = LOWER('5.6.7') LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT 1 AS one FROM "app_versions" WHERE LOWER("app_versions"."version") = LOWER('5.6.7') LIMIT 1[0m
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-fuy2r0.png[0]'
+Command :: identify -format %m '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-fuy2r0.png[0]'
+Command :: identify -format %m '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-fuy2r0.png[0]'
+Command :: identify -format %m '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-fuy2r0.png[0]'
+Command :: convert '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-fuy2r0.png[0]' -auto-orient -resize "114x114>" '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-fuy2r020130711-57551-17ppe7z'
+Command :: file -b --mime '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-fuy2r020130711-57551-17ppe7z'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-fuy2r0.png[0]'
+Command :: identify -format %m '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-fuy2r0.png[0]'
+Command :: identify -format %m '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-fuy2r0.png[0]'
+Command :: identify -format %m '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-fuy2r0.png[0]'
+Command :: convert '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-fuy2r0.png[0]' -auto-orient -resize "57x57>" '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-fuy2r020130711-57551-1a9il9t'
+Command :: file -b --mime '/var/folders/hl/5g07s_ds163gzc2m0jc8yj_h0000gp/T/Apartments20130711-57551-fuy2r020130711-57551-1a9il9t'
+  [1m[35mCACHE (0.1ms)[0m  SELECT 1 AS one FROM "app_versions" WHERE LOWER("app_versions"."version") = LOWER('5.6.7') LIMIT 1
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "app_versions" ("app_ipa_content_type", "app_ipa_file_name", "app_ipa_file_size", "app_ipa_updated_at", "created_at", "notes", "project_id", "updated_at", "version", "version_icon_content_type", "version_icon_file_name", "version_icon_file_size", "version_icon_updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["app_ipa_content_type", "application/octet-stream"], ["app_ipa_file_name", "Apartments.ipa"], ["app_ipa_file_size", 11864088], ["app_ipa_updated_at", Thu, 11 Jul 2013 15:01:45 UTC +00:00], ["created_at", Thu, 11 Jul 2013 15:01:45 UTC +00:00], ["notes", ""], ["project_id", 5], ["updated_at", Thu, 11 Jul 2013 15:01:45 UTC +00:00], ["version", "5.6.7"], ["version_icon_content_type", "image/png"], ["version_icon_file_name", "Apartments.png"], ["version_icon_file_size", 14916], ["version_icon_updated_at", Thu, 11 Jul 2013 15:01:45 UTC +00:00]]
+[paperclip] Saving attachments.
+[paperclip] saving /app_versions/app_ipas/000/000/052/original/2013-07-11 15:01:45 UTC/Apartments.ipa
+[AWS S3 200 23.985829 1 retries] put_object(:acl=>:public_read,:bucket_name=>"rentpath_app_store_bucket",:content_length=>11864088,:content_type=>"application/octet-stream",:data=>Paperclip::UploadedFileAdapter: Apartments.ipa,:key=>"app_versions/app_ipas/000/000/052/original/2013-07-11 15:01:45 UTC/Apartments.ipa")  
+
+[paperclip] saving /app_versions/version_icons/000/000/052/original/2013-07-11 15:01:45 UTC/Apartments.png
+[AWS S3 200 0.099593 0 retries] put_object(:acl=>:public_read,:bucket_name=>"rentpath_app_store_bucket",:content_length=>14916,:content_type=>"image/png",:data=>Paperclip::UploadedFileAdapter: Apartments.png,:key=>"app_versions/version_icons/000/000/052/original/2013-07-11 15:01:45 UTC/Apartments.png")  
+
+[paperclip] saving /app_versions/version_icons/000/000/052/medium/2013-07-11 15:01:45 UTC/Apartments.png
+[AWS S3 200 0.099614 0 retries] put_object(:acl=>:public_read,:bucket_name=>"rentpath_app_store_bucket",:content_length=>14393,:content_type=>"image/png",:data=>Paperclip::FileAdapter: Apartments20130711-57551-fuy2r020130711-57551-17ppe7z,:key=>"app_versions/version_icons/000/000/052/medium/2013-07-11 15:01:45 UTC/Apartments.png")  
+
+[paperclip] saving /app_versions/version_icons/000/000/052/thumb/2013-07-11 15:01:45 UTC/Apartments.png
+[AWS S3 200 0.094812 0 retries] put_object(:acl=>:public_read,:bucket_name=>"rentpath_app_store_bucket",:content_length=>5225,:content_type=>"image/png",:data=>Paperclip::FileAdapter: Apartments20130711-57551-fuy2r020130711-57551-1a9il9t,:key=>"app_versions/version_icons/000/000/052/thumb/2013-07-11 15:01:45 UTC/Apartments.png")  
+
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAppVersion Exists (0.6ms)[0m  SELECT 1 AS one FROM "app_versions" WHERE (LOWER("app_versions"."version") = LOWER('5.6.7') AND "app_versions"."id" != 52) LIMIT 1
+[paperclip] Saving attachments.
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT 1 AS one FROM "app_versions" WHERE (LOWER("app_versions"."version") = LOWER('5.6.7') AND "app_versions"."id" != 52) LIMIT 1[0m
+  [1m[35mSQL (1.2ms)[0m  UPDATE "app_versions" SET "url_plist" = $1, "updated_at" = $2 WHERE "app_versions"."id" = 52  [["url_plist", "itms-services://?action=download-manifest&amp;url=http://0.0.0.0:3000/plist/Apartments-5.6.7.plist"], ["updated_at", Thu, 11 Jul 2013 15:04:35 UTC +00:00]]
+[paperclip] Saving attachments.
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/projects/5/app_versions/52
+Completed 302 Found in 170221ms (ActiveRecord: 7.9ms)
+
+
+Started GET "/projects/5/app_versions/52" for 127.0.0.1 at 2013-07-11 11:04:35 -0400
+Processing by AppVersionsController#show as HTML
+  Parameters: {"project_id"=>"5", "id"=>"52"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mAppVersion Load (0.4ms)[0m  [1mSELECT "app_versions".* FROM "app_versions" WHERE "app_versions"."id" = $1 LIMIT 1[0m  [["id", "52"]]
+  [1m[35mProject Load (0.4ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "5"]]
+  Rendered app_versions/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 23ms (Views: 14.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/rent_path_logo.png" for 127.0.0.1 at 2013-07-11 11:04:36 -0400
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-07-11 11:04:36 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-11 11:04:36 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-11 11:04:36 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-11 11:04:36 -0400
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-07-11 11:04:36 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-11 11:04:36 -0400
