@@ -1,6 +1,7 @@
 class AppVersionsController < ApplicationController
   before_action :set_app_version, only: [:show, :edit, :update, :destroy]
   before_action :find_project, only: [:index, :new, :create, :edit, :show]
+  skip_before_filter :verify_authenticity_token
 
   # GET /app_versions
   # GET /app_versions.json
@@ -32,8 +33,6 @@ class AppVersionsController < ApplicationController
 
     respond_to do |format|
       if @app_version.save
-#        format.html { redirect_to @app_version, notice: 'App version was successfully created.' }
-
         # Get the plist root folder
         plist_root = "#{Rails.root}/public/plist"
 
@@ -58,7 +57,7 @@ class AppVersionsController < ApplicationController
         @app_version.url_plist = "itms-services://?action=download-manifest&amp;url=http://#{request.env['HTTP_HOST']}/plist/Apartments-#{@app_version.version}.plist"
         if @app_version.save
           format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/#{@app_version.id}", notice: 'App version was successfully created.' }
-          format.json { render action: 'show', status: :created, location: @app_version }
+          format.json { render action: 'show', status: :created, location: { :saved => true } }
         else
           format.html { render action: 'new' }
           format.json { render json: @app_version.errors, status: :unprocessable_entity }
