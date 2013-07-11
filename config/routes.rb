@@ -1,35 +1,23 @@
 RentPathApps::Application.routes.draw do
-  devise_for :users
-
-  resources :token_authentications, :only => [:create, :destroy]
-
-
   root :to => 'welcome#index'
 
+  devise_for :users, :controllers => {:registrations => "registrations"}, :skip => [:registrations]
+  as :user do
+    get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
+    put 'users' => 'devise/registrations#update', :as => 'user_registration'
+  end
+
+  devise_scope :user do
+    get "/sign_in",  :to => "devise/sessions#new"
+    get "/sign_up",  :to => "devise/registrations#new"
+  end
+
+  get '/jsHIsh8987HUfhugF1' => 'registrations#new'
+  resources :users
+  resources :token_authentications, :only => [:create, :destroy]
   resources :projects do
     resources :app_versions
   end
 
   get ":guid" => "app_version#download_link"
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-  
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
 end
