@@ -54,6 +54,8 @@ class AppVersionsController < ApplicationController
         new_plist_path = "#{project_path}/#{project_name}-#{@app_version.version}.plist"
         Dir.mkdir project_path if !Dir.exists? project_path
 
+        @app_version.url_plist = new_plist_path;
+
         puts "About to save plist to: #{new_plist_path}"
 
         # Finally, save the new plist
