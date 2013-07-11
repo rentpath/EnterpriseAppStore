@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RentPathApps</title>
+  <title>RentPath Apps</title>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -32,7 +32,12 @@
         <div id="footer">
           <span class="copyright">© 2013 RentPath, Inc. All rights reserved.</span>
           <div id="terms"><%= link_to 'Terms of User', 'http://rentpath.com/terms-of-use' %> |
-            <%= link_to 'Privacy Policy', 'http://rentpath.com/privacy-policy' %></div>
+            <%= link_to 'Privacy Policy', 'http://rentpath.com/privacy-policy' %> |
+            <% if mobile_device? %>
+                <%= link_to "Full Site", :mobile => 0 %>
+            <% else %>
+                <%= link_to "Mobile Site", :mobile => 1 %>
+            <% end %></div>
         </div>
     </div>
 

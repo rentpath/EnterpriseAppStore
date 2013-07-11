@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>"RentPath Apps"</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="current">
+
+  <div data-role="header">
+    <%= link_to 'Back', nil, 'data-rel' => 'back', 'data-icon' => 'arrow-l', :class => 'back' unless current_page? root_path %>
+    <h1><%= yield(:title) || 'RentPath Apps' %></h1>
+    <%= link_to 'Home', '/', 'data-role' => 'button', 'data-icon' => 'home' %>
+  </div>
+
+  <div data-role="content">
+      <% unless flash.empty? %>
+          <div class="info">
+            <%- flash.each do |name, msg| -%>
+                <%= content_tag :div, msg, :id => "flash_#{name}" %>
+            <%- end -%>
+          </div>
+      <% end %>
+
+      <%= yield %>
+  </div>
+
+  <div data-role="footer">
+    <span class="copyright">© 2013 RentPath, Inc. All rights reserved.</span>
+    <div id="terms"><%= link_to 'Terms of User', 'http://rentpath.com/terms-of-use' %> |
+      <%= link_to 'Privacy Policy', 'http://rentpath.com/privacy-policy' %> |
+      <% if mobile_device? %>
+          <%= link_to 'Full Site', :mobile => 0 %>
+      <% else %>
+          <%= link_to 'Mobile Site', :mobile => 1 %>
+      <% end %></div>
+  </div>
+</div>
+</body>
+</html>

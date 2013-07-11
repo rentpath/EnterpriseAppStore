@@ -1,0 +1,21 @@
+<% title 'Projects' %>
+<% if @projects.size > 0 %>
+    <ul data-role="listview">
+        <% @projects.each do |project| %>
+            <li>
+              <%= link_to project do %>
+                <% if project.project_icon.url(:thumb) != '/project_icons/thumb/missing.png' %>
+                  <%= image_tag "#{project.project_icon.url(:thumb)}" %>
+                <% else %>
+                  <%= image_tag 'rent_path_logo.png', :width => '50' %>
+                <% end %>
+                <%= project.name %>
+              <% end %>
+            </li>
+        <% end %>
+    </ul>
+<% else %>
+    No Projects
+<% end %>
+
+<p><%= link_to 'New Project', 'projects/new', 'data-role' => 'button' %></p>

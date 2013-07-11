@@ -12,7 +12,11 @@
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><%=	 image_tag "#{project.project_icon.url(:thumb)}" %></td>
+        <td><% if project.project_icon.url(:thumb) != '/project_icons/thumb/missing.png' %>
+              <%= image_tag "#{project.project_icon.url(:thumb)}" %>
+          <% else %>
+              <%= image_tag 'rent_path_logo.png', :width => '50' %>
+          <% end %></td>
         <td><%= project.name %></td>
         <td><%= link_to 'Show', project, :class => 'blue_button'%></td>
         <td><%= link_to 'Edit', edit_project_path(project), :class => 'blue_button' %></td>

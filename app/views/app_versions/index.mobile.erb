@@ -1,0 +1,12 @@
+<h1><%= @project.name %> Versions</h1>
+
+<ul data-role="listview">
+  <% @app_versions.each do |app_version| %>
+      <li>
+        <%= link_to project_app_version_path(@project.id, app_version.id) do %>
+          <%= image_tag "#{app_version.version_icon.url(:thumb)}" %>
+          <%= app_version.version %>
+        <% end %>
+      </li>
+  <% end %>
+</ul>

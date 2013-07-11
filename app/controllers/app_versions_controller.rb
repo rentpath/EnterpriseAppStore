@@ -75,9 +75,11 @@ class AppVersionsController < ApplicationController
     respond_to do |format|
       if @app_version.update(app_version_params)
         format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/#{@app_version.id}", notice: 'App version was successfully updated.' }
+        format.mobile { redirect_to "/projects/#{@app_version.project_id}/app_versions/#{@app_version.id}", notice: 'App version was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
+        format.mobile { render action: 'edit' }
         format.json { render json: @app_version.errors, status: :unprocessable_entity }
       end
     end
@@ -89,6 +91,7 @@ class AppVersionsController < ApplicationController
     @app_version.destroy
     respond_to do |format|
       format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/", notice: 'App version was successfully deleted.' }
+      format.mobile { redirect_to "/projects/#{@app_version.project_id}/app_versions/", notice: 'App version was successfully deleted.' }
       format.json { head :no_content }
     end
   end
