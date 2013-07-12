@@ -18,6 +18,9 @@ Using RVM, install Ruby 2.0.0 using the following command.
 If you do not have Bundler installed, please install using the following command.
 ``` $ gem install bundler ```
 
+### Please create a database.yml file using the example
+There is an example database.yml file called database.yml.example in config/. Please rename it to database.yml.
+
 ### Imagemagick:
 This project utilizes the Paperclip gem for file uploads. When uploading images for Projects or new App Versions, the images will need to be resized. To do this Paperclip utilizes framework called Imagemagick. To install Imagemagick on your machine, please follow the following instructions and do not skip any steps or the installation of the rmagick gem will fail when trying to run "Bundle Install: later.
 
@@ -46,7 +49,7 @@ Project Setup:
 
 - Download the source code
 - Install required dependencies listed earlier in the README
-- $ cd ~/sources/EnterpriseAppStore
+- $ cd ~/sources/enterprise_app_store
 - If you chose to use a different password for your local PostgreSQL install, you'll need to update the config/database.yml with your specific password at this time.
 - $ bundle install (If you are having troubles with the rmagick gem, please make sure you've read the Project Dependencies section above)
 - $ rake db:create

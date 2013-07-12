@@ -1,2 +1,4 @@
 /public/plist
 /tmp
+database.yml
+log/**

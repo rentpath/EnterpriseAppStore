@@ -9,7 +9,7 @@ development:
   pool: 5
   timeout: 5000
   host: localhost
-  username: postgres
+  username: postgres 
   password: pass1234
 
 # Warning: The database defined as "test" will be erased and
