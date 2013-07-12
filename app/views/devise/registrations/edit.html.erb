@@ -26,7 +26,7 @@
 
     <% if resource.authentication_token %>
         <p>You can use this url to login<br />
-          <%= link_to "#{request.env['HTTP_HOST']}#{root_path(:auth_token => resource.authentication_token)}", root_path(:auth_token => resource.authentication_token)  %></p>
+          <%= link_to "http://#{request.env['HTTP_HOST']}#{root_path(:auth_token => resource.authentication_token)}", root_path(:auth_token => resource.authentication_token)  %></p>
     <% end %>
 
   <div><%= f.submit "Update" %></div>
