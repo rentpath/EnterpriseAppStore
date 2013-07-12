@@ -33459,3 +33459,119 @@ Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-07-12 11:11:43 -0400
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 11:11:43 -0400
+
+
+Started GET "/projects" for 127.0.0.1 at 2013-07-12 11:21:11 -0400
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 14ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-07-12 11:21:11 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (2.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 72ms (Views: 35.4ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/rent_path_logo.png" for 127.0.0.1 at 2013-07-12 11:21:11 -0400
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-07-12 11:21:11 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 11:21:11 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 11:21:11 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 11:21:11 -0400
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-07-12 11:21:11 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 11:21:11 -0400
+
+
+Started GET "/projects" for 127.0.0.1 at 2013-07-12 11:21:15 -0400
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 3ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-07-12 11:21:15 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 23ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-07-12 11:21:15 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 11:21:15 -0400
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-07-12 11:21:15 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 11:21:15 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 11:21:15 -0400
+
+
+Started GET "/assets/rent_path_logo.png" for 127.0.0.1 at 2013-07-12 11:21:15 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 11:21:15 -0400
+
+
+Started GET "/projects" for 127.0.0.1 at 2013-07-12 11:23:25 -0400
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.5ms)[0m  SELECT "projects".* FROM "projects"
+  Rendered projects/index.html.erb within layouts/application (36.6ms)
+Completed 200 OK in 61ms (Views: 43.1ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 11:23:25 -0400
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2013-07-12 11:23:25 -0400
+
+
+Started GET "/assets/rent_path_logo.png" for 127.0.0.1 at 2013-07-12 11:23:25 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 11:23:25 -0400
+
+
+Started GET "/assets/main.js?body=1" for 127.0.0.1 at 2013-07-12 11:23:25 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 11:23:25 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 11:23:26 -0400
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2013-07-12 11:23:29 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mProject Load (0.4ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT 1  [["id", "6"]]
+  Rendered projects/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 21ms (Views: 14.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 11:23:29 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 11:23:29 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 11:23:29 -0400
+
+
+Started GET "/assets/rent_path_logo.png" for 127.0.0.1 at 2013-07-12 11:23:29 -0400
