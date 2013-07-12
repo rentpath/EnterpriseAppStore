@@ -75,6 +75,22 @@ RentPathApps::Application.configure do
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
 
+  # Don't care if the mailer can't send
+  config.action_mailer.default_url_options = { :host => 'rentpathapps.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => 'utf-8'
+  config.action_mailer.smtp_settings = {
+      address: 'smtp.gmail.com',
+      port: 587,
+      domain: 'rentpathapps.herokuapp.com',
+      authentication: 'plain',
+      enable_starttls_auto: true,
+      user_name: 'rentpathmailer@gmail.com',
+      password: 'Primedia1'
+  }
+
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
   config.logger = Logger.new(STDOUT)

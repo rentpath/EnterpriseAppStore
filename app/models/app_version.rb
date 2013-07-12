@@ -1,5 +1,14 @@
 class AppVersion < ActiveRecord::Base
-  attr_accessible :name, :version, :url_ipa, :url_plist, :url_icon, :notes, :app_ipa, :version_icon
+  attr_accessible :name, :version, :url_ipa, :url_plist, :url_icon, :notes, :app_plist, :app_plist_file_name, :app_ipa, :version_icon
+
+  has_attached_file :app_plist,
+                    :storage => :s3,
+                    :s3_credentials => {
+                        :bucket => ENV['AWS_BUCKET'],
+                        :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+                        :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+                    },
+                    :path => "/:class/:attachment/:id_partition/:style/:filename"
 
   has_attached_file :app_ipa,
                     :storage => :s3,
@@ -8,7 +17,7 @@ class AppVersion < ActiveRecord::Base
                         :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
                         :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
                     },
-                    :path => "/:class/:attachment/:id_partition/:style/:timestamp/:filename"
+                    :path => "/:class/:attachment/:id_partition/:style/:filename"
 
   has_attached_file :version_icon,
                     :storage => :s3,
@@ -19,7 +28,7 @@ class AppVersion < ActiveRecord::Base
                     },
                     :styles => { :medium => "114x114>",
                                  :thumb => "57x57>" },
-                    :path => "/:class/:attachment/:id_partition/:style/:timestamp/:filename"
+                    :path => "/:class/:attachment/:id_partition/:style/:filename"
 
   # VALIDATIONS
   version_regex =  /\d+.\d+.\d+/
