@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="40dd4a26-557f-424b-b635-fa74aee6e1a5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/app_version.rb" afterPath="$PROJECT_DIR$/app/models/app_version.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/app_versions_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/app_versions_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/development.log" afterPath="$PROJECT_DIR$/log/development.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-    </list>
+    <list default="true" id="40dd4a26-557f-424b-b635-fa74aee6e1a5" name="Default" comment="" />
     <ignored path="RentPathApps.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373637204864" ignored="false" />
