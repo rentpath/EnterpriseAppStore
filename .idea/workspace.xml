@@ -2,13 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40dd4a26-557f-424b-b635-fa74aee6e1a5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/app_version.rb" afterPath="$PROJECT_DIR$/app/models/app_version.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/mailers/notification_mailer.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/notification_mailer/send_notification.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/app_versions_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/app_versions_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/development.log" afterPath="$PROJECT_DIR$/log/development.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/development.rb" afterPath="$PROJECT_DIR$/config/environments/development.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RentPathApps.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373637204864" ignored="false" />
-    <file path="/routes.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373400450371" ignored="false" />
+    <file path="/routes.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373643502855" ignored="false" />
     <file path="/app_version.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373642107620" ignored="false" />
     <file path="/20130702144344_add_devise_to_users.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1372776614432" ignored="false" />
     <file path="/welcome_controller.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373391337829" ignored="false" />
@@ -19,19 +25,19 @@
     <file path="/20130702190136_add_project_id_to_app_versions.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1372791886426" ignored="false" />
     <file path="/projects_controller.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373461361775" ignored="false" />
     <file path="/show.html.erb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373461834635" ignored="false" />
-    <file path="/app_versions_controller.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373641778610" ignored="false" />
+    <file path="/app_versions_controller.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373646662163" ignored="false" />
     <file path="/new.html.erb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1372794367721" ignored="false" />
     <file path="/a.dummy" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1372798531525" ignored="false" />
     <file path="/index.json.jbuilder" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1372795918256" ignored="false" />
     <file path="/application_controller.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373558340135" ignored="false" />
     <file path="/user.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373483326516" ignored="false" />
     <file path="/apartments.erb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1372798832691" ignored="false" />
-    <file path="/fragment.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373400073193" ignored="false" />
+    <file path="/fragment.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373645863094" ignored="false" />
     <file path="/edit.html.erb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373485022983" ignored="false" />
     <file path="/Gemfile" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373402602813" ignored="false" />
     <file path="/database.yml" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373307376939" ignored="false" />
     <file path="/20130708202604_add_app_ipa_to_app_version.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373315355848" ignored="false" />
-    <file path="/production.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373378551227" ignored="false" />
+    <file path="/production.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373646383584" ignored="false" />
     <file path="/application.html.erb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373557879911" ignored="false" />
     <file path="/main.css.scss" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373472863664" ignored="false" />
     <file path="/users_controller.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373399838498" ignored="false" />
@@ -44,6 +50,10 @@
     <file path="/mime_types.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373558266638" ignored="false" />
     <file path="/index.mobile.erb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373558507625" ignored="false" />
     <file path="/20130712135331_add_plist_to_app_versions.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373637355584" ignored="false" />
+    <file path="/NotificationMailer.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373643883579" ignored="false" />
+    <file path="/notification_mailer.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373644370089" ignored="false" />
+    <file path="/send_notification.html.erb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373644379928" ignored="false" />
+    <file path="/development.rb" changelist="40dd4a26-557f-424b-b635-fa74aee6e1a5" time="1373645220991" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,28 +73,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="app_version.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/models/app_version.rb">
+      <file leaf-file-name="send_notification.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/notification_mailer/send_notification.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="15" selection-start="1539" selection-end="1539" vertical-scroll-proportion="0.84210527">
+            <state line="3" column="0" selection-start="112" selection-end="112" vertical-scroll-proportion="-1.875">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="20130712135331_add_plist_to_app_versions.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20130712135331_add_plist_to_app_versions.rb">
+      <file leaf-file-name="development.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="44" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0">
+            <state line="19" column="42" selection-start="795" selection-end="795" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="20130702185354_create_projects.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20130702185354_create_projects.rb">
+      <file leaf-file-name="production.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="80" column="48" selection-start="3344" selection-end="3344" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="notification_mailer.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/mailers/notification_mailer.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="34" selection-start="234" selection-end="234" vertical-scroll-proportion="0.18010291">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/routes.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="26" selection-start="566" selection-end="585" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -93,7 +121,7 @@
       <file leaf-file-name="app_versions_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/app_versions_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="19" selection-start="1749" selection-end="1749" vertical-scroll-proportion="-2.6">
+            <state line="35" column="44" selection-start="874" selection-end="874" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -121,22 +149,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/assets/javascripts/main.js.coffee" />
-        <option value="$PROJECT_DIR$/config/initializers/devise.rb" />
-        <option value="$PROJECT_DIR$/app/models/user.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/token_authentication_controller_controller.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20130710193308_add_token_authentication_to_users.rb" />
         <option value="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/views/app_versions/_form.html.erb" />
-        <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/config/initializers/mime_types.rb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/projects/index.mobile.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20130712135331_add_plist_to_app_versions.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/app_versions_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/app_version.rb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/mailers/NotificationMailer.rb" />
+        <option value="$PROJECT_DIR$/app/mailers/notification_mailer.rb" />
+        <option value="$PROJECT_DIR$/app/views/notification_mailer/send_notification.html.erb" />
+        <option value="$PROJECT_DIR$/config/environments/development.rb" />
+        <option value="$PROJECT_DIR$/config/environments/production.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/app_versions_controller.rb" />
       </list>
     </option>
   </component>
@@ -148,8 +176,8 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1907" />
-    <option name="y" value="48" />
+    <option name="x" value="-1913" />
+    <option name="y" value="51" />
     <option name="width" value="1261" />
     <option name="height" value="1024" />
   </component>
@@ -222,11 +250,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrate" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -243,22 +267,8 @@
               <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="RentPathApps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RentPathApps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="environments" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -279,8 +289,40 @@
               <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="projects" />
+              <option name="myItemId" value="RentPathApps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RentPathApps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="notification_mailer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RentPathApps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RentPathApps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -298,21 +340,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RentPathApps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="RentPathApps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="mailers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -358,7 +386,7 @@
       <recent name="$PROJECT_DIR$/public/plist" />
     </key>
   </component>
-  <component name="RunManager" selected="Rake.db:migrate">
+  <component name="RunManager" selected="Rails.Development: RentPathApps">
     <configuration default="false" name="db:migrate" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
       <module name="RentPathApps" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -698,7 +726,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1907" y="48" width="1261" height="1024" extended-state="0" />
+    <frame x="-1913" y="51" width="1261" height="1024" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -788,52 +816,10 @@
           <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="19" />
+      <option name="time" value="24" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/projects/index.mobile.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="35" selection-start="653" selection-end="653" vertical-scroll-proportion="-12.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="5" selection-start="611" selection-end="611" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20130709214117_add_version_icon_to_app_versions.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20130708202604_add_app_ipa_to_app_version.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="5" selection-start="56" selection-end="185" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20130709202807_add_app_icon_to_projects.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20130702190136_add_project_id_to_app_versions.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20130702185354_create_projects.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -876,23 +862,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20130712135331_add_plist_to_app_versions.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="44" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="36" selection-start="1534" selection-end="1534" vertical-scroll-proportion="0.7375">
+        <state line="55" column="21" selection-start="2114" selection-end="2119" vertical-scroll-proportion="0.57678574">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/app_versions_controller.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20130712135331_add_plist_to_app_versions.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="19" selection-start="1749" selection-end="1749" vertical-scroll-proportion="-2.6">
+        <state line="2" column="44" selection-start="112" selection-end="112" vertical-scroll-proportion="0.051457975">
           <folding />
         </state>
       </provider>
@@ -900,6 +879,55 @@
     <entry file="file://$PROJECT_DIR$/app/models/app_version.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="15" selection-start="1539" selection-end="1539" vertical-scroll-proportion="0.84210527">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="26" selection-start="566" selection-end="585" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rvm/gems/ruby-1.9.3-p448/gems/activesupport-4.0.0/lib/active_support/callbacks.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="373" column="0" selection-start="11770" selection-end="11770" vertical-scroll-proportion="0.33272395">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/notification_mailer/send_notification.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="112" selection-end="112" vertical-scroll-proportion="-1.875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="48" selection-start="3344" selection-end="3344" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="42" selection-start="795" selection-end="795" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/app_versions_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="44" selection-start="874" selection-end="874" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/mailers/notification_mailer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="34" selection-start="234" selection-end="234" vertical-scroll-proportion="0.18010291">
           <folding />
         </state>
       </provider>

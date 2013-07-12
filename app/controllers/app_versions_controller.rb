@@ -33,6 +33,8 @@ class AppVersionsController < ApplicationController
 
     respond_to do |format|
       if @app_version.save
+        NotificationMailer.send_notification
+
         # Get the plist root folder
         plist_root = "#{Rails.root}/public/plist"
 
@@ -67,6 +69,7 @@ class AppVersionsController < ApplicationController
           @app_version.url_plist = "itms-services://?action=download-manifest&amp;url=#{@app_version.app_plist.url}"
 
           if @app_version.save
+
             format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/#{@app_version.id}", notice: 'App version was successfully created.' }
             format.json { render action: 'show', status: :created, location: { :saved => true } }
           else
@@ -109,6 +112,13 @@ class AppVersionsController < ApplicationController
       format.mobile { redirect_to "/projects/#{@app_version.project_id}/app_versions/", notice: 'App version was successfully deleted.' }
       format.json { head :no_content }
     end
+  end
+
+  def latest_version
+    project = Project.find(params[:id])
+    app_version = project.app_versions.last
+    latest_version = app_version.version
+    render :json => { :version => latest_version }
   end
 
   def guid

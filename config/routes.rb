@@ -12,6 +12,7 @@ RentPathApps::Application.routes.draw do
     get "/sign_up",  :to => "devise/registrations#new"
   end
 
+  get 'projects/:id/latestversion' => 'app_versions#latest_version'
   get '/jsHIsh8987HUfhugF1' => 'registrations#new'
   resources :users
   resources :token_authentications, :only => [:create, :destroy]
