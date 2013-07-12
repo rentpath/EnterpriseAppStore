@@ -1,0 +1,29 @@
+<%= form_for([@project, @app_version]) do |f| %>
+  <% if @app_version.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@app_version.errors.count, "error") %> prohibited this app_version from being saved:</h2>
+
+      <ul>
+      <% @app_version.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.text_field :version, :placeholder => 'Version # (Ex. 5.3.0)' %><br  />
+    <%= f.text_field :notes, :placeholder => 'Notes' %><br  />
+    <%= f.label :app_ipa, 'ipa' %>
+    <%= f.file_field :app_ipa %><br />
+    <%= f.label :version_icon, 'Icon' %>
+    <%= f.file_field :version_icon %>
+   <br  />
+    <%= f.submit 'Submit App Version', :id => 'submitBtnVersion' %>
+  </div>
+
+  <div id='loading'><%= image_tag 'spinner.gif' %>Loading... </div>
+
+  <p><%= link_to 'Back', "/projects/#{@app_version.project_id}/app_versions" %></p>
+<% end %>

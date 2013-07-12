@@ -1,0 +1,14 @@
+<% title @project.name %>
+<h1>
+  <% if @project.project_icon.url(:thumb) != '/project_icons/thumb/missing.png' %>
+      <%= image_tag "#{@project.project_icon.url(:thumb)}" %>
+  <% else %>
+      <%= image_tag 'rent_path_logo.png', :width => '50' %>
+  <% end %>
+  <%= @project.name%>
+</h1>
+<p>
+    <%= link_to 'Versions', "/projects/#{@project.id}/app_versions", 'data-role' => 'button' %>
+    <%= link_to 'Edit', edit_project_path(@project), 'data-role' => 'button' %>
+    <%= button_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RentPath Apps</title>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <div class="main_content">
+        <div id="header">
+            <!-- Logo -->
+            <div id="logo">
+            <a href='/'><%= image_tag 'rent_path_logo.png' %></a>
+            </div><!-- #logo -->
+            <div id="navigation">
+            <% if user_signed_in? %>
+                <%= link_to 'Projects', "/projects" %> |
+                <%= link_to 'My Account', "/users/edit" %> |
+                <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
+
+            <% else %>
+                <%= link_to 'Login', new_user_session_path %>
+            <% end %>
+            </div><!-- #navigation -->
+        </div>
+
+
+        <div id="body">
+            <%= yield %>
+        </div>
+
+        <div id="footer">
+          <span class="copyright">© 2013 RentPath, Inc. All rights reserved.</span>
+          <div id="terms"><%= link_to 'Terms of User', 'http://rentpath.com/terms-of-use' %> |
+            <%= link_to 'Privacy Policy', 'http://rentpath.com/privacy-policy' %> |
+            <% if mobile_device? %>
+                <%= link_to "Full Site", :mobile => 0 %>
+            <% else %>
+                <%= link_to "Mobile Site", :mobile => 1 %>
+            <% end %></div>
+        </div>
+    </div>
+
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+</body>
+</html>
