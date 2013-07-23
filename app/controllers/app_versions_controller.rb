@@ -15,7 +15,6 @@ class AppVersionsController < ApplicationController
     @guid = guid
   end
 
-
   # GET /app_versions/new
   def new
     @app_version = @project.app_versions.new
@@ -33,7 +32,6 @@ class AppVersionsController < ApplicationController
 
     respond_to do |format|
       if @app_version.save
-        NotificationMailer.send_notification
 
         # Get the plist root folder
         plist_root = "#{Rails.root}/public/plist"
@@ -69,6 +67,8 @@ class AppVersionsController < ApplicationController
           @app_version.url_plist = "itms-services://?action=download-manifest&amp;url=#{@app_version.app_plist.url}"
 
           if @app_version.save
+
+            NotificationMailer.send_notification(@project).deliver
 
             format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/#{@app_version.id}", notice: 'App version was successfully created.' }
             format.json { render action: 'show', status: :created, location: { :saved => true } }
