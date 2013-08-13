@@ -1,10 +1,18 @@
 <% title "#{@project.name} Versions" %>
 <ul data-role="listview">
   <% @app_versions.each do |app_version| %>
+      <%
+         @image_url = 'android.png'
+         if app_version.app_artifact.url.rindex('.ipa')
+           @image_url = 'apple.png'
+         end
+      %>
       <li>
         <%= link_to project_app_version_path(@project.id, app_version.id) do %>
           <%= image_tag "#{app_version.version_icon.url(:thumb)}" %>
+          <%= image_tag @image_url, width: '50' %>
           <%= app_version.version %>
+
         <% end %>
       </li>
   <% end %>

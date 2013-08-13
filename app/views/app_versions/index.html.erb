@@ -3,7 +3,14 @@
 <table>
   <tbody>
     <% @app_versions.each do |app_version| %>
+      <%
+         @image_url = 'android.png'
+         if app_version.app_artifact.url.rindex('.ipa')
+            @image_url = 'apple.png'
+         end
+      %>
       <tr>
+        <td><%= image_tag @image_url, width: '50' %></td>
         <td><%= image_tag "#{app_version.version_icon.url(:thumb)}" %></td>
         <td><%= app_version.version %></td>
         <td><%= link_to 'Show', project_app_version_path(@project.id, app_version.id), :class => 'blue_button' %></td>

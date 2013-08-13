@@ -1,7 +1,7 @@
 <h1><%= @project.name %> Version <%= @version.version %> Now Available</h1>
 <%= @project.name %> Version <%= @version.version %> is now available, please use the following URL to install it now.
 
-<p><a href="<%= @version.url_plist.to_s %>">INSTALL VERSION <%= @version.version %></a></p>
+<p><a href="<%= @artifact_url %>">INSTALL VERSION <%= @version.version %></a></p>
 
 <p><a href="https://rentpathapps.herokuapp.com">RetPath Enterprise App Store</a></p>
 

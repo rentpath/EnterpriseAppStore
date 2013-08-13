@@ -12,7 +12,12 @@ class AppVersionsController < ApplicationController
   # GET /app_versions/1
   # GET /app_versions/1.json
   def show
-    @guid = guid
+    @artifact_url = @app_version.app_artifact.url
+    @is_ios = false
+    if @artifact_url.rindex('.ipa')
+      @artifact_url = @app_version.app_plist.url
+      @is_ios = true
+    end
   end
 
   # GET /app_versions/new
@@ -33,52 +38,66 @@ class AppVersionsController < ApplicationController
     respond_to do |format|
       if @app_version.save
 
-        # Get the plist root folder
-        plist_root = "#{Rails.root}/public/plist"
+        artifact_url = @app_version.app_artifact.url
+        if artifact_url.rindex('.ipa')
+          # iOS build
 
-        # Get the projects specific plist template and parse
-        plist_template = "#{plist_root}/template.plist"
-        plist = Plist::parse_xml(plist_template)
+          # Get the plist root folder
+          plist_root = "#{Rails.root}/public/plist"
 
-        puts "Template Plist: #{plist}"
+          # Get the projects specific plist template and parse
+          plist_template = "#{plist_root}/template.plist"
+          plist = Plist::parse_xml(plist_template)
 
-        # Update ipa URL, Bundle ID, Bundle Version
-        plist['items'][0]['assets'][0]['url'] = @app_version.app_ipa.url
-        plist['items'][0]['metadata']['bundle-identifier'] = @project.bundle_identifier
-        plist['items'][0]['metadata']['bundle-version'] = @app_version.version
-        plist['items'][0]['metadata']['title'] = @project.title
+          puts "Template Plist: #{plist}"
 
-        # Create the final path for the new plist
-        project_name = @project.name.gsub(/\s+/, "-")
-        project_path = "#{plist_root}/#{project_name}"
-        new_plist_path = "#{project_path}/#{project_name}-#{@app_version.version}.plist"
-        Dir.mkdir project_path if !Dir.exists? project_path
+          # Update ipa URL, Bundle ID, Bundle Version
+          plist['items'][0]['assets'][0]['url'] = artifact_url
+          plist['items'][0]['metadata']['bundle-identifier'] = @project.bundle_identifier
+          plist['items'][0]['metadata']['bundle-version'] = @app_version.version
+          plist['items'][0]['metadata']['title'] = @project.title
 
-        puts "About to save plist to: #{new_plist_path}"
+          # Create the final path for the new plist
+          project_name = @project.name.gsub(/\s+/, "-")
+          project_path = "#{plist_root}/#{project_name}"
+          new_plist_path = "#{project_path}/#{project_name}-#{@app_version.version}.plist"
+          Dir.mkdir project_path if !Dir.exists? project_path
 
-        # Finally, save the new plist
-        save_plist(plist, new_plist_path)
+          puts "About to save plist to: #{new_plist_path}"
 
-        # Assign the new plist to the app_plist attribute so it will be uploaded to S3
-        @app_version.app_plist = File.open(new_plist_path)
+          # Finally, save the new plist
+          save_plist(plist, new_plist_path)
 
-        if @app_version.save
-
-          @app_version.url_plist = "itms-services://?action=download-manifest&amp;url=#{@app_version.app_plist.url}"
+          # Assign the new plist to the app_plist attribute so it will be uploaded to S3
+          @app_version.app_plist = File.open(new_plist_path)
 
           if @app_version.save
 
-            NotificationMailer.send_notification(@project).deliver
+            @app_version.url_plist = "itms-services://?action=download-manifest&amp;url=#{@app_version.app_plist.url}"
 
-            format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/#{@app_version.id}", notice: 'App version was successfully created.' }
-            format.json { render action: 'show', status: :created, location: { :saved => true } }
+            if @app_version.save
+
+              NotificationMailer.send_notification(@project).deliver
+
+              format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/#{@app_version.id}", notice: 'App version was successfully created.' }
+              format.json { render action: 'show', status: :created, location: { :saved => true } }
+            else
+              format.html { render action: 'new' }
+              format.json { render json: @app_version.errors, status: :unprocessable_entity }
+            end
           else
             format.html { render action: 'new' }
             format.json { render json: @app_version.errors, status: :unprocessable_entity }
           end
+
         else
-          format.html { render action: 'new' }
-          format.json { render json: @app_version.errors, status: :unprocessable_entity }
+          # Android Build
+
+          NotificationMailer.send_notification(@project).deliver
+
+          format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/#{@app_version.id}", notice: 'App version was successfully created.' }
+          format.json { render action: 'show', status: :created, location: { :saved => true } }
+
         end
       else
         format.html { render action: 'new' }
@@ -119,10 +138,6 @@ class AppVersionsController < ApplicationController
     app_version = project.app_versions.last
     latest_version = app_version.version
     render :json => { :version => latest_version }
-  end
-
-  def guid
-    "12345"
   end
 
   private
