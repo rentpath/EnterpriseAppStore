@@ -2,4 +2,4 @@
 <p id="notice"><%= notice %></p>
 <%= image_tag "#{@app_version.version_icon.url(:thumb)}" %>
 <%= @app_version.version %>
-<%= link_to 'Install', @app_version.url_plist, 'data-role' => 'button', 'data-ajax' => false %>
+<%= link_to 'Install', @artifact_url, 'data-role' => 'button', 'data-ajax' => false %>
