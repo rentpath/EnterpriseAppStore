@@ -4,4 +4,4 @@
 # Mime::Type.register "text/richtext", :rtf
 Mime::Type.register_alias "text/html", :mobile
 
-Mime::Type.register "application/vnd.android.package-archive", :apk
+Mime::Type.register_alias "application/vnd.android.package-archive", :apk
