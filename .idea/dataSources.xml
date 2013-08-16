@@ -5,7 +5,7 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://127.0.0.1/app_store_dev</jdbc-url>
       <user-name>postgres</user-name>
-      <user-password>dfcedfcfdfdcdffadfcbdfd9dfd9df9bdf98df99</user-password>
+      <user-password>dfdadfcbdfd9dfd9df9bdf98df99df9e</user-password>
       <libraries>
         <library>
           <url>file://$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/postgresql-driver-license.txt</url>
@@ -19,7 +19,7 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://127.0.0.1/app_store_test</jdbc-url>
       <user-name>postgres</user-name>
-      <user-password>dfcedfcfdfdcdffadfcbdfd9dfd9df9bdf98df99</user-password>
+      <user-password>dfdadfcbdfd9dfd9df9bdf98df99df9e</user-password>
       <libraries>
         <library>
           <url>file://$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/postgresql-driver-license.txt</url>
@@ -31,7 +31,7 @@
     </data-source>
     <data-source source="LOCAL" name="Rails RentPathApps: production" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="63e81946-cc42-4fa6-a761-1c2b4532538f">
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql:app_store_prod</jdbc-url>
+      <jdbc-url>jdbc:postgresql:db/production.sqlite3</jdbc-url>
       <libraries>
         <library>
           <url>file://$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/postgresql-driver-license.txt</url>
