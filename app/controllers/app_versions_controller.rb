@@ -15,7 +15,7 @@ class AppVersionsController < ApplicationController
     @artifact_url = @app_version.app_artifact.url
     @is_ios = false
     if @artifact_url.rindex('.ipa')
-      @artifact_url = @app_version.app_plist.url
+      @artifact_url = @app_version.url_plist
       @is_ios = true
     end
   end
