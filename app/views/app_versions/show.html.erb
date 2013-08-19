@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+<%= image_tag @image_url, width: '50' %>
 <%= image_tag "#{@app_version.version_icon.url(:thumb)}" %>
 <%= @app_version.version %>
 <%= link_to 'Install', @artifact_url, :class => 'blue_button' %>
