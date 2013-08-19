@@ -9,6 +9,8 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'plist'
 gem 'rmagick'
+gem 'rest-client'
+gem 'figaro'
 
 # Use sqlite3 as the database for Active Record
 gem 'pg'

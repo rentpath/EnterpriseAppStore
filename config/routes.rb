@@ -14,6 +14,8 @@ RentPathApps::Application.routes.draw do
 
   get 'projects/:id/latestversion' => 'app_versions#latest_version'
   get '/jsHIsh8987HUfhugF1' => 'registrations#new'
+  get '/install/:id' => 'app_versions#install'
+
   resources :users
   resources :token_authentications, :only => [:create, :destroy]
   resources :projects do

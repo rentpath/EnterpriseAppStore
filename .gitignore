@@ -3,3 +3,6 @@
 database.yml
 log/**
 .idea/workspace.xml
+
+# Ignore application configuration
+/config/application.yml
