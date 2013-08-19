@@ -23,12 +23,15 @@ class AppVersionsController < ApplicationController
   def install
     require 'net/http'
     require 'open-uri'
-    @apk_url = @app_version.app_artifact.url
-    data = open(@apk_url)
+    apk_url = @app_version.app_artifact.url
+    project = Project.find(@app_version.project_id)
+    filename = "#{project.title}-#{@app_version.version}.apk"
+    data = open(apk_url)
     temp_file = File.open data
-
     headers['Content-Type'] = 'application/vnd.android.package-archive'
-    send_file temp_file, :type => 'application/vnd.android.package-archive', :disposition => "attachment", :filename => 'Apartments.apk'
+    send_file temp_file, :type => 'application/vnd.android.package-archive',
+                         :disposition => 'attachment',
+                         :filename => filename
   end
 
   # GET /app_versions/new

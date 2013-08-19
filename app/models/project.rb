@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
   attr_accessible :name, :project_icon, :bundle_identifier, :title
-  has_many :app_versions
+  has_many :app_versions, dependent: :destroy
   has_attached_file :project_icon,
                     :storage => :s3,
                     :s3_credentials => {

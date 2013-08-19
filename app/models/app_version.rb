@@ -1,5 +1,5 @@
 class AppVersion < ActiveRecord::Base
-  attr_accessible :name, :version, :url_ipa, :url_plist, :url_icon, :notes, :app_plist, :app_plist_file_name, :app_artifact, :version_icon
+  attr_accessible :name, :version, :url_ipa, :url_plist, :url_icon, :notes, :app_plist, :app_plist_file_name, :app_artifact, :version_icon, :project_id
 
   has_attached_file :app_plist,
                     :storage => :s3,
