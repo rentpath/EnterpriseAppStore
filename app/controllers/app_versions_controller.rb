@@ -1,5 +1,5 @@
 class AppVersionsController < ApplicationController
-  before_action :set_app_version, only: [:show, :edit, :update, :destroy]
+  before_action :set_app_version, only: [:show, :edit, :update, :destroy, :install]
   before_action :find_project, only: [:index, :new, :create, :edit, :show]
   skip_before_filter :verify_authenticity_token
 
@@ -12,12 +12,23 @@ class AppVersionsController < ApplicationController
   # GET /app_versions/1
   # GET /app_versions/1.json
   def show
-    @artifact_url = @app_version.app_artifact.url
-    @image_url = 'android.png'
+    @artifact_url = "/install/#{@app_version.id}"
+	@image_url = 'android.png'
     if @artifact_url.rindex('.ipa')
       @artifact_url = @app_version.url_plist
       @image_url = 'apple.png'
     end
+  end
+
+  def install
+    require 'net/http'
+    require 'open-uri'
+    @apk_url = @app_version.app_artifact.url
+    data = open(@apk_url)
+    temp_file = File.open data
+
+    headers['Content-Type'] = 'application/vnd.android.package-archive'
+    send_file temp_file, :type => 'application/vnd.android.package-archive', :disposition => "attachment", :filename => 'Apartments.apk'
   end
 
   # GET /app_versions/new
@@ -161,4 +172,5 @@ class AppVersionsController < ApplicationController
         puts "Return Value: #{return_value}"
       end
     end
+
 end
