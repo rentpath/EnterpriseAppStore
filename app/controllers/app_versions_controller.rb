@@ -13,8 +13,8 @@ class AppVersionsController < ApplicationController
   # GET /app_versions/1.json
   def show
     @artifact_url = "/install/#{@app_version.id}"
-	@image_url = 'android.png'
-    if @artifact_url.rindex('.ipa')
+	  @image_url = 'android.png'
+    if @app_version.app_artifact.url.rindex('.ipa')
       @artifact_url = @app_version.url_plist
       @image_url = 'apple.png'
     end
