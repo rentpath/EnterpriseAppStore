@@ -7,6 +7,20 @@ class AppVersionsController < ApplicationController
   # GET /app_versions.json
   def index
     @app_versions = @project.app_versions
+    @android_versions = Array.new
+    @ios_versions     = Array.new
+
+    @app_versions.each do |app_version|
+      if app_version.app_artifact.url.rindex('.ipa')
+        @ios_versions << app_version
+      else
+        @android_versions << app_version
+      end
+    end
+
+    @android_versions.sort
+    @ios_versions.sort
+
   end
 
   # GET /app_versions/1
