@@ -18,9 +18,41 @@ class AppVersionsController < ApplicationController
       end
     end
 
-    @android_versions.sort
-    @ios_versions.sort
+    asc_sort = ->(a, b) {
 
+      #if a < b then return -1
+      #if a = b then return  0
+      #if a > b then return  1
+
+      a_version = a.version.sub('-QA_ENTERPRISE', '')
+      b_version = b.version.sub('-QA_ENTERPRISE', '')
+
+      return 0 if a_version.equal?(b_version)
+
+      a_array = a_version.split('.')
+      b_array = b_version.split('.')
+
+      if a_array.size == b_array.size || a_array.size < b_array.size
+        for i in 0..a_array.size
+          next if a_array[i].to_i == b_array[i].to_i
+          return -1 if a_array[i].to_i < b_array[i].to_i
+          return 1 if a_array[i].to_i > b_array[i].to_i
+        end
+      elsif a_array.size > b_array.size
+        for i in 0..b_array.size
+          next if a_array[i].to_i == b_array[i].to_i
+          return -1 if a_array[i].to_i < b_array[i].to_i
+          return 1 if a_array[i].to_i > b_array[i].to_i
+        end
+      end
+
+      a_version <=> b_version
+    }
+
+    @android_versions = @android_versions.sort(&asc_sort)
+    @ios_versions = @ios_versions.sort(&asc_sort)
+
+    puts @ios_versions
   end
 
   # GET /app_versions/1
