@@ -1,18 +1,28 @@
 <% title "#{@project.name} Versions" %>
-<ul data-role="listview">
-  <% @app_versions.each do |app_version| %>
-      <%
-         @image_url = 'android.png'
-         if app_version.app_artifact.url.rindex('.ipa')
-           @image_url = 'apple.png'
-         end
-      %>
-      <li>
-        <%= link_to project_app_version_path(@project.id, app_version.id) do %>
-          <%= image_tag "#{app_version.version_icon.url(:thumb)}" %>
-          <%= image_tag @image_url, width: '50' %>
-          <%= app_version.version %>
 
+<ul data-role="listview">
+  <% @android_versions.each do |android_version| %>
+      <li>
+        <%= link_to project_app_version_path(@project.id, android_version.id) do %>
+            <%= image_tag 'android.png', width: '50' %>
+            <%= image_tag "#{android_version.version_icon.url(:thumb)}" %>
+            <div>
+                <%= android_version.version %><br/><%= android_version.created_at.strftime("%m/%d/%Y at %I:%M%p") %>
+            </div>
+        <% end %>
+      </li>
+  <% end %>
+</ul>
+
+<ul data-role="listview">
+  <% @ios_versions.each do |ios_version| %>
+      <li>
+        <%= link_to project_app_version_path(@project.id, ios_version.id) do %>
+            <%= image_tag 'apple.png', width: '50' %>
+            <%= image_tag "#{ios_version.version_icon.url(:thumb)}" %>
+            <div>
+                <%= ios_version.version %><br/><%= ios_version.created_at.strftime("%m/%d/%Y at %I:%M%p") %>
+            </div>
         <% end %>
       </li>
   <% end %>
