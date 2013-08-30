@@ -6,7 +6,7 @@
       <tr>
         <td><%= image_tag 'android.png', width: '50' %></td>
         <td><%= image_tag "#{android_version.version_icon.url(:thumb)}" %></td>
-        <td><%= android_version.version %><br/><%= android_version.created_at.strftime("%m/%d/%Y at %I:%M%p") %></td>
+        <td><%= android_version.version %><br/><%= android_version.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%m/%d/%Y at %I:%M%p") %></td>
         <td><%= link_to 'Show', project_app_version_path(@project.id, android_version.id), :class => 'blue_button' %></td>
         <td><%= link_to 'Destroy', "/projects/#{@project.id}/app_versions/#{android_version.id}", method: :delete, data: { confirm: 'Are you sure?' }, :class => 'blue_button'  %></td>
       </tr>
@@ -20,7 +20,7 @@
       <tr>
         <td><%= image_tag 'apple.png', width: '50' %></td>
         <td><%= image_tag "#{ios_version.version_icon.url(:thumb)}" %></td>
-        <td><%= ios_version.version %><br/><%= ios_version.created_at.strftime("%m/%d/%Y at %I:%M%p") %></td>
+        <td><%= ios_version.version %><br/><%= ios_version.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%m/%d/%Y at %I:%M%p") %></td>
         <td><%= link_to 'Show', project_app_version_path(@project.id, ios_version.id), :class => 'blue_button' %></td>
         <td><%= link_to 'Destroy', "/projects/#{@project.id}/app_versions/#{ios_version.id}", method: :delete, data: { confirm: 'Are you sure?' }, :class => 'blue_button'  %></td>
       </tr>

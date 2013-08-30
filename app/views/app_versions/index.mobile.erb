@@ -7,7 +7,7 @@
             <%= image_tag 'android.png', width: '50' %>
             <%= image_tag "#{android_version.version_icon.url(:thumb)}" %>
             <div>
-                <%= android_version.version %><br/><%= android_version.created_at.strftime("%m/%d/%Y at %I:%M%p") %>
+                <%= android_version.version %><br/><%= android_version.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%m/%d/%Y at %I:%M%p") %>
             </div>
         <% end %>
       </li>
@@ -21,7 +21,7 @@
             <%= image_tag 'apple.png', width: '50' %>
             <%= image_tag "#{ios_version.version_icon.url(:thumb)}" %>
             <div>
-                <%= ios_version.version %><br/><%= ios_version.created_at.strftime("%m/%d/%Y at %I:%M%p") %>
+                <%= ios_version.version %><br/><%= ios_version.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%m/%d/%Y at %I:%M%p") %>
             </div>
         <% end %>
       </li>
