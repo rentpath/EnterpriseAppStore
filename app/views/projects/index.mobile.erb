@@ -3,7 +3,7 @@
     <ul data-role="listview">
         <% @projects.each do |project| %>
             <li>
-              <%= link_to project do %>
+              <%= link_to "/projects/#{project.id}/app_versions" do %>
                 <% if project.project_icon.url(:thumb) != '/project_icons/thumb/missing.png' %>
                   <%= image_tag "#{project.project_icon.url(:thumb)}" %>
                 <% else %>
