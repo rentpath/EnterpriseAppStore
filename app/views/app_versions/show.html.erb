@@ -1,7 +1,19 @@
 <p id="notice"><%= notice %></p>
-<%= image_tag @image_url, width: '50' %>
-<%= image_tag "#{@app_version.version_icon.url(:thumb)}" %>
-<%= @app_version.version %>
-<%= link_to 'Install', @artifact_url, :class => 'blue_button' %>
-<%= link_to 'Download Binary', @app_version.app_artifact.url, :class => 'blue_button'  %>
-<%= link_to 'Back', "/projects/#{@app_version.project_id}/app_versions", :class => 'blue_button' %>
+
+<h2>Version: <%= @app_version.version %></h2>
+
+<div class="release_content">
+    <%= image_tag @image_url, width: '50' %>
+    <%= image_tag "#{@app_version.version_icon.url(:thumb)}" %><br/>
+    <%= link_to 'Install', @artifact_url, :class => 'blue_button' %><br/>
+    <%= link_to 'Download Binary', @app_version.app_artifact.url, :class => 'blue_button'  %><br/>
+    <%= link_to 'Back', "/projects/#{@app_version.project_id}/app_versions", :class => 'blue_button' %>
+</div>
+
+
+<div class="release_notes">
+    <b><%= @app_version.version %> Release Notes:</b><br/>
+    <%= @app_version.notes %>
+</div>
+
+<div class="clear"></div>

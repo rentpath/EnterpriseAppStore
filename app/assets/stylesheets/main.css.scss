@@ -21,16 +21,16 @@ pre {
 }
 
 a {
-  color: #000;
+  color: #0CAEEF;
   text-decoration: none;
   &:visited {
-    color: #000;
+    color: #0CAEEF;
     text-decoration: underline;
   }
   &:hover {
-    color: #0CAEEF;
+    color: #FFF;
     text-decoration: underline;
-    background: #000;
+    background: #0CAEEF;
   }
 }
 
@@ -38,6 +38,13 @@ div {
   &.field, &.actions {
     margin-bottom: 10px;
   }
+}
+
+hr {
+  height:1px;
+  width:100%;
+  background:#dddddd;
+  border: 0px;
 }
 
 #notice {
@@ -129,9 +136,14 @@ div {
 }
 
 .blue_button {
-  background: #0CAEEF;
+  background: #f8f8f8;
   @include bRadius;
-  padding: 5px;
+  padding: 8px;
+  display: block;
+  margin: 3px 0px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #f1f1f1;
 }
 
 #loading {
@@ -142,4 +154,54 @@ div {
   min-width: 60px;
   padding: 5px;
   display: none;
+}
+
+.release_content {
+  @include bRadius;
+  background: #eeeeee;
+  border: 1px solid #e5e5e5;
+  float: left;
+  width: 250px;
+  padding: 10px;
+  text-align: center;
+}
+
+.release_notes {
+  padding: 5px;
+  margin: 5px 5px 5px 275px;
+}
+
+.clear {
+  clear: both;
+}
+
+.android_builds {
+  float: left;
+  width: 50%
+}
+
+.ios_builds {
+  float: right;
+  width: 50%;
+}
+
+.project {
+  @include bRadius;
+  background: #fcfcfc;
+  border: 1px solid #ddd;
+  width: 32%;
+  margin: 8px 0px;
+  padding: 5px 0px;
+  text-align: center;
+  display: inline-block;
+  height: 200px;
+  vertical-align: top;
+  position: relative;
+}
+
+.project_links {
+  width: 95%;
+  position: absolute;
+  bottom: 0;
+  margin: 5px;
 }
