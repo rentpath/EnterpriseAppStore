@@ -81,7 +81,7 @@ class AppVersionsController < ApplicationController
 
             if @app_version.save
 
-              remove_old_builds
+              remove_old_builds_for_project(@project)
               notify_users(@project)
 
               format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/#{@app_version.id}", notice: 'App version was successfully created.' }
@@ -98,7 +98,7 @@ class AppVersionsController < ApplicationController
         else
           # Android Build
 
-          remove_old_builds
+          remove_old_builds_for_project(@project)
           notify_users(@project)
 
           format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/#{@app_version.id}", notice: 'App version was successfully created.' }

@@ -75,8 +75,8 @@ module AppVersionsHelper
     end
   end
 
-  def remove_old_builds
-    all_versions = AppVersion.all
+  def remove_old_builds_for_project(project)
+    all_versions = project.app_versions.all
     ios_versions = Array.new
     android_versions = Array.new
     all_versions.each do |app_version|
