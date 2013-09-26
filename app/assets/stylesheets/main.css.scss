@@ -176,13 +176,23 @@ hr {
 }
 
 .android_builds {
+  @include bRadius;
+  background: #fefefe;
+  border: 1px solid #f1f1f1;
+  padding: 2px;
+  margin: 5px 2px;
   float: left;
-  width: 50%
+  width: 48%
 }
 
 .ios_builds {
+  @include bRadius;
+  background: #fefefe;
+  border: 1px solid #f1f1f1;
+  padding: 2px;
+  margin: 5px 2px;
   float: right;
-  width: 50%;
+  width: 48%;
 }
 
 .project {

@@ -3,14 +3,18 @@
 <div class="android_builds">
     <table>
       <tbody>
-      <% @android_versions.each do |android_version| %>
-          <tr>
-            <td><%= image_tag 'android.png', width: '50' %></td>
-            <td><%= image_tag "#{android_version.version_icon.url(:thumb)}" %></td>
-            <td><%= android_version.version %><br/><%= android_version.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%m/%d/%Y at %I:%M%p") %></td>
-            <td><%= link_to 'Show', project_app_version_path(@project.id, android_version.id), :class => 'blue_button' %></td>
-            <td><%= link_to 'Destroy', "/projects/#{@project.id}/app_versions/#{android_version.id}", method: :delete, data: { confirm: 'Are you sure?' }, :class => 'blue_button'  %></td>
-          </tr>
+      <% if @android_versions.size > 0 %>
+          <% @android_versions.each do |android_version| %>
+              <tr>
+                <td><%= image_tag 'android.png', width: '50' %></td>
+                <td><%= image_tag "#{android_version.version_icon.url(:thumb)}" %></td>
+                <td><%= android_version.version %><br/><%= android_version.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%m/%d/%Y at %I:%M%p") %></td>
+                <td><%= link_to 'Show', project_app_version_path(@project.id, android_version.id), :class => 'blue_button' %></td>
+                <td><%= link_to 'Destroy', "/projects/#{@project.id}/app_versions/#{android_version.id}", method: :delete, data: { confirm: 'Are you sure?' }, :class => 'blue_button'  %></td>
+              </tr>
+          <% end %>
+      <% else %>
+          <b>No Android Versions Currently Available.</b>
       <% end %>
       </tbody>
     </table>
@@ -19,14 +23,18 @@
 <div class="ios_builds">
     <table>
       <tbody>
-        <% @ios_versions.each do |ios_version| %>
-          <tr>
-            <td><%= image_tag 'apple.png', width: '50' %></td>
-            <td><%= image_tag "#{ios_version.version_icon.url(:thumb)}" %></td>
-            <td><%= ios_version.version %><br/><%= ios_version.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%m/%d/%Y at %I:%M%p") %></td>
-            <td><%= link_to 'Show', project_app_version_path(@project.id, ios_version.id), :class => 'blue_button' %></td>
-            <td><%= link_to 'Destroy', "/projects/#{@project.id}/app_versions/#{ios_version.id}", method: :delete, data: { confirm: 'Are you sure?' }, :class => 'blue_button'  %></td>
-          </tr>
+        <% if @ios_versions.size > 0 %>
+            <% @ios_versions.each do |ios_version| %>
+              <tr>
+                <td><%= image_tag 'apple.png', width: '50' %></td>
+                <td><%= image_tag "#{ios_version.version_icon.url(:thumb)}" %></td>
+                <td><%= ios_version.version %><br/><%= ios_version.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%m/%d/%Y at %I:%M%p") %></td>
+                <td><%= link_to 'Show', project_app_version_path(@project.id, ios_version.id), :class => 'blue_button' %></td>
+                <td><%= link_to 'Destroy', "/projects/#{@project.id}/app_versions/#{ios_version.id}", method: :delete, data: { confirm: 'Are you sure?' }, :class => 'blue_button'  %></td>
+              </tr>
+            <% end %>
+        <% else %>
+            <b>No iOS Versions Currently Available.</b>
         <% end %>
       </tbody>
     </table>
