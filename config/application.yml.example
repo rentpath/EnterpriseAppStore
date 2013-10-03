@@ -1,0 +1,3 @@
+AWS_ACCESS_KEY_ID: enter_access_key_here
+AWS_BUCKET: enter_bucket_here
+AWS_SECRET_ACCESS_KEY: enter_secret_access_key_here
