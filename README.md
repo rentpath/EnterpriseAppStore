@@ -37,9 +37,9 @@ This project also utilizes PostgreSQL as it's data store. To install PostreSQL s
 ### Amazon S3:
 an S3 bucket is used to store all of the uploaded images, ipa's, and plist's. In order for you to be able to run the app locally and create new projects and/or app versions, you'll need to set up the following environment variables so the files can be uploaded to S3.
 
-AWS_ACCESS_KEY_ID: AKIAIBZ32CFZLHHBKOMQ
-AWS_BUCKET: rentpath_app_store_bucket
-AWS_SECRET_ACCESS_KEY: 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
+- AWS_ACCESS_KEY_ID:
+- AWS_BUCKET:
+- AWS_SECRET_ACCESS_KEY:
 
 Project Setup:
 -------------------
