@@ -6,7 +6,7 @@ This repo contains the source code for the RentPath mobile application distribut
 Project Dependencies:
 ------------------------------
 
-### RVM to Manager Rubies:
+### RVM to Manage Rubies:
 If you do not already have RVM installed, please install it at this time using the following command.
 ``` $ \curl -L https://get.rvm.io | bash -s stable ```
 
