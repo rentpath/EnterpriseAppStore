@@ -80,24 +80,40 @@ module AppVersionsHelper
     ios_versions = Array.new
     android_versions = Array.new
     all_versions.each do |app_version|
-      if app_version.app_artifact.url.rindex('.ipa')
+      if is_ios(app_version)
         ios_versions << app_version
       else
         android_versions << app_version
       end
     end
 
-    oldest_ios_version = ios_versions.last.id - 10
-    oldest_android_version = android_versions.last.id - 10
+    oldest_ios_version = determine_oldest_id_to_keep(ios_versions)
+    oldest_android_version = determine_oldest_id_to_keep(android_versions)
 
     latest_is_ios = is_ios(all_versions.last)
     all_versions.each do |version|
       if latest_is_ios
-        version.destroy if is_ios(version) && version.id < oldest_ios_version
+        version.destroy if is_ios(version) && version.id < oldest_ios_version && ios_versions.count >= 10
       else
-        version.destroy if is_android(version) && version.id < oldest_android_version
+        version.destroy if is_android(version) && version.id < oldest_android_version && android_versions.count >= 10
       end
     end
+  end
+
+  def determine_oldest_id_to_keep(versions)
+    oldest_id = 0
+    ids = []
+    versions.each do |version|
+      ids << version.id
+    end
+    current_index = 0
+    ids = ids.sort {|x,y| y <=> x}
+    ids.each do |id|
+      oldest_id = id
+      current_index = current_index + 1
+      return oldest_id if current_index >= 10
+    end
+    oldest_id
   end
 
   def is_ios(version)
