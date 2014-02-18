@@ -1,1 +1,1 @@
-json.extract! @app_version, :created_at, :updated_at
+json.set! :url, @app_version.app_artifact.url
