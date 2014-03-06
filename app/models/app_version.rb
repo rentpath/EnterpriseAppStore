@@ -1,5 +1,27 @@
 class AppVersion < ActiveRecord::Base
   attr_accessible :name, :version, :url_ipa, :url_plist, :url_icon, :notes, :app_plist, :app_plist_file_name, :app_artifact, :version_icon, :project_id, :created_at
+  
+  before_validation(on: :create) do
+    return unless self.version or not self.app_artifact_file_name
+    create_version
+  end
+
+  def create_version
+    self.version = find_last_version
+    index = self.version.rindex(/\.(\d+)/); micro = $1; micro=(micro.to_i+1).to_s
+    self.version = self.version[0..index] + micro + self.version[index+1+micro.length..-1]
+  end
+
+  def find_last_version
+    isSelfAndroid = isAndroid self.app_artifact_file_name
+    AppVersion.where(project_id: self.project_id).order(:id).reverse_order.each do |version|
+      return version.version unless(isSelfAndroid ^ isAndroid(version.app_artifact_file_name))
+    end
+  end
+
+  def isAndroid(file) 
+    file[-4..-1] == ".apk"
+  end
 
   has_attached_file :app_plist,
                     :storage => :s3,
@@ -44,6 +66,5 @@ class AppVersion < ActiveRecord::Base
   validates :version_icon,
             :presence => true,
             :format => {:with => /\.(jpg|png|jpeg)/i, :message => "Only a .ipa can be uploaded"}
-
 
 end

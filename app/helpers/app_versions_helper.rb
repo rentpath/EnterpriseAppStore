@@ -64,7 +64,7 @@ module AppVersionsHelper
   end
 
   def notify_users(project)
-    User.all.each do |user|
+    User.where.each do |user|
       NotificationMailer.send_notification(user, project).deliver
     end
   end
@@ -76,7 +76,7 @@ module AppVersionsHelper
   end
 
   def remove_old_builds_for_project(project)
-    all_versions = project.app_versions.all
+    all_versions = project.app_versions
     ios_versions = Array.new
     android_versions = Array.new
     all_versions.each do |app_version|
