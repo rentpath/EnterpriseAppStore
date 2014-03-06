@@ -2,12 +2,15 @@ class AppVersion < ActiveRecord::Base
   attr_accessible :name, :version, :url_ipa, :url_plist, :url_icon, :notes, :app_plist, :app_plist_file_name, :app_artifact, :version_icon, :project_id, :created_at
   
   before_validation(on: :create) do
+    return self.version
     return unless self.version or not self.app_artifact_file_name
     create_version
   end
 
   def create_version
-    self.version = find_last_version
+    last_version = find_last_version
+    return self.version unless last_version or last_version.length < 1
+    self.version = last_version
     index = self.version.rindex(/\.(\d+)/); micro = $1; micro=(micro.to_i+1).to_s
     self.version = self.version[0..index] + micro + self.version[index+1+micro.length..-1]
   end
