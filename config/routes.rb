@@ -19,7 +19,9 @@ RentPathApps::Application.routes.draw do
   resources :users
   resources :token_authentications, :only => [:create, :destroy]
   resources :projects do
-    resources :app_versions
+    resources :app_versions do
+      get 'plist' => 'app_versions#plist'
+    end
   end
 
   get ":guid" => "app_version#download_link"

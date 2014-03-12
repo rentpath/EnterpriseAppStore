@@ -5,7 +5,7 @@ class NotificationMailer < ActionMailer::Base
     @version = AppVersion.last
     @artifact_url = @version.app_artifact.url
     if @artifact_url.rindex('.ipa')
-      @artifact_url = @version.app_plist.url
+      @artifact_url = @version.app_plist
     end
 
     @project = project

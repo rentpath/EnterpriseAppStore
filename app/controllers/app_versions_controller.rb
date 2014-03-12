@@ -1,8 +1,9 @@
 class AppVersionsController < ApplicationController
   include AppVersionsHelper
-  before_action :set_app_version, only: [:show, :edit, :update, :destroy, :install]
-  before_action :find_project, only: [:index, :new, :create, :edit, :show]
+  before_action :set_app_version, only: [:show, :edit, :update, :destroy, :install, :plist]
+  before_action :find_project, only: [:index, :new, :create, :edit, :show, :plist]
   skip_before_filter :verify_authenticity_token
+  skip_before_filter :authenticate_user!, only: [:plist]
 
   # GET /app_versions
   # GET /app_versions.json
@@ -62,47 +63,14 @@ class AppVersionsController < ApplicationController
   # POST /app_versions.json
   def create
     @app_version = @project.app_versions.create(app_version_params)
+    @app_version.build_plist(project_app_version_plist_url(@project, @app_version))
 
+    remove_old_builds_for_project(@project)
+    
     respond_to do |format|
       if @app_version.save
-
-        artifact_url = @app_version.app_artifact.url
-        if artifact_url.rindex('.ipa')
-          # iOS build
-
-          plist_path = build_plist(@project, @app_version, artifact_url)
-
-          # Assign the new plist to the app_plist attribute so it will be uploaded to S3
-          @app_version.app_plist = File.open(plist_path)
-
-          if @app_version.save
-
-            @app_version.url_plist = "itms-services://?action=download-manifest&amp;url=#{@app_version.app_plist.url}"
-
-            if @app_version.save
-
-              remove_old_builds_for_project(@project)
-
-              format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/#{@app_version.id}", notice: 'App version was successfully created.' }
-              format.json { render action: 'show', status: :created, location: { :saved => true } }
-            else
-              format.html { render action: 'new' }
-              format.json { render json: @app_version.errors, status: :unprocessable_entity }
-            end
-          else
-            format.html { render action: 'new' }
-            format.json { render json: @app_version.errors, status: :unprocessable_entity }
-          end
-
-        else
-          # Android Build
-
-          remove_old_builds_for_project(@project)
-
-          format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/#{@app_version.id}", notice: 'App version was successfully created.' }
-          format.json { render action: 'show', status: :created, location: { :saved => true } }
-
-        end
+        format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/#{@app_version.id}", notice: 'App version was successfully created.' }
+        format.json { render action: 'show', status: :created, location: { :saved => true } }
       else
         format.html { render action: 'new' }
         format.json { render json: @app_version.errors, status: :unprocessable_entity }
@@ -144,11 +112,18 @@ class AppVersionsController < ApplicationController
     render :json => { :version => latest_version }
   end
 
+  def plist
+    #for a modicom of security, we should take the params and match it to what we have in the db for the app version
+    match_timestamp_key ? 
+      render({xml: @app_version.plist_content, content_type: 'application/xml'}) : 
+      render(json: {result: "auth error"}, status: :unprocessable_entity)
+  end
+
   private
 
     # Use callbacks to share common setup or constraints between actions.
     def set_app_version
-      @app_version = AppVersion.find(params[:id])
+      @app_version = AppVersion.find(params[:id] || params[:app_version_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -157,7 +132,15 @@ class AppVersionsController < ApplicationController
     end
 
     def find_project
-      @project = Project.find(params[:project_id])
+      begin
+        @project = Project.find(params[:project_id])
+      rescue ActiveRecord::RecordNotFound
+        render(json: {error: 'could not find project', status: :unprocessable_entity}) unless @project 
+      end
+    end
+
+    def match_timestamp_key
+      @app_version && @app_version.url_plist && (params.keys.member?(@app_version.url_plist.split('?').last))
     end
 
 end

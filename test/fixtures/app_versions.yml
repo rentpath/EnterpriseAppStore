@@ -1,5 +1,3 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
 app_version_1:
   id: 1
   name: app_version1
@@ -7,9 +5,7 @@ app_version_1:
   version_icon_file_name: test.png
   url_ipa: nil
   url_icon: icon1.png
-  url_plist: nil
   notes: some notes
-  app_plist_file_name: something1.plist
   app_artifact_file_name: test.ipa
   project_id: 1
 
@@ -20,7 +16,6 @@ app_version_2:
   version: 100.100.100-TEST
   url_ipa: nil
   url_icon: icon2.png
-  url_plist: nil
   notes: some notes
   app_artifact_file_name: test.apk
   project_id: 1
@@ -32,7 +27,6 @@ app_version_3:
   version: 100.100.101
   url_ipa: nil
   url_icon: icon2.png
-  url_plist: nil
   notes: some notes
   app_artifact_file_name: test.apk
   project_id: 1
@@ -44,20 +38,28 @@ app_version_4:
   version: 100.100.105-TEST.3
   url_ipa: nil
   url_icon: icon2.png
-  url_plist: nil
   notes: some notes
-  app_plist_file_name: something1.plist
   app_artifact_file_name: test.ipa
   project_id: 1
 
 app_version_5:
   id: 5
   name: app_version5
+  version_icon_file_name: test5.png
+  version: 100.100.99-ENTERPRISE
+  url_ipa: nil
+  url_icon: icon5.png
+  notes: some notes
+  app_artifact_file_name: test5.apk
+  project_id: 1
+
+app_version_6:
+  id: 6
+  name: app_version6
   version_icon_file_name: test.png
   version: 100.100.110-TEST
   url_ipa: nil
   url_icon: icon2.png
-  url_plist: nil
   notes: some notes
   app_artifact_file_name: test.apk
-  project_id: 1
+  project_id: 4

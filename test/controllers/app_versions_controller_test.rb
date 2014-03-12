@@ -16,5 +16,13 @@ class AppVersionsControllerTest < ActionController::TestCase
     end
     json=JSON.parse(@response.body); 
     assert( ['url','version'].each { |k| json.has_key? k } )
+
+    assert_equal(json['version'], '100.100.100-ENTERPRISE')
   end 
+
+  test "should return an unprocessable entry if the project cannot be found" do
+    no_possible_way_this_project_could_exist = "3423423"
+    get :index, project_id: no_possible_way_this_project_could_exist
+    assert_equal(JSON.parse(@response.body)['error'], 'could not find project')  
+  end
 end

@@ -1,31 +1,4 @@
 module AppVersionsHelper
-  include Plist
-
-  def build_plist(project, app_version, artifact_url)
-    # Get the plist root folder
-    plist_root = "#{Rails.root}/public/plist"
-
-    # Get the projects specific plist template and parse
-    plist_template = "#{plist_root}/template.plist"
-    plist = Plist::parse_xml(plist_template)
-
-    # Update ipa URL, Bundle ID, Bundle Version
-    plist['items'][0]['assets'][0]['url'] = artifact_url
-    plist['items'][0]['metadata']['bundle-identifier'] = project.bundle_identifier
-    plist['items'][0]['metadata']['bundle-version'] = app_version.version
-    plist['items'][0]['metadata']['title'] = project.title
-
-    # Create the final path for the new plist
-    project_name = project.name.gsub(/\s+/, "-")
-    project_path = "#{plist_root}/#{project_name}"
-    new_plist_path = "#{project_path}/#{project_name}-#{app_version.version}.plist"
-    Dir.mkdir project_path if !Dir.exists? project_path
-
-    # Finally, save the new plist
-    save_plist(plist, new_plist_path)
-
-    new_plist_path
-  end
 
   def sort_desc(desc)
     ->(a, b) {
@@ -66,12 +39,6 @@ module AppVersionsHelper
   def notify_users(project)
     User.where.each do |user|
       NotificationMailer.send_notification(user, project).deliver
-    end
-  end
-
-  def save_plist(obj, path)
-    File.open(path, 'w+') do |f|
-      f.write(obj.to_plist)
     end
   end
 
