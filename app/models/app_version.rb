@@ -4,7 +4,6 @@ class AppVersion < ActiveRecord::Base
   attr_accessible :name, :version, :url_ipa, :url_plist, :url_icon, :notes, :app_plist, :app_plist_file_name, :app_artifact, :version_icon, :project_id, :created_at
 
   before_validation(on: :create) do
-    return self.version
     return if !self.version || !self.app_artifact_file_name
     create_version
   end
