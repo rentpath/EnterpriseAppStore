@@ -62,18 +62,17 @@ class AppVersionsController < ApplicationController
   # POST /app_versions
   # POST /app_versions.json
   def create
-    @app_version = @project.app_versions.create(app_version_params)
-    @app_version.build_plist(project_app_version_plist_url(@project, @app_version))
-
-    remove_old_builds_for_project(@project)
-    
     respond_to do |format|
-      if @app_version.save
+      begin
+        @app_version = @project.app_versions.create!(app_version_params)
+        @app_version.build_plist(project_app_version_plist_url(@project, @app_version))
+        remove_old_builds_for_project(@project)
+        @app_version.save!
         format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/#{@app_version.id}", notice: 'App version was successfully created.' }
         format.json { render action: 'show', status: :created, location: { :saved => true } }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @app_version.errors, status: :unprocessable_entity }
+      rescue ActiveRecord::RecordInvalid => e
+        format.html { @errors = e.message; render action: 'new' }
+        format.json { render json: e.message, status: :unprocessable_entity }
       end
     end
   end

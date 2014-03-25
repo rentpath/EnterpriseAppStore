@@ -4,33 +4,37 @@ class AppVersion < ActiveRecord::Base
   attr_accessible :name, :version, :url_ipa, :url_plist, :url_icon, :notes, :app_plist, :app_plist_file_name, :app_artifact, :version_icon, :project_id, :created_at
 
   before_validation(on: :create) do
-    return if !self.version || !self.app_artifact_file_name
+    find_project
+    return if !self.app_artifact_file_name or !@project
     create_version
   end
 
   def create_version
-    last_version = find_last_version
-    return self.version if last_version.length < 1
+    last_version = isAndroid? ? @project.running_version_android : @project.running_version_ios
+    return if !last_version or last_version.length < 1
     self.version = last_version
     index = self.version.rindex(/\.(\d+)/); micro = $1; new_micro=(micro.to_i+1).to_s
     self.version = self.version[0..index] + new_micro + self.version[index+1+micro.length..-1]
+    set_running_version
   end
 
-  def find_last_version
-    isSelfAndroid = isAndroid?
-    AppVersion.where(project_id: self.project_id).order(:id).reverse_order.each do |version|
-      return version.version unless(isSelfAndroid ^ isAndroid?(version.app_artifact_file_name))
-    end
-    []
+  def set_running_version
+    isAndroid? ? @project.running_version_android = self.version : @project.running_version_ios = self.version
+    @project.save
   end
 
-  def isAndroid?(file=self.app_artifact_file_name) 
-    file[-4..-1] == ".apk"
+  def isAndroid?
+    file = self.app_artifact_file_name
+    file ? file[-4..-1] == ".apk" : nil
+  end
+
+  def find_project
+    @project ||= Project.find(self.project_id)
   end
 
   def build_plist(url)
     return if isAndroid?
-    @project ||= Project.find(self.project_id)
+    find_project
     return unless @project
 
     plist_root = "#{Rails.root}/public/plist"

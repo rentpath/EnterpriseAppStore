@@ -1,5 +1,5 @@
 <%= form_for([@project, @app_version]) do |f| %>
-  <% if @app_version.errors.any? %>
+  <% if @app_version and @app_version.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@app_version.errors.count, "error") %> prohibited this app_version from being saved:</h2>
 
@@ -9,6 +9,13 @@
 
       <% end %>
       </ul>
+    </div>
+  <% end %>
+
+  <% if @errors %>
+    <div id="error_explanation">
+      <h2>An error(s) prohibited this app_version from being saved:</h2>
+      <%= @errors %>
     </div>
   <% end %>
 
