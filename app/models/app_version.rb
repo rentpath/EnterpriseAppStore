@@ -75,7 +75,7 @@ class AppVersion < ActiveRecord::Base
   validates :version,
             :presence => true,
             :format => {:with => version_regex},
-            :uniqueness => {:case_sensitive => false}
+            :uniqueness => {:case_sensitive => false, :scope => :project_id}
 
   validates :app_artifact,
             :presence => true,

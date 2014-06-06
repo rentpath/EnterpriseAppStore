@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
+    @project.add_error('version', params[:errors]) if params[:errors]
   end
 
   # POST /projects
