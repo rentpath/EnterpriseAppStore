@@ -98,10 +98,19 @@ class AppVersionsController < ApplicationController
   def destroy
     @app_version.destroy
     respond_to do |format|
-      format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/", notice: 'App version was successfully deleted.' }
-      format.mobile { redirect_to "/projects/#{@app_version.project_id}/app_versions/", notice: 'App version was successfully deleted.' }
+      format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/", notice: 'App version(s) was successfully deleted.' }
+      format.mobile { redirect_to "/projects/#{@app_version.project_id}/app_versions/", notice: 'App version(s) was successfully deleted.' }
       format.json { head :no_content }
     end
+  end
+
+  def delete_by_version
+    ids = find_by_version.map do |version|
+      version.decrement_project_version_if_needed
+      version.destroy
+      version.id
+    end
+    render json: {ids: ids}
   end
 
   def latest_version
@@ -123,6 +132,11 @@ class AppVersionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_app_version
       @app_version = AppVersion.find(params[:id] || params[:app_version_id])
+    end
+
+    def find_by_version
+      return [] unless params[:version]
+      AppVersion.where(version: params[:version])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

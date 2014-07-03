@@ -10,12 +10,22 @@ class AppVersion < ActiveRecord::Base
   end
 
   def create_version
-    last_version = isAndroid? ? @project.running_version_android : @project.running_version_ios
+    last_version = running_project_version
     return if !last_version or last_version.length < 1
     self.version = last_version
+    increment_version    
+    set_running_version
+  end
+
+  def increment_version
     index = self.version.rindex(/\.(\d+)/); micro = $1; new_micro=(micro.to_i+1).to_s
     self.version = self.version[0..index] + new_micro + self.version[index+1+micro.length..-1]
-    set_running_version
+  end
+
+  def decrement_version
+    index = self.version.rindex(/\.(\d+)/); micro = $1; new_micro=(micro.to_i-1)
+    return self.version if new_micro < 0
+    self.version = self.version[0..index] + new_micro.to_s + self.version[index+1+micro.length..-1]    
   end
 
   def set_running_version
@@ -30,6 +40,14 @@ class AppVersion < ActiveRecord::Base
 
   def find_project
     @project ||= Project.find(self.project_id)
+  end
+
+  def running_project_version
+    isAndroid? ? find_project.running_version_android : find_project.running_version_ios
+  end
+
+  def decrement_project_version_if_needed
+    (decrement_version; set_running_version) if running_project_version == self.version
   end
 
   def build_plist(url)

@@ -24,5 +24,6 @@ RentPathApps::Application.routes.draw do
     end
   end
 
+  delete 'delete_by_version' => 'app_versions#delete_by_version'
   get ":guid" => "app_version#download_link"
 end
