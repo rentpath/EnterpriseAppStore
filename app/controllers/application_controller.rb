@@ -1,12 +1,19 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :authenticate_user_from_token!
   before_filter :authenticate_user!
   before_filter :prepare_for_mobile
+  before_filter :find_projects
 
   private
+  def find_projects
+    @all_projects = Project.all.sort_by(&:name)
+    proj = OpenStruct.new(id: "", name: 'all projects')
+    default = OpenStruct.new(id: "", name: '---')
+    @all_projects.unshift(proj)
+    @all_projects.unshift(default)
+  end
+
   def mobile_device?
     if session[:mobile_param]
       session[:mobile_param] == '1'

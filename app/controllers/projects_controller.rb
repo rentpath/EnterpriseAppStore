@@ -1,34 +1,21 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :all_projects, only: [:index, :new, :edit]
 
-  # GET /projects
-  # GET /projects.json
-  def index
-    @projects = Project.all
-  end
-
-  # GET /projects/1
-  # GET /projects/1.json
-  def show
-  end
-
-  # GET /projects/new
   def new
     @project = Project.new
   end
 
-  # GET /projects/1/edit
   def edit
     @project.add_error('version', params[:errors]) if params[:errors]
   end
 
-  # POST /projects
-  # POST /projects.json
   def create
+    process_linked_projects
     @project = Project.new(project_params)
-
     respond_to do |format|
       if @project.save
+        build_linked_projects
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.mobile { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render action: 'show', status: :created, location: @project }
@@ -40,9 +27,9 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /projects/1
-  # PATCH/PUT /projects/1.json
   def update
+    process_linked_projects
+    build_linked_projects
     respond_to do |format|
       if @project.update(project_params)
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
@@ -56,8 +43,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # DELETE /projects/1
-  # DELETE /projects/1.json
   def destroy
     @project.destroy
     respond_to do |format|
@@ -68,13 +53,29 @@ class ProjectsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project
-      @project = Project.find(params[:id])
-    end
+  def all_projects
+    @projects = Project.all
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def project_params
-      params[:project]
+  def set_project
+    @project = Project.find(params[:id])
+  end
+
+  def project_params
+    params[:project]
+  end
+
+  def process_linked_projects
+    @links = params[:project].delete(:linked_projects)
+  end
+
+  def build_linked_projects
+    LinkedProject.where("project_id = ? or linked_project_id = ?", params[:id], params[:id]).destroy_all
+    if @links
+      @links.map do |p|
+        LinkedProject.create!(project_id: @project.id.to_i, linked_project_id: p.to_i)
+        LinkedProject.create!(project_id: p.to_i, linked_project_id: @project.id.to_i)
+      end
     end
+  end
 end

@@ -14,7 +14,7 @@
             </div><!-- #logo -->
             <div id="navigation">
             <% if user_signed_in? %>
-                <%= link_to 'Projects', "/projects" %> |
+                <%= select_tag "projects_select", options_from_collection_for_select(@all_projects, 'id', 'name') %> |
                 <%= link_to 'My Account', "/users/edit" %> |
                 <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
 
