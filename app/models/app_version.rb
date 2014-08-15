@@ -30,7 +30,7 @@ class AppVersion < ActiveRecord::Base
 
   def reassemble_version(micro)
     str = last_version.clone
-    str[str.rindex(/\.\d+/)+1, 2] = micro.to_s
+    str[str.rindex(/\.\d+/)+1, 1] = micro.to_s
     str
   end
 
