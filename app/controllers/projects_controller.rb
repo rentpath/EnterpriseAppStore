@@ -54,7 +54,7 @@ class ProjectsController < ApplicationController
 
   private
   def all_projects
-    @projects = Project.all
+    @projects = Project.all.sort_by(&:name)
   end
 
   def set_project
