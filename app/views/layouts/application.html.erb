@@ -30,7 +30,7 @@
         </div>
 
         <div id="footer">
-          <span class="copyright">© 2013 RentPath, Inc. All rights reserved.</span>
+          <span class="copyright">© <%= Time.now.strftime '%Y' %> RentPath, Inc. All rights reserved.</span>
           <div id="terms"><%= link_to 'Terms of User', 'http://rentpath.com/terms-of-use' %> |
             <%= link_to 'Privacy Policy', 'http://rentpath.com/privacy-policy' %> |
             <% if mobile_device? %>
