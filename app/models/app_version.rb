@@ -16,7 +16,7 @@ class AppVersion < ActiveRecord::Base
   def increment_version(options={decrement: false})
     micro = bump_micro(find_micro, options)
     return if micro < 0
-    reassemble_version(micro)
+    reassemble_version(micro.to_s)
   end
 
   def bump_micro(micro, options)
@@ -30,9 +30,10 @@ class AppVersion < ActiveRecord::Base
 
   def reassemble_version(micro)
     str = last_version.clone
-    str[str.rindex(/\.\d+/)+1, 1] = micro.to_s
-    str
-  end
+    index = str.rindex(/\.(\d+)/);
+    old_micro = $1
+    str[0..index] + micro + str[index+1+old_micro.length..-1]
+  end 
 
   def set_running_version(version)
     find_project.running_version(isAndroid?, version)
