@@ -10,7 +10,13 @@ class AppVersion < ActiveRecord::Base
 
   def create_version
     return if !last_version or last_version.length < 1
-    set_running_version(increment_version)
+    set_running_version(sync_version)
+  end
+
+  def sync_version
+    prev = find_project.app_versions.sort_by(&:id).last
+    return last_version unless prev
+    prev.version == last_version ? increment_version : last_version
   end
 
   def increment_version(options={decrement: false})
@@ -43,6 +49,7 @@ class AppVersion < ActiveRecord::Base
       next unless proj
       proj.running_version(isAndroid?, version)      
     end
+
     self.version = version
   end
 
