@@ -14,9 +14,16 @@ class AppVersion < ActiveRecord::Base
   end
 
   def sync_version
-    prev = find_project.app_versions.sort_by(&:id).last
+    prev = find_prev_version_of_same_type
     return last_version unless prev
     prev.version == last_version ? increment_version : last_version
+  end
+
+  def find_prev_version_of_same_type
+    find_project.app_versions.sort_by(&:id).reverse.each do |av|
+      return av if isAndroid?(av) == self.isAndroid?
+    end
+    nil
   end
 
   def increment_version(options={decrement: false})
@@ -49,12 +56,12 @@ class AppVersion < ActiveRecord::Base
       next unless proj
       proj.running_version(isAndroid?, version)      
     end
-
+    puts "version: #{version}"
     self.version = version
   end
 
-  def isAndroid?
-    file = self.app_artifact_file_name
+  def isAndroid?(obj=self)
+    file = obj.app_artifact_file_name
     file ? file[-4..-1] == ".apk" : nil
   end
 
