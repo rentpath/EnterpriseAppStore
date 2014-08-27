@@ -5,8 +5,6 @@ class AppVersionsController < ApplicationController
   skip_before_filter :verify_authenticity_token
   skip_before_filter :authenticate_user!, only: [:plist]
 
-  # GET /app_versions
-  # GET /app_versions.json
   def index
     @app_versions     = @project.app_versions
     @android_versions = Array.new
@@ -24,8 +22,6 @@ class AppVersionsController < ApplicationController
     @ios_versions = @ios_versions.sort(&sort_desc(true))
   end
 
-  # GET /app_versions/1
-  # GET /app_versions/1.json
   def show
     @artifact_url = "/install/#{@app_version.id}"
 	  @image_url = 'android.png'
@@ -49,25 +45,24 @@ class AppVersionsController < ApplicationController
                          :filename => filename
   end
 
-  # GET /app_versions/new
   def new
     @app_version = @project.app_versions.new
   end
 
-  # GET /app_versions/1/edit
   def edit
     @app_version = @project.app_versions.find(params[:id])
   end
 
-  # POST /app_versions
-  # POST /app_versions.json
   def create
     respond_to do |format|
       begin
-        @app_version = @project.app_versions.create!(app_version_params)
-        @app_version.build_plist(project_app_version_plist_url(@project, @app_version))
-        remove_old_builds_for_project(@project)
-        @app_version.save!
+        @app_version = check_app_version_already_stored(app_version_params)
+        unless @app_version
+          @app_version = @project.app_versions.create!(app_version_params) 
+          @app_version.build_plist(project_app_version_plist_url(@project, @app_version))
+          remove_old_builds_for_project(@project)
+          @app_version.save!
+        end
         format.html { redirect_to "/projects/#{@app_version.project_id}/app_versions/#{@app_version.id}", notice: 'App version was successfully created.' }
         format.json { render action: 'show', status: :created, location: { :saved => true } }
       rescue ActiveRecord::RecordInvalid => e
@@ -121,7 +116,6 @@ class AppVersionsController < ApplicationController
   end
 
   def plist
-    #for a modicom of security, we should take the params and match it to what we have in the db for the app version
     match_timestamp_key ? 
       render({xml: @app_version.plist_content, content_type: 'application/xml'}) : 
       render(json: {result: "auth error"}, status: :unprocessable_entity)
@@ -129,7 +123,6 @@ class AppVersionsController < ApplicationController
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
     def set_app_version
       @app_version = AppVersion.find(params[:id] || params[:app_version_id])
     end
@@ -139,9 +132,11 @@ class AppVersionsController < ApplicationController
       AppVersion.where(version: params[:version])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def app_version_params
-      params[:app_version]
+      @app_version_params ||= begin
+        parse_out_sha
+        params[:app_version]
+      end
     end
 
     def find_project
@@ -152,8 +147,20 @@ class AppVersionsController < ApplicationController
       end
     end
 
+    def parse_out_sha
+      return if !params[:app_version] or !params[:app_version][:notes]
+      notes = params[:app_version][:notes]
+      match = notes.match(/([a-f]+|[0-9]+){40}/)
+      params[:app_version][:sha] = match[0] if match
+    end
+
     def match_timestamp_key
       @app_version && @app_version.url_plist && (params.keys.member?(@app_version.url_plist.split('?').last))
+    end
+
+    def check_app_version_already_stored(app_version_params)
+      return unless app_version_params[:sha]
+      @project.app_versions.where(sha: app_version_params[:sha]).first
     end
 
 end

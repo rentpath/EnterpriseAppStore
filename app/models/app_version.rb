@@ -1,7 +1,7 @@
 class AppVersion < ActiveRecord::Base
   include Plist
 
-  attr_accessible :name, :version, :url_ipa, :url_plist, :url_icon, :notes, :app_plist, :app_plist_file_name, :app_artifact, :version_icon, :project_id, :created_at
+  attr_accessible :name, :version, :url_ipa, :url_plist, :url_icon, :notes, :app_plist, :app_plist_file_name, :app_artifact, :version_icon, :project_id, :created_at, :sha
 
   before_validation(on: :create) do
     return if !self.app_artifact_file_name or !find_project
@@ -14,14 +14,16 @@ class AppVersion < ActiveRecord::Base
   end
 
   def sync_version
-    prev = find_prev_version_of_same_type
-    return last_version unless prev
-    prev.version == last_version ? increment_version : last_version
+    find_matching_version_based_on_sha || increment_version
   end
 
-  def find_prev_version_of_same_type
-    find_project.app_versions.sort_by(&:id).reverse.each do |av|
-      return av if isAndroid?(av) == self.isAndroid?
+  def find_matching_version_based_on_sha
+    return if self.sha.nil?
+    find_project.linked_projects.each do |proj|
+      next unless proj.find_project
+      proj.find_project.app_versions.each do |av|
+        return av.version if self.sha == av.sha
+      end
     end
     nil
   end
@@ -52,16 +54,19 @@ class AppVersion < ActiveRecord::Base
     find_project.running_version(isAndroid?, version)
 
     find_project.linked_projects.each do |p|
-      proj = Project.find(p.linked_project_id)
-      next unless proj
-      proj.running_version(isAndroid?, version)      
+      next unless p.find_project
+      p.find_project.running_version(isAndroid?, version)      
     end
-    puts "version: #{version}"
     self.version = version
+    delete_other_matching_versions
   end
 
-  def isAndroid?(obj=self)
-    file = obj.app_artifact_file_name
+  def delete_other_matching_versions
+    find_project.app_versions.where("version = ?", self.version).destroy_all
+  end
+
+  def isAndroid?
+    file = self.app_artifact_file_name
     file ? file[-4..-1] == ".apk" : nil
   end
 
