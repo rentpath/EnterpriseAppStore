@@ -1,8 +1,6 @@
 project_1: 
   name: project_1
   id: 1
-  running_version_ios: 3.3.3-RC.1
-  running_version_android: 5.5.5-ENT
 
 project_2: 
   name: project_2

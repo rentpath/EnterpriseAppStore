@@ -15,20 +15,9 @@
     <%= f.text_field :name, :placeholder => 'Project Name (Ex. AG QA)', :size=>50%><br/>
     <%= f.text_field :title, :placeholder => 'Project Title (Ex. Apartments)', :size=>50%><br/>
     <%= f.text_field :bundle_identifier, :placeholder => 'Bundle Identifier', :size=>50%><br/>
-    <%- if @project.authoritative? %>
-      <%= f.text_field :unified_version_ios, :placeholder => 'iOS Starting Version. Ex. 1.0.0', :size=>50%><br/> 
-      <%= f.text_field :unified_version_android, :placeholder => 'Android Starting Version. Ex. 1.0.0', :size=>50%>
-    <%- else %>
-      <span style="float:left;width:300px"><%= @project.unified_version_ios %></span><br/>
-      <span style="float:left;width:300px"><%= @project.unified_version_android %></span>
-    <% end %>
-    <%- if @project.authoritative_project.name %>
-      <span style="font-size:smaller;color:blue"><%= link_to(@project.authoritative_project.name, edit_project_path(@project.authoritative_project)) %> is authoritative</span>
-    <% end %></br>
+
     Project Icon: <%= f.file_field :project_icon %><br/><br/> 
 
-    <div style="font-size:x-small;font-weight:bold">Linked Projects (projects that will always track the same version, the lowest project id will be authoritative)</div>
-    <%= select_tag "project[linked_projects]", options_from_collection_for_select(@projects.sort_by(&:name), 'id', 'name', @project.linked_projects.map{|p| p.linked_project_id.to_s}), {multiple: true, size: @projects.length} %><br>
     <%= f.submit "Save", style: "margin-top:30px" %>
   </div>
 <% end %>

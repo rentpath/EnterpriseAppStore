@@ -3,68 +3,6 @@ class AppVersion < ActiveRecord::Base
 
   attr_accessible :name, :version, :url_ipa, :url_plist, :url_icon, :notes, :app_plist, :app_plist_file_name, :app_artifact, :version_icon, :project_id, :created_at, :sha
 
-  before_validation(on: :create) do
-    return if !self.app_artifact_file_name or !find_project
-    create_version
-  end
-
-  def create_version
-    return if !last_version or last_version.length < 1
-    set_running_version(sync_version)
-  end
-
-  def sync_version
-    find_matching_version_based_on_sha || increment_version
-  end
-
-  def find_matching_version_based_on_sha
-    return if self.sha.nil?
-    find_project.linked_projects.each do |proj|
-      next unless proj.find_project
-      proj.find_project.app_versions.each do |av|
-        return av.version if self.sha == av.sha
-      end
-    end
-    nil
-  end
-
-  def increment_version(options={decrement: false})
-    micro = bump_micro(find_micro, options)
-    return if micro < 0
-    reassemble_version(micro.to_s)
-  end
-
-  def bump_micro(micro, options)
-    micro + (options[:decrement] ? -1 : 1)
-  end
-
-  def find_micro
-    last_version.rindex(/\.(\d+)/)
-    $1.to_i
-  end
-
-  def reassemble_version(micro)
-    str = last_version.clone
-    index = str.rindex(/\.(\d+)/);
-    old_micro = $1
-    str[0..index] + micro + str[index+1+old_micro.length..-1]
-  end 
-
-  def set_running_version(version)
-    find_project.running_version(isAndroid?, version)
-
-    find_project.linked_projects.each do |p|
-      next unless p.find_project
-      p.find_project.running_version(isAndroid?, version)      
-    end
-    self.version = version
-    delete_other_matching_versions
-  end
-
-  def delete_other_matching_versions
-    find_project.app_versions.where("version = ?", self.version).destroy_all
-  end
-
   def isAndroid?
     file = self.app_artifact_file_name
     file ? file[-4..-1] == ".apk" : nil
@@ -72,22 +10,6 @@ class AppVersion < ActiveRecord::Base
 
   def find_project
     @project ||= Project.find(self.project_id)
-  end
-
-  def running_project_version
-    isAndroid? ? find_project.running_version_android : find_project.running_version_ios
-  end
-
-  def last_version
-    isAndroid? ? linked_project.running_version_android : linked_project.running_version_ios
-  end
-
-  def linked_project
-    @linked_project ||= find_project.authoritative_project
-  end
-
-  def decrement_project_version_if_needed
-    set_running_version(decrement_version(decrement: true)) if running_project_version == self.version
   end
 
   def build_plist(url)
@@ -108,40 +30,51 @@ class AppVersion < ActiveRecord::Base
   end
 
   has_attached_file :app_artifact,
-                    :storage => :s3,
-                    :s3_credentials => {
-                        :bucket => ENV['AWS_BUCKET'],
-                        :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-                        :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+                    storage: :s3,
+                    s3_credentials: {
+                        bucket: ENV['AWS_BUCKET'],
+                        access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+                        secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
                     },
-                    :path => "/:class/:attachment/:id_partition/:style/:filename"
+                    path: "/:class/:attachment/:id_partition/:style/:filename"
 
   has_attached_file :version_icon,
-                    :storage => :s3,
-                    :s3_credentials => {
-                        :bucket => ENV['AWS_BUCKET'],
-                        :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-                        :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+                    storage: :s3,
+                    s3_credentials: {
+                        bucket: ENV['AWS_BUCKET'],
+                        access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+                        secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
                     },
-                    :styles => { :medium => "114x114>",
-                                 :thumb => "57x57>" },
-                    :path => "/:class/:attachment/:id_partition/:style/:filename"
+                    styles: { medium: "114x114>",
+                                 thumb: "57x57>" },
+                    path: "/:class/:attachment/:id_partition/:style/:filename"
 
-  # VALIDATIONS
+
+  validates :sha, presence: true, uniqueness: {case_sensitive: false, scope: :project_id}
+
   version_regex =  /\d+.\d+.\d+/
+
   validates :version,
-            :presence => true,
-            :format => {:with => version_regex},
-            :uniqueness => {:case_sensitive => false, :scope => :project_id}
+            presence: true,
+            format: {with: version_regex},            
+            uniqueness: {case_sensitive: false, scope: :project_id}
+
+  validate :matches_version_for_same_sha
 
   validates :app_artifact,
-            :presence => true,
-            :format => {:with => /\.(ipa|apk)/i, :message => "Only a .ipa or .apk can be uploaded"}
+            presence: true,
+            format: {with: /\.(ipa|apk)/i, message: "Only a .ipa or .apk can be uploaded"}
 
   validates :version_icon,
-            :presence => true,
-            :format => {:with => /\.(jpg|png|jpeg)/i, :message => "Only a .ipa can be uploaded"}
+            presence: true,
+            format: {with: /\.(jpg|png|jpeg)/i, message: "Only a .ipa can be uploaded"}
 
-  alias_method :decrement_version, :increment_version
+  def matches_version_for_same_sha
+    matching_sha = AppVersion.where(sha: sha).first
+    errors.add(:version, "You asked to create version: #{version}, on sha: #{sha}, but we already have \
+this version: #{matching_sha.version} for the same sha") unless
+    matching_sha.nil? or (matching_sha.version == version)
+  end
+
 
 end

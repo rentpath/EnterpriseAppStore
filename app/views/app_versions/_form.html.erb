@@ -20,12 +20,12 @@
   <% end %>
 
   <div class="actions">
-    <%= f.text_field :notes, :placeholder => 'Notes' %><br  />
-    <%= f.label :app_artifact, 'Application Artifact:' %>
-    <%= f.file_field :app_artifact %><br />
-    <%= f.label :version_icon, 'Application Icon:' %>
-    <%= f.file_field :version_icon %>
-   <br  />
+    <%= f.text_field :notes, :placeholder => 'Notes' %><br  /><p>
+    <%= f.text_field :version , :placeholder => 'Version' %><br /><p>
+    <%= f.label :app_artifact, 'Application Artifact:' %><br /><p>
+    <%= f.file_field :app_artifact %><br /><p>
+    <%= f.label :version_icon, 'Application Icon:' %><br /><p>
+    <%= f.file_field :version_icon %><br  /><p>
     <%= f.submit 'Submit App Version', :id => 'submitBtnVersion' %>
   </div>
 

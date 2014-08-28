@@ -1,65 +1,22 @@
 app_version_1:
   id: 1
   name: app_version1
-  version: 99.99.99-RC.2
+  version: 1.2.3.4
   version_icon_file_name: test.png
   url_ipa: nil
   url_icon: icon1.png
   notes: some notes
   app_artifact_file_name: test.ipa
   project_id: 1
-
+  sha: 871af1ea16f6190a315c540ba040caee719c68bf
 app_version_2:
   id: 2
   name: app_version2
+  version: 1.2.3.4
   version_icon_file_name: test.png
-  version: 100.100.100-TEST
   url_ipa: nil
-  url_icon: icon2.png
-  notes: some notes
-  app_artifact_file_name: test.apk
-  project_id: 1
-
-app_version_3:
-  id: 3
-  name: app_version3
-  version_icon_file_name: test.png
-  version: 100.100.101
-  url_ipa: nil
-  url_icon: icon2.png
-  notes: some notes
-  app_artifact_file_name: test.apk
-  project_id: 1
-
-app_version_4:
-  id: 4
-  name: app_version4
-  version_icon_file_name: test.png
-  version: 100.100.105-TEST.3
-  url_ipa: nil
-  url_icon: icon2.png
+  url_icon: icon1.png
   notes: some notes
   app_artifact_file_name: test.ipa
   project_id: 1
-
-app_version_5:
-  id: 5
-  name: app_version5
-  version_icon_file_name: test5.png
-  version: 100.100.99-ENTERPRISE
-  url_ipa: nil
-  url_icon: icon5.png
-  notes: some notes
-  app_artifact_file_name: test5.apk
-  project_id: 1
-
-app_version_6:
-  id: 6
-  name: app_version6
-  version_icon_file_name: test.png
-  version: 100.100.110-TEST
-  url_ipa: nil
-  url_icon: icon2.png
-  notes: some notes
-  app_artifact_file_name: test.apk
-  project_id: 4
+  sha: 871af1ea16f6190a315c540ba040caee719c68bf

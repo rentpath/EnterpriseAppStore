@@ -1,7 +1,7 @@
 class AppVersionsController < ApplicationController
   include AppVersionsHelper
   before_action :set_app_version, only: [:show, :edit, :update, :destroy, :install, :plist]
-  before_action :find_project, only: [:index, :new, :create, :edit, :show, :plist]
+  before_action :project, only: [:index, :new, :create, :edit, :show, :plist]
   skip_before_filter :verify_authenticity_token
   skip_before_filter :authenticate_user!, only: [:plist]
 
@@ -67,13 +67,11 @@ class AppVersionsController < ApplicationController
         format.json { render action: 'show', status: :created, location: { :saved => true } }
       rescue ActiveRecord::RecordInvalid => e
         format.html { redirect_to edit_project_url(@project, {errors: e.message}) }
-        format.json { render json: e.message, status: :unprocessable_entity }
+        format.json { render json: {error: e.message}, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /app_versions/1
-  # PATCH/PUT /app_versions/1.json
   def update
     respond_to do |format|
       if @app_version.update(app_version_params)
@@ -88,8 +86,6 @@ class AppVersionsController < ApplicationController
     end
   end
 
-  # DELETE /app_versions/1
-  # DELETE /app_versions/1.json
   def destroy
     @app_version.destroy
     respond_to do |format|
@@ -123,44 +119,44 @@ class AppVersionsController < ApplicationController
 
   private
 
-    def set_app_version
-      @app_version = AppVersion.find(params[:id] || params[:app_version_id])
-    end
+  def set_app_version
+    @app_version = AppVersion.find(params[:id] || params[:app_version_id])
+  end
 
-    def find_by_version
-      return [] unless params[:version]
-      AppVersion.where(version: params[:version])
-    end
+  def find_by_version
+    return [] unless params[:version]
+    AppVersion.where(version: params[:version])
+  end
 
-    def app_version_params
-      @app_version_params ||= begin
-        parse_out_sha
-        params[:app_version]
-      end
+  def app_version_params
+    @app_version_params ||= begin
+      parse_out_sha
+      params[:app_version]
     end
+  end
 
-    def find_project
-      begin
-        @project = Project.find(params[:project_id])
-      rescue ActiveRecord::RecordNotFound
-        render(json: {error: 'could not find project', status: :unprocessable_entity}) unless @project 
-      end
+  def project
+    begin
+      @project ||= Project.find(params[:project_id])
+    rescue ActiveRecord::RecordNotFound
+      render(json: {error: 'could not find project', status: :unprocessable_entity}) unless @project 
     end
+  end
 
-    def parse_out_sha
-      return if !params[:app_version] or !params[:app_version][:notes]
-      notes = params[:app_version][:notes]
-      match = notes.match(/([a-f]+|[0-9]+){40}/)
-      params[:app_version][:sha] = match[0] if match
-    end
+  def parse_out_sha
+    return if !params[:app_version] or !params[:app_version][:notes]
+    notes = params[:app_version][:notes]
+    match = notes.match(/([a-f]+|[0-9]+){40}/)
+    params[:app_version][:sha] = match[0] if match
+  end
 
-    def match_timestamp_key
-      @app_version && @app_version.url_plist && (params.keys.member?(@app_version.url_plist.split('?').last))
-    end
+  def match_timestamp_key
+    @app_version && @app_version.url_plist && (params.keys.member?(@app_version.url_plist.split('?').last))
+  end
 
-    def check_app_version_already_stored(app_version_params)
-      return unless app_version_params[:sha]
-      @project.app_versions.where(sha: app_version_params[:sha]).first
-    end
+  def check_app_version_already_stored(app_version_params)
+    return if !app_version_params[:sha] or !app_version_params[:version]
+    @project.app_versions.where("sha=? and version=?", app_version_params[:sha], app_version_params[:version]).first
+  end
 
 end

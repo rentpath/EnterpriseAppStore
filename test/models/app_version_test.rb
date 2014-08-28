@@ -2,50 +2,61 @@ require 'test_helper'
 
 class AppVersionTest < ActiveSupport::TestCase
 
-  test "should return an incremented version for android" do
-    v = app_versions :app_version_2
-    v.instance_variable_set(:@project, projects(:project_1))
-    old_version = v.version
-    v.create_version
-    assert_equal(v.version, "5.5.6-ENT")
+  test "should fail to validate if new app version duplicates an existing sha and existing version" do
+    assert_raises(ActiveRecord::RecordInvalid) {
+      app_versions(:app_version_1).save!
+    }
   end
 
-  test "should return an incremented version for ios" do
-    v = app_versions :app_version_1
-    v.instance_variable_set(:@project, projects(:project_1))
-    old_version = v.version
-    v.create_version
-    assert_equal(v.version, "3.3.3-RC.2")
+  test "should fail to validate if the new app version duplicates an existing version" do
+    av1 = app_versions(:app_version_1)
+    av1.sha = "testav1"
+    assert_raises(ActiveRecord::RecordInvalid) {
+      av1.save!
+    }
   end
 
-  test "should return the passed in version if the project has no previous versions" do
-    p = projects :project_3
-    v = AppVersion.new
-    v.app_artifact_file_name = "test.apk"
-    v.instance_variable_set(:@project, projects(:project_2))
-    v.version = "1.0.0-SOMETHING"
-    v.project_id = 3
-    v.create_version
-    assert_equal(v.version, "1.0.0-SOMETHING")
+
+  test "should fail to validate if the new app version duplicates an existing sha" do
+    av1 = app_versions(:app_version_1)
+    av1.version = "4.2.1"
+    assert_raises(ActiveRecord::RecordInvalid) {
+      av1.save!
+    }
+  end  
+
+  test "should pass validation if duplicate versions and shas for differing projects are used" do
+    av1 = app_versions(:app_version_1)
+    av1.project_id = "99"
+    assert_nothing_raised(ActiveRecord::RecordInvalid) {
+      av1.save!
+    }
   end
 
-  test "should set the project running version for ios" do
-    v = app_versions :app_version_1
-    v.instance_variable_set(:@project, projects(:project_1))
-    old_version = v.version
-    v.create_version
-    proj = v.instance_variable_get(:@project)
-    assert_equal(proj.running_version_ios, "3.3.3-RC.2")
-    assert_equal(proj.running_version_android, "5.5.5-ENT")
+  test "should fail to validate if a different version for the same sha is used regardless of the project" do
+    av1 = app_versions(:app_version_1)
+    av1.project_id = "99"
+    av1.version = "4.3.2"
+    assert_raises(ActiveRecord::RecordInvalid) {
+      av1.save!
+    }
   end
 
-  test "should set the project running version for android" do
-    v = app_versions :app_version_2
-    v.instance_variable_set(:@project, projects(:project_1))
-    old_version = v.version
-    v.create_version
-    proj = v.instance_variable_get(:@project)
-    assert_equal(proj.running_version_ios, "3.3.3-RC.1")
-    assert_equal(proj.running_version_android, "5.5.6-ENT")
+  test "should fail to validate if a sha is nil" do
+    av1 = app_versions(:app_version_1)
+    av1.sha = nil
+    assert_raises(ActiveRecord::RecordInvalid) {
+      av1.save!
+    }
   end
+
+  test "should fail to validate if a version is nil" do
+    av1 = app_versions(:app_version_1)
+    av1.version = nil
+    assert_raises(ActiveRecord::RecordInvalid) {
+      av1.save!
+    }
+  end
+
+
 end
